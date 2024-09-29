@@ -1,0 +1,104 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Dual-axis line chart for Tourist Arrivals and Receipts in Malaysia (2006-2023) with point markers and spaced x-axis labels.",
+  "title": "Tourist Arrivals and Receipts in Malaysia (2006-2023)",
+  "data": {
+    "values": [
+      {"year": "2006", "arrivals": 17.55, "receipts": 36.27},
+      {"year": "2007", "arrivals": 20.97, "receipts": 46.07},
+      {"year": "2008", "arrivals": 22.05, "receipts": 49.56},
+      {"year": "2009", "arrivals": 23.64, "receipts": 53.37},
+      {"year": "2010", "arrivals": 24.58, "receipts": 56.49},
+      {"year": "2011", "arrivals": 24.71, "receipts": 58.32},
+      {"year": "2012", "arrivals": 25.03, "receipts": 60.56},
+      {"year": "2013", "arrivals": 25.72, "receipts": 65.44},
+      {"year": "2014", "arrivals": 27.44, "receipts": 72.00},
+      {"year": "2015", "arrivals": 25.72, "receipts": 69.12},
+      {"year": "2016", "arrivals": 26.76, "receipts": 82.10},
+      {"year": "2017", "arrivals": 25.95, "receipts": 82.17},
+      {"year": "2018", "arrivals": 25.83, "receipts": 84.14},
+      {"year": "2019", "arrivals": 26.10, "receipts": 86.14},
+      {"year": "2020", "arrivals": 4.33, "receipts": 12.69},
+      {"year": "2021", "arrivals": 0.13, "receipts": 0.24},
+      {"year": "2022", "arrivals": 10.07, "receipts": 28.23},
+      {"year": "2023", "arrivals": 20.14, "receipts": 71.31}
+    ]
+  },
+  "transform": [
+    {
+      "fold": ["arrivals", "receipts"],
+      "as": ["Metric", "Value"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": true,  // Adds point markers on the line
+        "interpolate": "monotone"  // Smoothens the line
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {
+            "labelAngle": -45,  // Rotates the x-axis labels for better spacing
+            "labelPadding": 10,  // Adds extra space around labels
+            "grid": false        // Ensures no grid lines on x-axis
+          },
+          "scale": {
+            "domain": [
+              "2006", "2007", "2008", "2009", "2010", "2011", "2012", 
+              "2013", "2014", "2015", "2016", "2017", "2018", 
+              "2019", "2020", "2021", "2022", "2023"
+            ]
+          }
+        },
+        "y": {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Total (in Million)",
+          "axis": {
+            "grid": false        // Ensures no grid lines on y-axis
+          }
+        },
+        "color": {
+          "field": "Metric",
+          "type": "nominal",
+          "scale": {
+            "domain": ["arrivals", "receipts"],
+            "range": ["#1f77b4", "#ff7f0e"]
+          }
+        },
+        "tooltip": [
+          {"field": "year", "title": "Year"},
+          {
+            "field": "Metric",
+            "title": "Value Type",
+            "format": "N", // Format as number
+            "type": "nominal",
+            "aggregate": "distinct",
+            "value": {"signal": "datum.Metric === 'arrivals' ? 'Number of Arrivals' : 'Receipts (in Million RM)'"}
+          },
+          {
+            "field": "Value",
+            "title": "Value",
+            "format": ".2f",  // Format to 2 decimal places
+            "type": "quantitative"
+          }
+        ]
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  },
+  "config": {
+    "tooltip": {
+      "content": "data"
+    }
+  }
+}
