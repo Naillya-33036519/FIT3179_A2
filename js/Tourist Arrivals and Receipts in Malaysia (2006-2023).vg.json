@@ -4,29 +4,29 @@
   "title": "Tourist Arrivals and Receipts in Malaysia (2006-2023)",
   "data": {
     "values": [
-      {"year": "2006", "arrivals": 17.55, "receipts": 36.27},
-      {"year": "2007", "arrivals": 20.97, "receipts": 46.07},
-      {"year": "2008", "arrivals": 22.05, "receipts": 49.56},
-      {"year": "2009", "arrivals": 23.64, "receipts": 53.37},
-      {"year": "2010", "arrivals": 24.58, "receipts": 56.49},
-      {"year": "2011", "arrivals": 24.71, "receipts": 58.32},
-      {"year": "2012", "arrivals": 25.03, "receipts": 60.56},
-      {"year": "2013", "arrivals": 25.72, "receipts": 65.44},
-      {"year": "2014", "arrivals": 27.44, "receipts": 72.00},
-      {"year": "2015", "arrivals": 25.72, "receipts": 69.12},
-      {"year": "2016", "arrivals": 26.76, "receipts": 82.10},
-      {"year": "2017", "arrivals": 25.95, "receipts": 82.17},
-      {"year": "2018", "arrivals": 25.83, "receipts": 84.14},
-      {"year": "2019", "arrivals": 26.10, "receipts": 86.14},
-      {"year": "2020", "arrivals": 4.33, "receipts": 12.69},
-      {"year": "2021", "arrivals": 0.13, "receipts": 0.24},
-      {"year": "2022", "arrivals": 10.07, "receipts": 28.23},
-      {"year": "2023", "arrivals": 20.14, "receipts": 71.31}
+      {"year": "2006", "Arrivals": 17.55, "Receipts": 36.27},
+      {"year": "2007", "Arrivals": 20.97, "Receipts": 46.07},
+      {"year": "2008", "Arrivals": 22.05, "Receipts": 49.56},
+      {"year": "2009", "Arrivals": 23.64, "Receipts": 53.37},
+      {"year": "2010", "Arrivals": 24.58, "Receipts": 56.49},
+      {"year": "2011", "Arrivals": 24.71, "Receipts": 58.32},
+      {"year": "2012", "Arrivals": 25.03, "Receipts": 60.56},
+      {"year": "2013", "Arrivals": 25.72, "Receipts": 65.44},
+      {"year": "2014", "Arrivals": 27.44, "Receipts": 72.00},
+      {"year": "2015", "Arrivals": 25.72, "Receipts": 69.12},
+      {"year": "2016", "Arrivals": 26.76, "Receipts": 82.10},
+      {"year": "2017", "Arrivals": 25.95, "Receipts": 82.17},
+      {"year": "2018", "Arrivals": 25.83, "Receipts": 84.14},
+      {"year": "2019", "Arrivals": 26.10, "Receipts": 86.14},
+      {"year": "2020", "Arrivals": 4.33, "Receipts": 12.69},
+      {"year": "2021", "Arrivals": 0.13, "Receipts": 0.24},
+      {"year": "2022", "Arrivals": 10.07, "Receipts": 28.23},
+      {"year": "2023", "Arrivals": 20.14, "Receipts": 71.31}
     ]
   },
   "transform": [
     {
-      "fold": ["arrivals", "receipts"],
+      "fold": ["Arrivals", "Receipts"],
       "as": ["Metric", "Value"]
     }
   ],
@@ -67,7 +67,7 @@
           "field": "Metric",
           "type": "nominal",
           "scale": {
-            "domain": ["arrivals", "receipts"],
+            "domain": ["Arrivals", "Receipts"],
             "range": ["#1f77b4", "#ff7f0e"]
           }
         },
@@ -79,7 +79,7 @@
             "format": "N", // Format as number
             "type": "nominal",
             "aggregate": "distinct",
-            "value": {"signal": "datum.Metric === 'arrivals' ? 'Number of Arrivals' : 'Receipts (in Million RM)'"}
+            "value": {"signal": "datum.Metric === 'Arrivals' ? 'Number of Arrivals' : 'Receipts (in Million RM)'"}
           },
           {
             "field": "Value",
