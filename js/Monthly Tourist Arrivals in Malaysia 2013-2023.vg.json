@@ -1,5 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+    "text": "Monthly Tourist Arrivals in Malaysia (2013-2023)",
+    "fontSize": 15,
+    "anchor": "middle",
+    "dy": -10
+  },
   "description": "Tourist Arrivals in Malaysia (2013-2023) Heatmap",
   "data": {
     "values": [
@@ -141,15 +147,32 @@
   "width": 500,
   "mark": "rect",
   "encoding": {
-    "x": {"field": "year", "type": "ordinal", "title": "Year"},
-    "y": {"field": "month", "type": "ordinal", "title": "Month"},
+    "x": {"field": "month", "type": "ordinal", "title": "Month",
+    "axis" : {
+      "labelAngle":0,
+      "titlePadding" : 10
+    },
+    "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+    
+    },
+    "y": {"field": "year", "type": "ordinal", "title": "Year",
+    "axis":{
+      "titlePadding" : 10
+    }
+    },
     "color": {
       "field": "value",
       "type": "quantitative",
       "title": "Tourist Arrivals (millions)",
+      "legend":{
+        "labelPadding" : 10,
+        "titlePadding" : 12
+      },
       "scale": {
         "range": ["#b3cde3", "#6497b1", "#005b96"]
       }
+
     },
     "tooltip": [
       {"field": "year", "title": "Year"},
@@ -159,10 +182,9 @@
   },
   "config": {
     "axis": {
-      "grid": true,
-      "tickBand": "extent",
-      "gridColor": "gray"
+      "grid": false,
     }
-  }
+  },
+  "width": 670,  // Increased width
+  "height": 400  // Increased height
 }
-
