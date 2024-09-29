@@ -1,0 +1,182 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Foreign tourist arrivals in Malaysia (2015-2024)",
+  "data": {
+    "values": [
+      {"country": "Singapore", "year": 2024, "rank": 1},
+      {"country": "Singapore", "year": 2023, "rank": 1},
+      {"country": "Singapore", "year": 2022, "rank": 1},
+      {"country": "Singapore", "year": 2021, "rank": 4},
+      {"country": "Singapore", "year": 2020, "rank": 2},
+      {"country": "Singapore", "year": 2019, "rank": 1},
+      {"country": "Singapore", "year": 2018, "rank": 1},
+      {"country": "Singapore", "year": 2017, "rank": 1},
+      {"country": "Singapore", "year": 2016, "rank": 1},
+      {"country": "Singapore", "year": 2015, "rank": 1},
+      {"country": "Indonesia", "year": 2024, "rank": 2},
+      {"country": "Indonesia", "year": 2023, "rank": 2},
+      {"country": "Indonesia", "year": 2022, "rank": 2},
+      {"country": "Indonesia", "year": 2021, "rank": 6},
+      {"country": "Indonesia", "year": 2020, "rank": 3},
+      {"country": "Indonesia", "year": 2019, "rank": 2},
+      {"country": "Indonesia", "year": 2018, "rank": 2},
+      {"country": "Indonesia", "year": 2017, "rank": 3},
+      {"country": "Indonesia", "year": 2016, "rank": 3},
+      {"country": "Indonesia", "year": 2015, "rank": 3},
+      {"country": "Thailand", "year": 2024, "rank": 3},
+      {"country": "Thailand", "year": 2023, "rank": 3},
+      {"country": "Thailand", "year": 2022, "rank": 3},
+      {"country": "Thailand", "year": 2021, "rank": 3},
+      {"country": "Thailand", "year": 2020, "rank": 5},
+      {"country": "Thailand", "year": 2019, "rank": 3},
+      {"country": "Thailand", "year": 2018, "rank": 3},
+      {"country": "Thailand", "year": 2017, "rank": 4},
+      {"country": "Thailand", "year": 2016, "rank": 4},
+      {"country": "Thailand", "year": 2015, "rank": 5},
+      {"country": "China", "year": 2024, "rank": 4},
+      {"country": "China", "year": 2023, "rank": 4},
+      {"country": "China", "year": 2022, "rank": 7},
+      {"country": "China", "year": 2021, "rank": 7},
+      {"country": "China", "year": 2020, "rank": 4},
+      {"country": "China", "year": 2019, "rank": 4},
+      {"country": "China", "year": 2018, "rank": 4},
+      {"country": "China", "year": 2017, "rank": 5},
+      {"country": "China", "year": 2016, "rank": 5},
+      {"country": "China", "year": 2015, "rank": 4},
+      {"country": "Brunei", "year": 2024, "rank": 5},
+      {"country": "Brunei", "year": 2023, "rank": 5},
+      {"country": "Brunei", "year": 2022, "rank": 5},
+      {"country": "Brunei", "year": 2021, "rank": 9},
+      {"country": "Brunei", "year": 2020, "rank": 6},
+      {"country": "Brunei", "year": 2019, "rank": 5},
+      {"country": "Brunei", "year": 2018, "rank": 5},
+      {"country": "Brunei", "year": 2017, "rank": 2},
+      {"country": "Brunei", "year": 2016, "rank": 2},
+      {"country": "Brunei", "year": 2015, "rank": 2},
+      {"country": "India", "year": 2024, "rank": 6},
+      {"country": "India", "year": 2023, "rank": 6},
+      {"country": "India", "year": 2022, "rank": 6},
+      {"country": "India", "year": 2021, "rank": 5},
+      {"country": "India", "year": 2020, "rank": 7},
+      {"country": "India", "year": 2019, "rank": 6},
+      {"country": "India", "year": 2018, "rank": 6},
+      {"country": "India", "year": 2017, "rank": 6},
+      {"country": "India", "year": 2016, "rank": 6},
+      {"country": "India", "year": 2015, "rank": 6},
+      {"country": "South Korea", "year": 2024, "rank": 7},
+      {"country": "South Korea", "year": 2023, "rank": 7},
+      {"country": "South Korea", "year": 2022, "rank": 8},
+      {"country": "South Korea", "year": 2021, "rank": 8},
+      {"country": "South Korea", "year": 2020, "rank": 8},
+      {"country": "South Korea", "year": 2019, "rank": 7},
+      {"country": "South Korea", "year": 2018, "rank": 7},
+      {"country": "South Korea", "year": 2017, "rank": 7},
+      {"country": "South Korea", "year": 2016, "rank": 7},
+      {"country": "South Korea", "year": 2015, "rank": 7},
+      {"country": "Vietnam", "year": 2024, "rank": 8},
+      {"country": "Vietnam", "year": 2023, "rank": 8},
+      {"country": "Vietnam", "year": 2022, "rank": 9},
+      {"country": "Vietnam", "year": 2021, "rank": 10},
+      {"country": "Vietnam", "year": 2020, "rank": 9},
+      {"country": "Vietnam", "year": 2019, "rank": 8},
+      {"country": "Vietnam", "year": 2018, "rank": 8},
+      {"country": "Vietnam", "year": 2017, "rank": 9},
+      {"country": "Vietnam", "year": 2016, "rank": 9},
+      {"country": "Vietnam", "year": 2015, "rank": 9},
+      {"country": "Australia", "year": 2024, "rank": 9},
+      {"country": "Australia", "year": 2023, "rank": 9},
+      {"country": "Australia", "year": 2022, "rank": 10},
+      {"country": "Australia", "year": 2021, "rank": 9},
+      {"country": "Australia", "year": 2020, "rank": 9},
+      {"country": "Australia", "year": 2019, "rank": 9},
+      {"country": "Australia", "year": 2018, "rank": 9},
+      {"country": "Australia", "year": 2017, "rank": 8},
+      {"country": "Australia", "year": 2016, "rank": 8},
+      {"country": "Australia", "year": 2015, "rank": 8},
+      {"country": "Philippines", "year": 2024, "rank": 10},
+      {"country": "Philippines", "year": 2023, "rank": 10},
+      {"country": "Philippines", "year": 2022, "rank": 10},
+      {"country": "Philippines", "year": 2021, "rank": 9},
+      {"country": "Philippines", "year": 2020, "rank": 10},
+      {"country": "Philippines", "year": 2019, "rank": 10},
+      {"country": "Philippines", "year": 2018, "rank": 10},
+      {"country": "Philippines", "year": 2017, "rank": 10},
+      {"country": "Philippines", "year": 2016, "rank": 10},
+      {"country": "Philippines", "year": 2015, "rank": 10}
+    ]
+  },
+  "width": 600,
+  "height": 400,
+  "mark": {
+    "type": "line",
+    "point": true,
+    "strokeWidth": 1.7
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelOverlap": "parity"
+      }
+    },
+    "y": {
+      "field": "rank",
+      "type": "quantitative",
+      "title": "Rank",
+      "scale": {
+        "domain": [10,1],
+        "nice": true
+      },
+      "axis": {
+        "reverse": true
+      }
+    },
+    "color": {
+      "field": "country",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Australia",
+          "Brunei",
+          "China",
+          "India",
+          "Indonesia",
+          "Philippines",
+          "Singapore",
+          "South Korea",
+          "Thailand",
+          "Vietnam"
+        ],
+        "range": [
+          "#1f77b4",
+          "#ff7f0e",
+          "#2ca02c",
+          "#d62728",
+          "#9467bd",
+          "#8c564b",
+          "#e377c2",
+          "#7f7f7f",
+          "#bcbd22",
+          "#17becf"
+        ]
+      }
+    },
+    "tooltip": [
+      {"field": "country", "type": "nominal", "title": "Country"},
+      {"field": "year", "type": "ordinal", "title": "Year"},
+      {"field": "rank", "type": "quantitative", "title": "Rank"}
+    ]
+  },
+  "config": {
+    "axis": {
+      "labelFontSize": 10,
+      "titleFontSize": 12
+    },
+    "legend": {
+      "labelFontSize": 10,
+      "titleFontSize": 12
+    }
+  }
+}
