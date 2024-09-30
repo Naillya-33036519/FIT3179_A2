@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Trends in Tourist Stay (2018-2023)",
+    "fontSize": 14,
+    "align": "center"
+  },
+  "description": "Lollipop chart showing days data for each year",
+  "data": {
+    "values": [
+      {"year": 2018, "days": 2.40},
+      {"year": 2019, "days": 2.50},
+      {"year": 2020, "days": 1.90},
+      {"year": 2021, "days": 2.20},
+      {"year": 2022, "days": 2.50},
+      {"year": 2023, "days": 2.45}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2,
+        "color": "#de9494"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "days",
+          "type": "quantitative",
+          "scale": {
+            "domain": [1, 3],
+            "nice": false,
+            "tickCount": 5
+          }
+        },
+        "tooltip": [
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "days", "type": "quantitative", "title": "Number of Days"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "filled": true,
+        "size": 100,
+        "color": "#8d0404"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "days",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "days", "type": "quantitative", "title": "Number of Days"}
+        ]
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "axis": {
+        "title": "Year",
+        "labelAngle": 0,
+        "titlePadding" : 7
+      }
+    },
+    "y": {
+      "field": "days",
+      "type": "quantitative",
+      "axis": {
+        "title": "Number of Days",
+        "titlePadding" : 7
+      }
+    }
+  },
+  "width": 400,
+  "height": 200
+}
