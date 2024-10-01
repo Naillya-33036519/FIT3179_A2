@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Purpose of Visits",
+    "fontSize": 13,
+    "align": "center"
+  },
+  "data": {
+    "values": [
+      {"Category": "Official Business", "Value": 1.2},
+      {"Category": "Attending Events", "Value": 5.4},
+      {"Category": "Medical/Wellness", "Value": 10.3},
+      {"Category": "Leisure", "Value": 22.1},
+      {"Category": "Shopping", "Value": 36.4},
+      {"Category": "Visiting Friends and Family", "Value": 24.2}
+    ]
+  },
+  "encoding": {
+    "color": {"field": "Category", "type": "nominal"},
+    "theta": {"field": "Value", "type": "quantitative"},
+    "tooltip": [
+      {"field": "Category", "title": "Purpose of Visit"},
+      {"field": "Value", "title": "Percentage", "format": ".1f"}
+    ]
+  
+  },
+  "mark": {
+    "type": "arc",
+    "innerRadius": 60,
+    "outerRadius": 85,
+    "tooltip": true
+  }
+  
+}
