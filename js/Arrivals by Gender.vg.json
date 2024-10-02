@@ -6,67 +6,226 @@
     "fontSize": 13,
     "anchor": "middle"
   },
-  "width": 200,
-  "height": 200,
+  "width": 230,
+  "height": 230,
   "data": {
     "values": [
       {"gender": "Male", "percentage": 52.76, "count": 1862082, "total": 3528338},
       {"gender": "Female", "percentage": 47.24, "count": 1666256, "total": 3528338}
     ]
   },
-  "mark": {
-    "type": "arc", 
-    "innerRadius": 75,
-    "outerRadius": 60,
-    "tooltip": true
-  },
-  "encoding": {
-    "theta": {
-      "field": "percentage",
-      "type": "quantitative",
-      "stack": true
-    },
-    "color": {
-      "field": "gender",
-      "type": "nominal",
-      "scale": {
-        "domain": ["Male", "Female"],
-        "range": ["#87CEEB", "#FFB6C1"]
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 75,
+        "outerRadius": 100,
+        "tooltip": true
       },
-      "title": "Gender"
-    },
-    "tooltip": [
-      {
-        "field": "gender",
-        "type": "nominal",
-        "title": "Gender"
-      },
-      {
-        "field": "total",
-        "type": "quantitative",
-        "title": "Total Arrivals",
-        "format": ","
-      },
-      {
-        "field": "count",
-        "type": "quantitative",
-        "title": "Total Gender Arrivals",
-        "format": ","
-      },
-      {
-        "field": "percentage", 
-        "type": "quantitative", 
-        "title": "Percentage"
+      "encoding": {
+        "theta": {
+          "field": "percentage",
+          "type": "quantitative",
+          "stack": true
+        },
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Male", "Female"],
+            "range": ["#87CEEB", "#FFB6C1"]
+          },
+          "title": "Gender"
+        },
+        "tooltip": [
+          {
+            "field": "gender",
+            "type": "nominal",
+            "title": "Gender"
+          },
+          {
+            "field": "total",
+            "type": "quantitative",
+            "title": "Total Arrivals",
+            "format": ","
+          },
+          {
+            "field": "count",
+            "type": "quantitative",
+            "title": "Total Gender Arrivals",
+            "format": ","
+          },
+          {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Percentage"
+          }
+        ]
       }
-    ]
-  },
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dx": -136,
+        "dy": 5
+      },
+      "encoding": {
+        "theta": {
+          "field": "percentage",
+          "type": "quantitative"
+        },
+        "radius": {
+          "value": 0 // Position for percentage Male
+        },
+        "text": {
+          "condition": {
+            "test": "datum.gender === 'Male'",
+            "field": "percentage",
+            "type": "quantitative",
+            "format": ".2f"
+          },
+          "else": {
+            "value": ""
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dx": 132,
+        "dy": 5,
+      },
+      "encoding": {
+        "theta": {
+          "field": "percentage",
+          "type": "quantitative"
+        },
+        "radius": {
+          "value": 0 // Position for percentage Female
+        },
+        "text": {
+          "condition": {
+            "test": "datum.gender === 'Female'",
+            "field": "percentage",
+            "type": "quantitative",
+            "format": ".2f"
+          },
+          "else": {
+            "value": "" 
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dx": -135,
+        "dy": -8,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "theta": {
+          "field": "gender",
+          "type": "nominal"
+        },
+        "radius": {
+          "value": 0
+        },
+        "text": {
+          "condition": {
+            "test": "datum.gender === 'Male'",
+            "field": "gender",
+            "type": "nominal"
+          },
+          "else": {
+            "value": ""
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dx": 135,
+        "dy": -8,
+        "fontWeight": "bold" 
+      },
+      "encoding": {
+        "theta": {
+          "field": "gender",
+          "type": "nominal"
+        },
+        "radius": {
+          "value": 0
+        },
+        "text": {
+          "condition": {
+            "test": "datum.gender === 'Female'",
+            "field": "gender",
+            "type": "nominal"
+          },
+          "else": {
+            "value": ""
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dx": -115,
+        "dy": 5 
+      },
+      "encoding": {
+        "theta": {
+          "field": "percentage",
+          "type": "quantitative"
+        },
+        "radius": {
+          "value": 0
+        },
+        "text": {
+          "condition": {
+            "test": "datum.gender === 'Male'",
+            "value": "%"
+          },
+          "else": {
+            "value": ""
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dx": 152,
+        "dy": 5 
+      },
+      "encoding": {
+        "theta": {
+          "field": "percentage",
+          "type": "quantitative"
+        },
+        "radius": {
+          "value": 0
+        },
+        "text": {
+          "condition": {
+            "test": "datum.gender === 'Female'",
+            "value": "%" 
+          },
+          "else": {
+            "value": "" 
+          }
+        }
+      }
+    }
+  ],
   "config": {
     "legend": {
-      "orient": "right", 
-      "padding": 5,
-      "title": {
-        "fontSize": 12
-      }
+      "orient": "right",
+      "padding": 5
     }
   }
 }
