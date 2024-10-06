@@ -1,14 +1,18 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {
-    "text": "Monthly Tourist Arrivals in Malaysia (2013-2023)",
+  "title": {
+    "text": "Tourist Arrivals in Malaysia: A Comprehensive Overview (2013-2023)",
     "fontSize": 15,
     "anchor": "middle",
-    "dy": -10
+    "dy": -20
   },
-  "description": "Tourist Arrivals in Malaysia (2013-2023) Heatmap",
-  "data": {
-    "values": [
+  "hconcat": [
+    {
+      "title": {
+        "text":"Monthly Breakdown of Tourist Arrivals Over a Decade",
+        "offset":10},
+      "data": {
+        "values": [
       {"month": "January", "year": 2013, "value": 2.07},
       {"month": "January", "year": 2014, "value": 2.45},
       {"month": "January", "year": 2015, "value": 2.29},
@@ -95,96 +99,176 @@
       {"month": "August", "year": 2019, "value": 2.34},
       {"month": "August", "year": 2020, "value": 0.01},
       {"month": "August", "year": 2021, "value": 0},
-      {"month": "August", "year": 2022, "value": 1.1},
-      {"month": "August", "year": 2023, "value": 1.72},
-      {"month": "September", "year": 2013, "value": 2.15},
-      {"month": "September", "year": 2014, "value": 2.27},
-      {"month": "September", "year": 2015, "value": 2.12},
-      {"month": "September", "year": 2016, "value": 2.24},
-      {"month": "September", "year": 2017, "value": 2.17},
-      {"month": "September", "year": 2018, "value": 2.16},
-      {"month": "September", "year": 2019, "value": 2.31},
-      {"month": "September", "year": 2020, "value": 0.02},
+      {"month": "August", "year": 2022, "value": 1.24},
+      {"month": "August", "year": 2023, "value": 1.94},
+      {"month": "September", "year": 2013, "value": 2.02},
+      {"month": "September", "year": 2014, "value": 2.12},
+      {"month": "September", "year": 2015, "value": 1.89},
+      {"month": "September", "year": 2016, "value": 2.04},
+      {"month": "September", "year": 2017, "value": 1.98},
+      {"month": "September", "year": 2018, "value": 2.05},
+      {"month": "September", "year": 2019, "value": 2.07},
+      {"month": "September", "year": 2020, "value": 0.01},
       {"month": "September", "year": 2021, "value": 0},
-      {"month": "September", "year": 2022, "value": 1.13},
-      {"month": "September", "year": 2023, "value": 1.7},
-      {"month": "October", "year": 2013, "value": 2.05},
-      {"month": "October", "year": 2014, "value": 2.12},
-      {"month": "October", "year": 2015, "value": 2.13},
-      {"month": "October", "year": 2016, "value": 2.3},
-      {"month": "October", "year": 2017, "value": 2.25},
+      {"month": "September", "year": 2022, "value": 1.42},
+      {"month": "September", "year": 2023, "value": 1.81},
+      {"month": "October", "year": 2013, "value": 2.22},
+      {"month": "October", "year": 2014, "value": 2.2},
+      {"month": "October", "year": 2015, "value": 2.08},
+      {"month": "October", "year": 2016, "value": 2.19},
+      {"month": "October", "year": 2017, "value": 2.15},
       {"month": "October", "year": 2018, "value": 2.25},
-      {"month": "October", "year": 2019, "value": 2.39},
-      {"month": "October", "year": 2020, "value": 0.02},
+      {"month": "October", "year": 2019, "value": 2.3},
+      {"month": "October", "year": 2020, "value": 0.01},
       {"month": "October", "year": 2021, "value": 0},
       {"month": "October", "year": 2022, "value": 1.47},
-      {"month": "October", "year": 2023, "value": 1.76},
-      {"month": "November", "year": 2013, "value": 2.0},
-      {"month": "November", "year": 2014, "value": 2.08},
-      {"month": "November", "year": 2015, "value": 2.11},
-      {"month": "November", "year": 2016, "value": 2.22},
-      {"month": "November", "year": 2017, "value": 2.27},
-      {"month": "November", "year": 2018, "value": 2.09},
-      {"month": "November", "year": 2019, "value": 2.23},
+      {"month": "October", "year": 2023, "value": 1.88},
+      {"month": "November", "year": 2013, "value": 2.11},
+      {"month": "November", "year": 2014, "value": 2.2},
+      {"month": "November", "year": 2015, "value": 2.04},
+      {"month": "November", "year": 2016, "value": 2.09},
+      {"month": "November", "year": 2017, "value": 2.12},
+      {"month": "November", "year": 2018, "value": 2.18},
+      {"month": "November", "year": 2019, "value": 2.14},
       {"month": "November", "year": 2020, "value": 0.01},
       {"month": "November", "year": 2021, "value": 0},
-      {"month": "November", "year": 2022, "value": 1.39},
-      {"month": "November", "year": 2023, "value": 1.59},
-      {"month": "December", "year": 2013, "value": 2.15},
-      {"month": "December", "year": 2014, "value": 2.22},
-      {"month": "December", "year": 2015, "value": 2.28},
-      {"month": "December", "year": 2016, "value": 2.36},
-      {"month": "December", "year": 2017, "value": 2.33},
-      {"month": "December", "year": 2018, "value": 2.26},
-      {"month": "December", "year": 2019, "value": 2.4},
-      {"month": "December", "year": 2020, "value": 0.03},
+      {"month": "November", "year": 2022, "value": 1.62},
+      {"month": "November", "year": 2023, "value": 2.01},
+      {"month": "December", "year": 2013, "value": 2.1},
+      {"month": "December", "year": 2014, "value": 2.11},
+      {"month": "December", "year": 2015, "value": 2.11},
+      {"month": "December", "year": 2016, "value": 2.19},
+      {"month": "December", "year": 2017, "value": 2.23},
+      {"month": "December", "year": 2018, "value": 2.12},
+      {"month": "December", "year": 2019, "value": 2.25},
+      {"month": "December", "year": 2020, "value": 0.02},
       {"month": "December", "year": 2021, "value": 0},
-      {"month": "December", "year": 2022, "value": 1.57},
-      {"month": "December", "year": 2023, "value": 1.68}
-    ]
-  },
-  "height": 500,
-  "width": 500,
-  "mark": "rect",
-  "encoding": {
-    "x": {"field": "month", "type": "ordinal", "title": "Month",
-    "axis" : {
-      "labelAngle":0,
-      "titlePadding" : 10
-    },
-    "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-
-    
-    },
-    "y": {"field": "year", "type": "ordinal", "title": "Year",
-    "axis":{
-      "titlePadding" : 10
-    }
-    },
-    "color": {
-      "field": "value",
-      "type": "quantitative",
-      "title": "Tourist Arrivals (millions)",
-      "legend":{
-        "labelPadding" : 10,
-        "titlePadding" : 12
+      {"month": "December", "year": 2022, "value": 1.72},
+      {"month": "December", "year": 2023, "value": 2.13}
+      ]
       },
+      "mark": {
+        "type": "rect"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "title": "Month",
+          "axis": {"labelAngle": 0, "titlePadding": 10},
+          "sort": ["January", "February", "March", "April", "May", "June", 
+        "July", "August", "September", "October", "November", "December"
+      ]
+        },
+        "y": {
+          "field": "year",
+          "type": "ordinal",
+          "axis": {"title": "Year", "titlePadding": 10}
+        },
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Tourist Arrivals (millions)",
+          "legend":{
+            "titlePadding": 12            
+          },
       "scale": {
         "range": ["#b3cde3", "#6497b1", "#005b96"]
       }
-
-    },
+        },
     "tooltip": [
       {"field": "year", "title": "Year"},
       {"field": "month", "title": "Month"},
       {"field": "value", "title": "Tourist Arrivals (millions)"}
-    ]
-  },
+    ]        
+      },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {
+            "range": ["#b3cde3", "#6497b1", "#005b96"]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "color": "white",
+        "fontSize": 10
+      },
+      "encoding": {
+        "text": {"field": "value", "type": "quantitative"},
+        "color": {
+          "condition": {"test": "datum.value > 0.5", "value": "white"},
+          "value": "black"
+        }
+      }
+    }
+  ],
   "config": {
     "axis": {
-      "grid": false,
+      "grid": false
     }
   },
-  "width": 670,  // Increased width
-  "height": 400  // Increased height
+  "width": 600,
+  "height": 400      
+    },
+    {
+      "title": {
+        "text":"Analyzing Seasonal Patterns and Trends in Tourism",
+        "offset": 10,
+        "dy":7
+      },
+      "data": {
+        "values": [
+          {"month": "January", "avg_value": 1.79},
+          {"month": "February", "avg_value": 1.56},
+          {"month": "March", "avg_value": 1.67},
+          {"month": "April", "avg_value": 1.50},
+          {"month": "May", "avg_value": 1.54},
+          {"month": "June", "avg_value": 1.63},
+          {"month": "July", "avg_value": 1.71},
+          {"month": "August", "avg_value": 1.69},
+          {"month": "September", "avg_value": 1.58},
+          {"month": "October", "avg_value": 1.70},
+          {"month": "November", "avg_value": 1.68},
+          {"month": "December", "avg_value": 1.73}
+        ]
+      },
+      "mark": {"type": "line", "point": true},
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "axis": {"title": "Month","labelAngle": 45},
+          "sort": ["January", "February", "March", "April", "May", "June", 
+        "July", "August", "September", "October", "November", "December"]
+        },
+        "y": {
+          "field": "avg_value",
+          "type": "quantitative",
+          "axis": {"title": "Average Tourist Arrivals (Millions)","labelAngle": 0, "titlePadding": 10},
+          "scale": {"domain": [0, 3]}
+
+        },
+        "tooltip": [
+          {"field": "month", "type": "ordinal", "title": "Month"},
+          {"field": "avg_value", "type": "quantitative", "title": "Average Tourist Arrivals"}
+          ]
+      },
+  "width": 300,
+  "height": 200
+    },
+  ]
 }
+
