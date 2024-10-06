@@ -3,10 +3,15 @@
   "title": {
     "text": "Inbound Tourist Expenditure by Component (2014-2023)",
     "fontSize": 14,
-    "anchor": "start",
-    "fontWeight": "bold"
+    "anchor": "middle",
+    "fontWeight": "bold",   
+    "subtitle": " ",
+    "subtitlePadding": 10
   },
-  "description": "Stacked Bar Chart for Inbound Tourist Expenditure with Multi-Selection",
+
+  "width": 400,
+  "height": 300,
+  
   "data": {
     "values": [
       {"Year": "2014", "Component": "Shopping", "Expenditure": 28},
@@ -41,55 +46,78 @@
       {"Year": "2023", "Component": "Passenger Transport", "Expenditure": 21.5}
     ]
   },
-  "selection": {
-    "yearSelect": {
-      "type": "multi",
-      "fields": ["Year"],
-      "bind": "legend"
-    },
-    "componentSelect": {
-      "type": "multi",
-      "fields": ["Component"],
-      "bind": "legend"
+  "params": [
+    {
+      "name": "yearSelect",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"
+        ],
+        "name": "Select Year"
+      }
     }
-  },
+  ],
   "mark": "bar",
   "encoding": {
     "x": {
       "field": "Year",
       "type": "ordinal",
       "title": "Year",
-      "axis" :{
-        "labelAngle":0
+      "axis":{
+        "labelAngle":0,
+        "labelPadding":10,
+        "grid":false
       }
     },
     "y": {
       "field": "Expenditure",
       "type": "quantitative",
-      "title": "Expenditure",
-      "scale": {"domain": [0, 100]}
+      "title": "Expenditure in Percentage",
+      "axis":{
+        "labelPadding":10,
+        "grid": false
+      },
+      "scale": {
+        "domain": [0, 100]
+      }
     },
     "color": {
       "field": "Component",
       "type": "nominal",
       "title": "Expenditure Component",
-      "scale": {"scheme": "category10"},
-      "condition": {
-        "selection": "componentSelect",
-        "field": "Component",
-        "empty": "none"
+      "scale": {
+        "scheme": "category10"
       }
     },
     "opacity": {
-      "condition": {"selection": "yearSelect", "value": 1},
+      "condition": [
+        {
+          "test": "yearSelect == 'All'",
+          "value": 1
+        },
+        {
+          "test": "datum.Year == yearSelect",
+          "value": 1
+        }
+      ],
       "value": 0.3
     },
     "tooltip": [
-      {"field": "Year", "title": "Year"},
-      {"field": "Component", "title": "Expenditure Component"},
-      {"field": "Expenditure", "title": "Expenditure in Percentage", "format": ".2f"}
+      {
+        "field": "Year",
+        "title": "Year"
+      },
+      {
+        "field": "Component",
+        "title": "Expenditure Component"
+      },
+      {
+        "field": "Expenditure",
+        "title": "Expenditure in Percentage",
+        "format": ".2f"
+      }
     ]
-  },
-  "width" : 400,
-  "height" : 300,
+  }
 }
