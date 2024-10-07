@@ -75,7 +75,7 @@
           "type": "quantitative"
         },
         "radius": {
-          "value": 0 // Position for percentage Male
+          "value": 0
         },
         "text": {
           "condition": {
@@ -94,7 +94,7 @@
       "mark": {
         "type": "text",
         "dx": 132,
-        "dy": 5
+        "dy": 5,
       },
       "encoding": {
         "theta": {
@@ -112,7 +112,7 @@
             "format": ".2f"
           },
           "else": {
-            "value": ""
+            "value": "" 
           }
         }
       }
