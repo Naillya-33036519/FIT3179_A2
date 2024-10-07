@@ -58,6 +58,12 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+
+        #regional-tourism-map {
+            /* Enlarge map container */
+            width: 100%;
+            height: 600px;
+        }
     </style>
 </head>
 <body>
@@ -150,7 +156,21 @@
 
     <script>
         const embedCharts = (divId, url) => {
-            vegaEmbed(`#${divId}`, url).then(result => {
+            vegaEmbed(`#${divId}`, url, {
+                config: {
+                    axis: {
+                        labelFontSize: 14,   // Increase axis label size
+                        titleFontSize: 16    // Increase axis title size
+                    },
+                    legend: {
+                        labelFontSize: 14,   // Increase legend label size
+                        titleFontSize: 16    // Increase legend title size
+                    },
+                    title: {
+                        fontSize: 18         // Increase chart title size
+                    }
+                }
+            }).then(result => {
                 // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
             }).catch(console.error);
         };
