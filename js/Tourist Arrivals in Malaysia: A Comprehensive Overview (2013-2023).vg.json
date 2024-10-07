@@ -2,10 +2,10 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Monthly Breakdown of Tourist Arrivals Over a Decade",
-    "fontSize": 14,
+    "fontSize": 16,
     "anchor": "middle",
     "align": "center",
-    "dy": -20,
+    "dy": -16,
     "dx":-35
 
   },
@@ -155,7 +155,7 @@
           "field": "month",
           "type": "ordinal",
           "title": "Month",
-          "axis": {"labelAngle": 0, "titlePadding": 10},
+          "axis": {"labelAngle": -45, "titlePadding": 12, "labelFontSize":14,"titleFontSize":14},
           "sort": ["January", "February", "March", "April", "May", "June", 
         "July", "August", "September", "October", "November", "December"
       ]
@@ -163,14 +163,16 @@
         "y": {
           "field": "year",
           "type": "ordinal",
-          "axis": {"title": "Year", "titlePadding": 10}
+          "axis": {"title": "Year", "titlePadding": 12, "labelFontSize":14,"titleFontSize":14}
         },
         "color": {
           "field": "value",
           "type": "quantitative",
-          "title": "Tourist Arrivals (millions)",
+          "title": "Arrivals",
           "legend":{
-            "titlePadding": 12            
+            "titlePadding": 12,
+            "labelFontSize":14,
+            "titleFontSize":14          
           },
       "scale": {
         "range": ["#b3cde3", "#6497b1", "#005b96"]
@@ -179,7 +181,7 @@
     "tooltip": [
       {"field": "year", "title": "Year"},
       {"field": "month", "title": "Month"},
-      {"field": "value", "title": "Tourist Arrivals (millions)"}
+      {"field": "value", "title": "Tourist Arrivals (millions)"},
     ]        
       },
   "layer": [
@@ -204,7 +206,7 @@
         "align": "center",
         "baseline": "middle",
         "color": "white",
-        "fontSize": 10
+        "fontSize": 12
       },
       "encoding": {
         "text": {"field": "value", "type": "quantitative"},
