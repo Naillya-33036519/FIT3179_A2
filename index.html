@@ -141,11 +141,15 @@
             .then(function(result) { console.log("Travel Motivations loaded successfully"); })
             .catch(function(error) { console.error("Error loading Travel Motivations: ", error); });
 
+        vegaEmbed('#age_distribution', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Age%20Distribution.vg.json')
+            .then(function(result) { console.log("Age Distribution loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Age Distribution: ", error); });
+
         vegaEmbed('#expenditure_insights', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json')
             .then(function(result) { console.log("Expenditure Insights loaded successfully"); })
             .catch(function(error) { console.error("Error loading Expenditure Insights: ", error); });
 
-        vegaEmbed('#geographic_analysis', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.json')
+        vegaEmbed('#geographic_analysis', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20of%20Tourism%20in%20Malaysia.vg.json')
             .then(function(result) { console.log("Geographic Analysis loaded successfully"); })
             .catch(function(error) { console.error("Error loading Geographic Analysis: ", error); });
 
