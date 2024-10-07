@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Dual-axis line chart for Tourist Arrivals and Receipts in Malaysia (2006-2023) with point markers and a vertical hover rule.",
-  "title": "Tourist Arrivals and Receipts in Malaysia (2006-2023)",
+  "title": "Revenue Generation - Tourist Arrivals and Receipts in Malaysia (2006-2023)",
   "data": {
     "values": [
       {"year": "2006", "Arrivals": 17.55, "Receipts": 36.27},
