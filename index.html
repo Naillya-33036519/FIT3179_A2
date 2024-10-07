@@ -4,150 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizations: Exploring Tourism in Malaysia</title>
-  
+
     <!-- Import Vega & Vega-Lite -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
-  
+
     <style>
         body {
-            font-family: 'Arial', sans-serif; /* Set font to sans-serif */
-            margin: 0; /* Remove default margin */
-            padding: 20px; /* Add padding for better spacing */
-            background-color: #f0f0f0; /* Light background color */
-            color: #333; /* Dark text color for contrast */
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
         }
         h1 {
-            font-size: 28px; /* Increase title size */
-            margin-bottom: 20px; /* Space between title and sections */
-            text-align: center; /* Center the title */
+            font-size: 26px;
+            margin-bottom: 20px;
         }
-        h2 {
-            font-size: 24px; /* Section title size */
-            margin-top: 30px; /* Space above section titles */
-            margin-bottom: 10px; /* Space below section titles */
-            color: #007BFF; /* Primary color for section titles */
-            text-align: center; /* Center section titles */
+        .section {
+            margin: 20px 0; /* Reduced margin between sections */
         }
-        h3 {
-            font-size: 20px; /* Subtitle size */
-            margin-top: 10px; /* Space above subtitles */
-            margin-bottom: 15px; /* Space below subtitles */
-            color: #0056b3; /* Darker blue for subtitles */
-            text-align: left; /* Left align subtitles */
+        .section-title {
+            font-size: 20px; 
+            font-weight: bold;
+        }
+        .section-subtitle {
+            font-size: 16px;
+            margin-bottom: 10px;
         }
         .visualization-container {
-            margin: 20px auto; /* Center the visualizations */
-            width: 90%; /* Set a width for the visualizations */
-            display: flex; /* Use Flexbox for layout */
-            flex-wrap: wrap; /* Allow wrapping for responsiveness */
-            justify-content: space-around; /* Space between visualizations */
+            display: flex; 
+            justify-content: space-around; /* Space evenly around items */
+            flex-wrap: wrap; 
+            margin-bottom: 20px; /* Space between sections */
         }
         .visualization {
-            flex: 0 1 calc(45% - 20px); /* Flex item with a responsive width */
-            margin: 10px; /* Space between visualizations */
-            background-color: #fff; /* Background color for visualizations */
-            padding: 10px; /* Padding inside the visualization */
-            border-radius: 5px; /* Rounded corners */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+            flex: 0 0 45%; /* Each chart takes up to 45% of the container */
+            margin: 10px; 
+            border-radius: 5px; 
+            background-color: #f9f9f9; 
+            padding: 10px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Soft shadow for depth */
         }
         .annotation {
-            font-size: 14px; /* Set size for annotations */
-            margin-bottom: 10px; /* Space below the annotation */
-            text-align: left; /* Align text to the left */
-            color: #555; /* Lighter text color for annotations */
+            font-size: 14px; 
+            margin-bottom: 5px; 
+            text-align: center; 
         }
     </style>
 </head>
 <body>
     <h1>Exploring Tourism in Malaysia</h1>
 
-    <!-- Section 1: Tourism Trends and Dynamics -->
-    <h2>Section 1: Tourism Trends and Dynamics</h2>
-    <div class="visualization-container">
-        <div class="visualization">
-            <h3>Top Contributors:</h3>
-            <div class="annotation">
-                <strong>Foreign Tourist Arrivals in Malaysia (2015-2024):</strong> This chart presents the major countries from which tourists visit Malaysia, highlighting the international interest in Malaysian destinations.
-            </div>
-            <div id="top_tourist_sources"></div>
-        </div>
-
-        <div class="visualization">
-            <h3>Monthly Trends:</h3>
-            <div class="annotation">
-                <strong>Breakdown of Tourist Arrivals Over the Past Decade:</strong> This visualization depicts the seasonal fluctuations in tourist arrivals over the years, showcasing peak travel times.
-            </div>
-            <div id="seasonal_trends"></div>
+    <div class="section">
+        <div class="section-title">Section 1: Tourism Trends and Dynamics</div>
+        <div class="section-subtitle">Understanding the fluctuations in tourist arrivals.</div>
+        <div class="visualization-container">
+            <div class="annotation"><strong>Top Contributors:</strong> Foreign Tourist Arrivals in Malaysia (2015-2024)</div>
+            <div class="visualization" id="top_tourist_sources"></div>
+            <div class="annotation"><strong>Monthly Trends:</strong> Breakdown of Tourist Arrivals Over the Past Decade</div>
+            <div class="visualization" id="seasonal_trends"></div>
         </div>
     </div>
 
-    <!-- Section 2: Understanding the Tourist Profile -->
-    <h2>Section 2: Understanding the Tourist Profile</h2>
-    <div class="visualization-container">
-        <div class="visualization">
-            <h3>Gender Representation:</h3>
-            <div class="annotation">
-                <strong>Tourist Arrivals by Gender (Donut Chart):</strong> This chart illustrates the distribution of male and female tourists, providing insights into gender trends in tourism.
-            </div>
-            <div id="gender_distribution"></div>
-        </div>
-
-        <div class="visualization">
-            <h3>Global Gender Breakdown:</h3>
-            <div class="annotation">
-                <strong>Gender Distribution of Arrivals from Various Countries:</strong> A comparison of gender distribution globally, contextualizing Malaysia's tourism demographics.
-            </div>
-            <div id="global_gender_breakdown"></div>
-        </div>
-
-        <div class="visualization">
-            <h3>Reasons for Travel:</h3>
-            <div class="annotation">
-                <strong>Purpose of Visits:</strong> This visualization reveals the primary motivations for tourists visiting Malaysia, shedding light on what attracts visitors.
-            </div>
-            <div id="travel_motivations"></div>
+    <div class="section">
+        <div class="section-title">Section 2: Understanding the Tourist Profile</div>
+        <div class="visualization-container">
+            <div class="annotation"><strong>Gender Representation:</strong> Tourist Arrivals by Gender (Donut Chart)</div>
+            <div class="visualization" id="gender_distribution"></div>
+            <div class="annotation"><strong>Global Gender Breakdown:</strong> Gender Distribution of Arrivals from Various Countries</div>
+            <div class="visualization" id="global_gender_breakdown"></div>
+            <div class="annotation"><strong>Reasons for Travel:</strong> Purpose of Visits</div>
+            <div class="visualization" id="travel_motivations"></div>
         </div>
     </div>
 
-    <!-- Section 3: Economic Impact of Tourism -->
-    <h2>Section 3: Economic Impact of Tourism</h2>
-    <h3>Title: Tourism as an Economic Driver</h3>
-    <h3>Subtitle: Analyzing Spending Patterns and Contributions</h3>
-    <div class="visualization-container">
-        <div class="visualization">
-            <div class="annotation">
-                <strong>Expenditure Insights:</strong> Inbound Tourist Expenditure by Component (2014-2023).
-            </div>
-            <div id="expenditure_insights"></div>
-        </div>
-
-        <div class="visualization">
-            <div class="annotation">
-                <strong>Revenue Generation:</strong> Correlation Between Tourist Arrivals and Economic Receipts (2006-2023).
-            </div>
-            <div id="revenue_generation"></div>
+    <div class="section">
+        <div class="section-title">Section 3: Economic Impact of Tourism</div>
+        <div class="section-subtitle">Analyzing Spending Patterns and Contributions</div>
+        <div class="visualization-container">
+            <div class="annotation"><strong>Expenditure Insights:</strong> Inbound Tourist Expenditure by Component (2014-2023)</div>
+            <div class="visualization" id="expenditure_insights"></div>
+            <div class="annotation"><strong>Revenue Generation:</strong> Correlation Between Tourist Arrivals and Economic Receipts (2006-2023)</div>
+            <div class="visualization" id="revenue_generation"></div>
         </div>
     </div>
 
-    <!-- Section 4: Regional Tourism Insights -->
-    <h2>Section 4: Regional Tourism Insights</h2>
-    <h3>Title: State-wise Tourism Analysis</h3>
-    <h3>Subtitle: Understanding Regional Dynamics in Malaysia's Tourism</h3>
-    <div class="visualization-container">
-        <div class="visualization">
-            <div class="annotation">
-                <strong>Geographic Distribution:</strong> State Wise Tourism Rates in Malaysia (Choropleth Map).
-            </div>
-            <div id="geographic_analysis"></div>
-        </div>
-
-        <div class="visualization">
-            <div class="annotation">
-                <strong>Stay Duration Trends:</strong> Changes in Tourist Stay Patterns (2018-2023).
-            </div>
-            <div id="changing_stay_patterns"></div>
+    <div class="section">
+        <div class="section-title">Section 4: Regional Tourism Insights</div>
+        <div class="section-subtitle">Understanding Regional Dynamics in Malaysia's Tourism</div>
+        <div class="visualization-container">
+            <div class="annotation"><strong>Geographic Distribution:</strong> State Wise Tourism Rates in Malaysia (Choropleth Map)</div>
+            <div class="visualization" id="geographic_analysis"></div>
+            <div class="annotation"><strong>Stay Duration Trends:</strong> Changes in Tourist Stay Patterns (2018-2023)</div>
+            <div class="visualization" id="changing_stay_patterns"></div>
         </div>
     </div>
 
