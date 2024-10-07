@@ -2,9 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Top Tourist Sources by Country (2015-2024)",
-    "fontSize": 15,
+    "fontSize": 16,
     "anchor": "middle",
-    "dy": -10
+    "dy": -16
   },
   "data": {
     "values": [
@@ -115,7 +115,7 @@
   "mark": {
     "type": "line",
     "point": true,
-    "strokeWidth": 1.7
+    "strokeWidth": 2
   },
   "encoding": {
     "x": {
@@ -123,7 +123,8 @@
       "type": "ordinal",
       "title": "Year",
       "axis": {
-        "labelOverlap": "parity"
+        "labelOverlap": "parity",
+        "labelAngle": -45
       }
     },
     "y": {
@@ -163,12 +164,16 @@
   },
   "config": {
     "axis": {
-      "labelFontSize": 10,
-      "titleFontSize": 12
+      "labelFontSize": 13,
+      "titleFontSize": 13
     },
     "legend": {
-      "labelFontSize": 10,
-      "titleFontSize": 12
+      "labelFontSize": 13,
+      "titleFontSize": 13
+    },
+    "tooltip":{
+      "labelFontSize":13,
+      "titleFontSize":13
     }
   }
 }
