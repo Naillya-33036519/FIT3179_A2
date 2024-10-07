@@ -45,6 +45,7 @@
             background-color: #f9f9f9; /* Optional: background color */
             padding: 10px; /* Optional: padding inside the visualization */
             box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Soft shadow for depth */
+            cursor: pointer; /* Cursor changes to pointer to indicate clickable */
         }
         .annotation {
             font-size: 14px; /* Set size for annotations */
@@ -60,10 +61,10 @@
         <div class="section-title">Section 1: Tourism Trends and Dynamics</div>
         <div class="section-subtitle">Understanding fluctuations in tourist arrivals.</div>
         <div class="visualization-container">
-            <div class="visualization" id="top_tourist_sources">
+            <div class="visualization" id="top_tourist_sources" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json')">
                 <div class="annotation"><strong>Top Contributors:</strong> Foreign Tourist Arrivals in Malaysia (2015-2024)</div>
             </div>
-            <div class="visualization" id="seasonal_trends">
+            <div class="visualization" id="seasonal_trends" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json')">
                 <div class="annotation"><strong>Monthly Trends:</strong> Breakdown of Tourist Arrivals Over the Past Decade</div>
             </div>
         </div>
@@ -72,18 +73,18 @@
     <div class="section">
         <div class="section-title">Section 2: Understanding the Tourist Profile</div>
         <div class="visualization-container">
-            <div class="visualization" id="gender_distribution">
+            <div class="visualization" id="gender_distribution" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json')">
                 <div class="annotation"><strong>Gender Representation:</strong> Tourist Arrivals by Gender (Donut Chart)</div>
             </div>
-            <div class="visualization" id="global_gender_breakdown">
+            <div class="visualization" id="global_gender_breakdown" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json')">
                 <div class="annotation"><strong>Global Gender Breakdown:</strong> Gender Distribution of Arrivals from Various Countries</div>
             </div>
         </div>
         <div class="visualization-container">
-            <div class="visualization" id="travel_motivations">
+            <div class="visualization" id="travel_motivations" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation%20-%20Purpose%20of%20Visits.vg.json')">
                 <div class="annotation"><strong>Reasons for Travel:</strong> Purpose of Visits</div>
             </div>
-            <div class="visualization" id="age_distribution">
+            <div class="visualization" id="age_distribution" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Age%20Distribution.vg.json')">
                 <div class="annotation"><strong>Age Distribution:</strong> Tourist Age Groups</div> <!-- Ensure you have this ID -->
             </div>
         </div>
@@ -93,10 +94,10 @@
         <div class="section-title">Section 3: Economic Impact of Tourism</div>
         <div class="section-subtitle">Analyzing Spending Patterns and Contributions</div>
         <div class="visualization-container">
-            <div class="visualization" id="expenditure_insights">
+            <div class="visualization" id="expenditure_insights" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json')">
                 <div class="annotation"><strong>Expenditure Insights:</strong> Inbound Tourist Expenditure by Component (2014-2023)</div>
             </div>
-            <div class="visualization" id="revenue_generation">
+            <div class="visualization" id="revenue_generation" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json')">
                 <div class="annotation"><strong>Revenue Generation:</strong> Correlation Between Tourist Arrivals and Economic Receipts (2006-2023)</div>
             </div>
         </div>
@@ -106,16 +107,21 @@
         <div class="section-title">Section 4: Regional Tourism Insights</div>
         <div class="section-subtitle">Understanding Regional Dynamics in Malaysia's Tourism</div>
         <div class="visualization-container">
-            <div class="visualization" id="geographic_analysis">
+            <div class="visualization" id="geographic_analysis" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20of%20Tourism%20in%20Malaysia.vg.json')">
                 <div class="annotation"><strong>Geographic Distribution:</strong> State Wise Tourism Rates in Malaysia (Choropleth Map)</div>
             </div>
-            <div class="visualization" id="changing_stay_patterns">
+            <div class="visualization" id="changing_stay_patterns" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Trends%20in%20Tourist%20Stay%20(2018-2023).vg.json')">
                 <div class="annotation"><strong>Stay Duration Trends:</strong> Changes in Tourist Stay Patterns (2018-2023)</div>
             </div>
         </div>
     </div>
 
     <script type="text/javascript">
+        // Function to open charts in a new tab on click
+        function openChart(url) {
+            window.open(url, '_blank'); // Open the chart URL in a new tab
+        }
+
         // Embed the visualizations
         vegaEmbed('#top_tourist_sources', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json')
             .then(function(result) { console.log("Top Tourist Sources loaded successfully"); })
@@ -124,10 +130,6 @@
         vegaEmbed('#seasonal_trends', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json')
             .then(function(result) { console.log("Seasonal Trends loaded successfully"); })
             .catch(function(error) { console.error("Error loading Seasonal Trends: ", error); });
-
-        vegaEmbed('#revenue_generation', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json')
-            .then(function(result) { console.log("Revenue Generation loaded successfully"); })
-            .catch(function(error) { console.error("Error loading Revenue Generation: ", error); });
 
         vegaEmbed('#gender_distribution', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json')
             .then(function(result) { console.log("Gender Distribution loaded successfully"); })
@@ -148,6 +150,10 @@
         vegaEmbed('#expenditure_insights', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json')
             .then(function(result) { console.log("Expenditure Insights loaded successfully"); })
             .catch(function(error) { console.error("Error loading Expenditure Insights: ", error); });
+
+        vegaEmbed('#revenue_generation', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json')
+            .then(function(result) { console.log("Revenue Generation loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Revenue Generation: ", error); });
 
         vegaEmbed('#geographic_analysis', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20of%20Tourism%20in%20Malaysia.vg.json')
             .then(function(result) { console.log("Geographic Analysis loaded successfully"); })
