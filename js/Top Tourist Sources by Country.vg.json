@@ -164,16 +164,18 @@
   },
   "config": {
     "axis": {
-      "labelFontSize": 13,
-      "titleFontSize": 13
+      "labelFontSize": 14,
+      "titleFontSize": 14,
+      "titlePadding":12
     },
     "legend": {
-      "labelFontSize": 13,
-      "titleFontSize": 13
+      "labelFontSize": 14,
+      "titleFontSize": 14,
+      "labelPadding":12
     },
     "tooltip":{
-      "labelFontSize":13,
-      "titleFontSize":13
+      "labelFontSize":14,
+      "titleFontSize":14
     }
   }
 }
