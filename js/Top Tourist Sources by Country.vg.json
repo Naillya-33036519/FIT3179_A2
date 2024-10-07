@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Foreign Tourist Arrivals in Malaysia (2015-2024)",
+    "text": "Top Tourist Sources by Country (2015-2024)",
     "fontSize": 15,
     "anchor": "middle",
     "dy": -10
