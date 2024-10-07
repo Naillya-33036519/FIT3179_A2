@@ -35,17 +35,17 @@
         .visualization-container {
             display: flex;
             justify-content: space-around; /* Space evenly between charts */
-            flex-wrap: wrap; /* Allow wrapping */
             margin-bottom: 10px; /* Reduced margin between sections */
+            flex-wrap: wrap; /* Allow wrapping */
         }
         .visualization {
             flex: 0 0 45%; /* Each chart takes up to 45% of the container */
             margin: 10px; /* Space between visualizations */
+            padding: 10px; /* Optional: padding inside the visualization */
+            cursor: pointer; /* Cursor changes to pointer to indicate clickable */
             border-radius: 5px;
             background-color: #f9f9f9; /* Optional: background color */
-            padding: 10px; /* Optional: padding inside the visualization */
             box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Soft shadow for depth */
-            cursor: pointer; /* Cursor changes to pointer to indicate clickable */
         }
         .annotation {
             font-size: 14px; /* Set size for annotations */
@@ -76,16 +76,16 @@
             <div class="visualization" id="gender_distribution" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json')">
                 <div class="annotation"><strong>Gender Representation:</strong> Tourist Arrivals by Gender (Donut Chart)</div>
             </div>
-            <div class="visualization" id="global_gender_breakdown" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json')">
-                <div class="annotation"><strong>Global Gender Breakdown:</strong> Gender Distribution of Arrivals from Various Countries</div>
+            <div class="visualization" id="age_distribution" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Age%20Distribution.vg.json')">
+                <div class="annotation"><strong>Age Distribution:</strong> Tourist Age Groups</div>
             </div>
         </div>
         <div class="visualization-container">
+            <div class="visualization" id="global_gender_breakdown" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json')">
+                <div class="annotation"><strong>Global Gender Breakdown:</strong> Gender Distribution of Arrivals from Various Countries</div>
+            </div>
             <div class="visualization" id="travel_motivations" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation%20-%20Purpose%20of%20Visits.vg.json')">
                 <div class="annotation"><strong>Reasons for Travel:</strong> Purpose of Visits</div>
-            </div>
-            <div class="visualization" id="age_distribution" onclick="openChart('https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Age%20Distribution.vg.json')">
-                <div class="annotation"><strong>Age Distribution:</strong> Tourist Age Groups</div> <!-- Ensure you have this ID -->
             </div>
         </div>
     </div>
