@@ -112,7 +112,7 @@
             "format": ".2f"
           },
           "else": {
-            "value": "" 
+            "value": ""
           }
         }
       }
@@ -149,7 +149,7 @@
         "type": "text",
         "dx": 135,
         "dy": -8,
-        "fontWeight": "bold" 
+        "fontWeight": "bold"
       },
       "encoding": {
         "theta": {
@@ -175,7 +175,7 @@
       "mark": {
         "type": "text",
         "dx": -115,
-        "dy": 5 
+        "dy": 5
       },
       "encoding": {
         "theta": {
@@ -200,7 +200,7 @@
       "mark": {
         "type": "text",
         "dx": 152,
-        "dy": 5 
+        "dy": 5
       },
       "encoding": {
         "theta": {
@@ -213,10 +213,10 @@
         "text": {
           "condition": {
             "test": "datum.gender === 'Female'",
-            "value": "%" 
+            "value": "%"
           },
           "else": {
-            "value": "" 
+            "value": ""
           }
         }
       }
