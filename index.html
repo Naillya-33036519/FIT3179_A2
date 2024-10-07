@@ -1,206 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizations: Exploring Tourism in Malaysia</title>
-
+  
     <!-- Import Vega & Vega-Lite -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
-
+  
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif; /* Set font to sans-serif */
             margin: 0; /* Remove default margin */
-            padding: 20px; /* Add padding around the body */
-            background-color: #f4f4f4; /* Light background color for contrast */
+            padding: 20px; /* Add padding for better spacing */
+            background-color: #f0f0f0; /* Light background color */
+            color: #333; /* Dark text color for contrast */
         }
-
         h1 {
-            font-size: 26px; /* Increase title size for prominence */
-            margin-bottom: 15px; /* Space below the title */
-            color: #333; /* Darker color for better contrast */
+            font-size: 28px; /* Increase title size */
+            margin-bottom: 10px; /* Space between title and visualizations */
             text-align: center; /* Center the title */
         }
-
-        .section {
-            margin-bottom: 30px; /* Space below each section */
+        h2 {
+            font-size: 24px; /* Section title size */
+            margin-top: 30px; /* Space above section titles */
+            margin-bottom: 10px; /* Space below section titles */
+            color: #007BFF; /* Primary color for section titles */
         }
-
+        h3 {
+            font-size: 20px; /* Subtitle size */
+            margin-top: 10px; /* Space above subtitles */
+            margin-bottom: 15px; /* Space below subtitles */
+            color: #0056b3; /* Darker blue for subtitles */
+        }
         .visualization-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around; /* Space visualizations evenly */
-            padding: 10px; /* Padding around the visualization container */
-            gap: 15px; /* Gap between visualizations */
-            background-color: #ffffff; /* White background for sections */
-            border-radius: 10px; /* Rounded corners for sections */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            margin: 20px auto; /* Center the visualizations */
+            width: 90%; /* Set a width for the visualizations */
+            display: flex; /* Use Flexbox for layout */
+            flex-wrap: wrap; /* Allow wrapping for responsiveness */
+            justify-content: space-between; /* Space between visualizations */
         }
-
         .visualization {
-            flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis */
-            max-width: 400px; /* Maximum width for responsiveness */
-            border: 1px solid #ccc; /* Light border for separation */
+            flex: 1; /* Allow each visualization to take equal space */
+            min-width: 300px; /* Minimum width for each visualization */
+            max-width: 45%; /* Maximum width for each visualization */
+            margin: 10px; /* Space between visualizations */
+            background-color: #fff; /* Background color for visualizations */
+            padding: 10px; /* Padding inside the visualization */
             border-radius: 5px; /* Rounded corners */
-            background-color: #ffffff; /* White background for visualizations */
-            padding: 15px; /* Padding inside each visualization */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            position: relative; /* Position relative for absolute positioning of texts */
-            transition: transform 0.3s; /* Smooth hover effect */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
         }
-
-        .visualization:hover {
-            transform: scale(1.03); /* Slightly enlarge on hover */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-        }
-
         .annotation {
-            font-size: 14px;
-            color: #666; /* Lighter color for annotations */
-            margin-bottom: 10px; /* Space below annotations */
+            font-size: 14px; /* Set size for annotations */
+            margin-bottom: 10px; /* Space below the annotation */
             text-align: left; /* Align text to the left */
-            padding: 5px; /* Padding for better readability */
-            border-bottom: 1px solid #eaeaea; /* Underline for separation */
-            position: absolute; /* Position absolute for layering */
-            top: 10px; /* Position at the top */
-            left: 10px; /* Position at the left */
-            right: 10px; /* Position at the right */
-            z-index: 1; /* Bring annotation above other elements */
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
-        }
-
-        .visualization-title {
-            font-weight: bold; /* Bold title for each visualization */
-            font-size: 16px; /* Slightly larger font for titles */
-            margin-bottom: 10px; /* Space below titles */
-            color: #333; /* Darker color for better visibility */
+            color: #555; /* Lighter text color for annotations */
         }
     </style>
 </head>
-
 <body>
     <h1>Exploring Tourism in Malaysia</h1>
 
-    <div class="section">
-        <h2 style="text-align:center; font-size: 22px; color: #444;">Tourist Demographics</h2>
-        <div class="visualization-container">
-            <div class="visualization" id="top_tourist_sources">
-                <div class="annotation">
-                    <div class="visualization-title">1. Top Tourist Sources:</div>
-                    This chart presents the major countries from which tourists visit Malaysia, highlighting the international interest in Malaysian destinations.
-                </div>
-            </div>
-
-            <div class="visualization" id="gender_distribution">
-                <div class="annotation">
-                    <div class="visualization-title">4. Gender Distribution:</div>
-                    This chart illustrates the distribution of male and female tourists, providing insights into gender trends in tourism.
-                </div>
-            </div>
-
-            <div class="visualization" id="global_gender_breakdown">
-                <div class="annotation">
-                    <div class="visualization-title">5. Global Gender Breakdown:</div>
-                    A comparison of gender distribution globally, contextualizing Malaysia's tourism demographics.
-                </div>
-            </div>
+    <!-- Section 1: Tourism Trends and Dynamics -->
+    <h2>Section 1: Tourism Trends and Dynamics</h2>
+    <div class="visualization-container">
+        <h3>Top Contributors:</h3>
+        <div class="annotation">
+            <strong>Foreign Tourist Arrivals in Malaysia (2015-2024):</strong> This chart presents the major countries from which tourists visit Malaysia, highlighting the international interest in Malaysian destinations.
         </div>
+        <div class="visualization" id="top_tourist_sources"></div>
+
+        <h3>Monthly Trends:</h3>
+        <div class="annotation">
+            <strong>Breakdown of Tourist Arrivals Over the Past Decade:</strong> This visualization depicts the seasonal fluctuations in tourist arrivals over the years, showcasing peak travel times.
+        </div>
+        <div class="visualization" id="seasonal_trends"></div>
     </div>
 
-    <div class="section">
-        <h2 style="text-align:center; font-size: 22px; color: #444;">Tourism Trends</h2>
-        <div class="visualization-container">
-            <div class="visualization" id="seasonal_trends">
-                <div class="annotation">
-                    <div class="visualization-title">2. Seasonal Trends:</div>
-                    This visualization depicts the seasonal fluctuations in tourist arrivals over the years, showcasing peak travel times.
-                </div>
-            </div>
-
-            <div class="visualization" id="changing_stay_patterns">
-                <div class="annotation">
-                    <div class="visualization-title">9. Changing Stay Patterns:</div>
-                    This chart analyzes trends in the duration of tourist stays, providing insights into visitor behavior and preferences.
-                </div>
-            </div>
-
-            <div class="visualization" id="travel_motivations">
-                <div class="annotation">
-                    <div class="visualization-title">6. Travel Motivations:</div>
-                    This visualization reveals the primary motivations for tourists visiting Malaysia, shedding light on what attracts visitors.
-                </div>
-            </div>
+    <!-- Section 2: Understanding the Tourist Profile -->
+    <h2>Section 2: Understanding the Tourist Profile</h2>
+    <div class="visualization-container">
+        <h3>Gender Representation:</h3>
+        <div class="annotation">
+            <strong>Tourist Arrivals by Gender (Donut Chart):</strong> This chart illustrates the distribution of male and female tourists, providing insights into gender trends in tourism.
         </div>
+        <div class="visualization" id="gender_distribution"></div>
+
+        <h3>Global Gender Breakdown:</h3>
+        <div class="annotation">
+            <strong>Gender Distribution of Arrivals from Various Countries:</strong> A comparison of gender distribution globally, contextualizing Malaysia's tourism demographics.
+        </div>
+        <div class="visualization" id="global_gender_breakdown"></div>
+
+        <h3>Reasons for Travel:</h3>
+        <div class="annotation">
+            <strong>Purpose of Visits:</strong> This visualization reveals the primary motivations for tourists visiting Malaysia, shedding light on what attracts visitors.
+        </div>
+        <div class="visualization" id="travel_motivations"></div>
     </div>
 
-    <div class="section">
-        <h2 style="text-align:center; font-size: 22px; color: #444;">Economic Impact</h2>
-        <div class="visualization-container">
-            <div class="visualization" id="revenue_generation">
-                <div class="annotation">
-                    <div class="visualization-title">3. Revenue Generation:</div>
-                    An analysis of the revenue generated from tourism, reflecting economic impacts and growth patterns from 2006 to 2023.
-                </div>
-            </div>
-
-            <div class="visualization" id="expenditure_insights">
-                <div class="annotation">
-                    <div class="visualization-title">7. Expenditure Insights:</div>
-                    A breakdown of tourist spending patterns across various components, informing stakeholders about financial contributions.
-                </div>
-            </div>
-
-            <div class="visualization" id="geographic_analysis">
-                <div class="annotation">
-                    <div class="visualization-title">8. Geographic Analysis:</div>
-                    A detailed look at tourism trends on a state-wise basis, showcasing regional differences and opportunities.
-                </div>
-            </div>
+    <!-- Section 3: Economic Impact of Tourism -->
+    <h2>Section 3: Economic Impact of Tourism</h2>
+    <h3>Title: Tourism as an Economic Driver</h3>
+    <h3>Subtitle: Analyzing Spending Patterns and Contributions</h3>
+    <div class="visualization-container">
+        <div class="annotation">
+            <strong>Expenditure Insights:</strong> Inbound Tourist Expenditure by Component (2014-2023).
         </div>
+        <div class="visualization" id="expenditure_insights"></div>
+
+        <div class="annotation">
+            <strong>Revenue Generation:</strong> Correlation Between Tourist Arrivals and Economic Receipts (2006-2023).
+        </div>
+        <div class="visualization" id="revenue_generation"></div>
+    </div>
+
+    <!-- Section 4: Regional Tourism Insights -->
+    <h2>Section 4: Regional Tourism Insights</h2>
+    <h3>Title: State-wise Tourism Analysis</h3>
+    <h3>Subtitle: Understanding Regional Dynamics in Malaysia's Tourism</h3>
+    <div class="visualization-container">
+        <div class="annotation">
+            <strong>Geographic Distribution:</strong> State Wise Tourism Rates in Malaysia (Choropleth Map).
+        </div>
+        <div class="visualization" id="geographic_analysis"></div>
+
+        <div class="annotation">
+            <strong>Stay Duration Trends:</strong> Changes in Tourist Stay Patterns (2018-2023).
+        </div>
+        <div class="visualization" id="changing_stay_patterns"></div>
     </div>
 
     <script type="text/javascript">
         // Embed the visualizations
         vegaEmbed('#top_tourist_sources', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json')
-            .then(function (result) { console.log("Top Tourist Sources loaded successfully"); })
-            .catch(function (error) { console.error("Error loading Top Tourist Sources: ", error); });
+            .then(function(result) { console.log("Top Tourist Sources loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Top Tourist Sources: ", error); });
 
         vegaEmbed('#seasonal_trends', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json')
-            .then(function (result) { console.log("Seasonal Trends loaded successfully"); })
-            .catch(function (error) { console.error("Error loading Seasonal Trends: ", error); });
+            .then(function(result) { console.log("Seasonal Trends loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Seasonal Trends: ", error); });
 
         vegaEmbed('#revenue_generation', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json')
-            .then(function (result) { console.log("Revenue Generation loaded successfully"); })
-            .catch(function (error) { console.error("Error loading Revenue Generation: ", error); });
+            .then(function(result) { console.log("Revenue Generation loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Revenue Generation: ", error); });
 
         vegaEmbed('#gender_distribution', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json')
-            .then(function (result) { console.log("Gender Distribution loaded successfully"); })
-            .catch(function (error) { console.error("Error loading Gender Distribution: ", error); });
+            .then(function(result) { console.log("Gender Distribution loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Gender Distribution: ", error); });
 
         vegaEmbed('#global_gender_breakdown', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json')
-            .then(function (result) { console.log("Global Gender Breakdown loaded successfully"); })
-            .catch(function (error) { console.error("Error loading Global Gender Breakdown: ", error); });
+            .then(function(result) { console.log("Global Gender Breakdown loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Global Gender Breakdown: ", error); });
 
         vegaEmbed('#travel_motivations', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation%20-%20Purpose%20of%20Visits.vg.json')
-            .then(function (result) { console.log("Travel Motivations loaded successfully"); })
-            .catch(function (error) { console.error("Error loading Travel Motivations: ", error); });
+            .then(function(result) { console.log("Travel Motivations loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Travel Motivations: ", error); });
 
         vegaEmbed('#expenditure_insights', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json')
-            .then(function (result) { console.log("Expenditure Insights loaded successfully"); })
-            .catch(function (error) { console.error("Error loading Expenditure Insights: ", error); });
+            .then(function(result) { console.log("Expenditure Insights loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Expenditure Insights: ", error); });
 
         vegaEmbed('#geographic_analysis', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.json')
-            .then(function (result) { console.log("Geographic Analysis loaded successfully"); })
-            .catch(function (error) { console.error("Error loading Geographic Analysis: ", error); });
+            .then(function(result) { console.log("Geographic Analysis loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Geographic Analysis: ", error); });
 
         vegaEmbed('#changing_stay_patterns', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Trends%20in%20Tourist%20Stay%20(2018-2023).vg.json')
-            .then(function (result) { console.log("Changing Stay Patterns loaded successfully"); })
-            .catch(function (error) { console.error("Error loading Changing Stay Patterns: ", error); });
+            .then(function(result) { console.log("Changing Stay Patterns loaded successfully"); })
+            .catch(function(error) { console.error("Error loading Changing Stay Patterns: ", error); });
     </script>
 </body>
-
 </html>
