@@ -181,7 +181,7 @@
     "tooltip": [
       {"field": "year", "title": "Year"},
       {"field": "month", "title": "Month"},
-      {"field": "value", "title": "Tourist Arrivals (millions)"},
+      {"field": "value", "title": "Tourist Arrivals (millions)"}
     ]        
       },
   "layer": [
