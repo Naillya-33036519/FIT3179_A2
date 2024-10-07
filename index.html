@@ -20,7 +20,7 @@
         }
         h1 {
             font-size: 28px; /* Increase title size */
-            margin-bottom: 10px; /* Space between title and visualizations */
+            margin-bottom: 20px; /* Space between title and sections */
             text-align: center; /* Center the title */
         }
         h2 {
@@ -28,24 +28,24 @@
             margin-top: 30px; /* Space above section titles */
             margin-bottom: 10px; /* Space below section titles */
             color: #007BFF; /* Primary color for section titles */
+            text-align: center; /* Center section titles */
         }
         h3 {
             font-size: 20px; /* Subtitle size */
             margin-top: 10px; /* Space above subtitles */
             margin-bottom: 15px; /* Space below subtitles */
             color: #0056b3; /* Darker blue for subtitles */
+            text-align: left; /* Left align subtitles */
         }
         .visualization-container {
             margin: 20px auto; /* Center the visualizations */
             width: 90%; /* Set a width for the visualizations */
             display: flex; /* Use Flexbox for layout */
             flex-wrap: wrap; /* Allow wrapping for responsiveness */
-            justify-content: space-between; /* Space between visualizations */
+            justify-content: space-around; /* Space between visualizations */
         }
         .visualization {
-            flex: 1; /* Allow each visualization to take equal space */
-            min-width: 300px; /* Minimum width for each visualization */
-            max-width: 45%; /* Maximum width for each visualization */
+            flex: 0 1 calc(45% - 20px); /* Flex item with a responsive width */
             margin: 10px; /* Space between visualizations */
             background-color: #fff; /* Background color for visualizations */
             padding: 10px; /* Padding inside the visualization */
@@ -66,39 +66,49 @@
     <!-- Section 1: Tourism Trends and Dynamics -->
     <h2>Section 1: Tourism Trends and Dynamics</h2>
     <div class="visualization-container">
-        <h3>Top Contributors:</h3>
-        <div class="annotation">
-            <strong>Foreign Tourist Arrivals in Malaysia (2015-2024):</strong> This chart presents the major countries from which tourists visit Malaysia, highlighting the international interest in Malaysian destinations.
+        <div class="visualization">
+            <h3>Top Contributors:</h3>
+            <div class="annotation">
+                <strong>Foreign Tourist Arrivals in Malaysia (2015-2024):</strong> This chart presents the major countries from which tourists visit Malaysia, highlighting the international interest in Malaysian destinations.
+            </div>
+            <div id="top_tourist_sources"></div>
         </div>
-        <div class="visualization" id="top_tourist_sources"></div>
 
-        <h3>Monthly Trends:</h3>
-        <div class="annotation">
-            <strong>Breakdown of Tourist Arrivals Over the Past Decade:</strong> This visualization depicts the seasonal fluctuations in tourist arrivals over the years, showcasing peak travel times.
+        <div class="visualization">
+            <h3>Monthly Trends:</h3>
+            <div class="annotation">
+                <strong>Breakdown of Tourist Arrivals Over the Past Decade:</strong> This visualization depicts the seasonal fluctuations in tourist arrivals over the years, showcasing peak travel times.
+            </div>
+            <div id="seasonal_trends"></div>
         </div>
-        <div class="visualization" id="seasonal_trends"></div>
     </div>
 
     <!-- Section 2: Understanding the Tourist Profile -->
     <h2>Section 2: Understanding the Tourist Profile</h2>
     <div class="visualization-container">
-        <h3>Gender Representation:</h3>
-        <div class="annotation">
-            <strong>Tourist Arrivals by Gender (Donut Chart):</strong> This chart illustrates the distribution of male and female tourists, providing insights into gender trends in tourism.
+        <div class="visualization">
+            <h3>Gender Representation:</h3>
+            <div class="annotation">
+                <strong>Tourist Arrivals by Gender (Donut Chart):</strong> This chart illustrates the distribution of male and female tourists, providing insights into gender trends in tourism.
+            </div>
+            <div id="gender_distribution"></div>
         </div>
-        <div class="visualization" id="gender_distribution"></div>
 
-        <h3>Global Gender Breakdown:</h3>
-        <div class="annotation">
-            <strong>Gender Distribution of Arrivals from Various Countries:</strong> A comparison of gender distribution globally, contextualizing Malaysia's tourism demographics.
+        <div class="visualization">
+            <h3>Global Gender Breakdown:</h3>
+            <div class="annotation">
+                <strong>Gender Distribution of Arrivals from Various Countries:</strong> A comparison of gender distribution globally, contextualizing Malaysia's tourism demographics.
+            </div>
+            <div id="global_gender_breakdown"></div>
         </div>
-        <div class="visualization" id="global_gender_breakdown"></div>
 
-        <h3>Reasons for Travel:</h3>
-        <div class="annotation">
-            <strong>Purpose of Visits:</strong> This visualization reveals the primary motivations for tourists visiting Malaysia, shedding light on what attracts visitors.
+        <div class="visualization">
+            <h3>Reasons for Travel:</h3>
+            <div class="annotation">
+                <strong>Purpose of Visits:</strong> This visualization reveals the primary motivations for tourists visiting Malaysia, shedding light on what attracts visitors.
+            </div>
+            <div id="travel_motivations"></div>
         </div>
-        <div class="visualization" id="travel_motivations"></div>
     </div>
 
     <!-- Section 3: Economic Impact of Tourism -->
@@ -106,15 +116,19 @@
     <h3>Title: Tourism as an Economic Driver</h3>
     <h3>Subtitle: Analyzing Spending Patterns and Contributions</h3>
     <div class="visualization-container">
-        <div class="annotation">
-            <strong>Expenditure Insights:</strong> Inbound Tourist Expenditure by Component (2014-2023).
+        <div class="visualization">
+            <div class="annotation">
+                <strong>Expenditure Insights:</strong> Inbound Tourist Expenditure by Component (2014-2023).
+            </div>
+            <div id="expenditure_insights"></div>
         </div>
-        <div class="visualization" id="expenditure_insights"></div>
 
-        <div class="annotation">
-            <strong>Revenue Generation:</strong> Correlation Between Tourist Arrivals and Economic Receipts (2006-2023).
+        <div class="visualization">
+            <div class="annotation">
+                <strong>Revenue Generation:</strong> Correlation Between Tourist Arrivals and Economic Receipts (2006-2023).
+            </div>
+            <div id="revenue_generation"></div>
         </div>
-        <div class="visualization" id="revenue_generation"></div>
     </div>
 
     <!-- Section 4: Regional Tourism Insights -->
@@ -122,15 +136,19 @@
     <h3>Title: State-wise Tourism Analysis</h3>
     <h3>Subtitle: Understanding Regional Dynamics in Malaysia's Tourism</h3>
     <div class="visualization-container">
-        <div class="annotation">
-            <strong>Geographic Distribution:</strong> State Wise Tourism Rates in Malaysia (Choropleth Map).
+        <div class="visualization">
+            <div class="annotation">
+                <strong>Geographic Distribution:</strong> State Wise Tourism Rates in Malaysia (Choropleth Map).
+            </div>
+            <div id="geographic_analysis"></div>
         </div>
-        <div class="visualization" id="geographic_analysis"></div>
 
-        <div class="annotation">
-            <strong>Stay Duration Trends:</strong> Changes in Tourist Stay Patterns (2018-2023).
+        <div class="visualization">
+            <div class="annotation">
+                <strong>Stay Duration Trends:</strong> Changes in Tourist Stay Patterns (2018-2023).
+            </div>
+            <div id="changing_stay_patterns"></div>
         </div>
-        <div class="visualization" id="changing_stay_patterns"></div>
     </div>
 
     <script type="text/javascript">
