@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Purpose of Visits",
+    "text": "Travel Motivation - Purpose of Visits",
     "fontSize": 13,
     "align": "center"
   },
