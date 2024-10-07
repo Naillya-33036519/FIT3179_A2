@@ -1,96 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizations: Exploring Tourism in Malaysia</title>
-  
+
     <!-- Import Vega & Vega-Lite -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
-  
+
     <style>
         body {
-            font-family: Arial, sans-serif; /* Set font to sans-serif */
-            margin: 20px;
-            text-align: center; /* Center text in the body */
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default margin */
+            padding: 20px; /* Add padding around the body */
+            background-color: #f4f4f4; /* Light background color for contrast */
         }
+
         h1 {
-            font-size: 24px; /* Increase title size */
-            margin-bottom: 20px; /* Space between title and visualizations */
+            font-size: 26px; /* Increase title size for prominence */
+            margin-bottom: 15px; /* Space below the title */
+            color: #333; /* Darker color for better contrast */
         }
+
         .visualization-container {
-            margin: 40px auto; /* Center the visualizations */
-            width: 80%; /* Set a width for the visualizations */
-            display: flex; /* Use Flexbox for side-by-side layout */
-            flex-wrap: wrap; /* Allow wrapping for responsiveness */
-            justify-content: space-between; /* Space between visualizations */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around; /* Space visualizations evenly */
+            padding: 10px; /* Padding around the visualization container */
+            gap: 15px; /* Gap between visualizations */
         }
+
         .visualization {
-            flex: 1; /* Allow each visualization to take equal space */
-            min-width: 300px; /* Minimum width for each visualization */
-            margin: 10px; /* Space between visualizations */
-            border: 1px solid #ccc; /* Optional: add a border around visualizations */
-            border-radius: 5px; /* Optional: round corners */
-            background-color: #f9f9f9; /* Optional: background color */
-            padding: 10px; /* Optional: padding inside the visualization */
+            flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis */
+            max-width: 400px; /* Maximum width for responsiveness */
+            border: 1px solid #ccc; /* Light border for separation */
+            border-radius: 5px; /* Rounded corners */
+            background-color: #ffffff; /* White background for visualizations */
+            padding: 15px; /* Padding inside each visualization */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            position: relative; /* Position relative for absolute positioning of texts */
         }
+
         .annotation {
-            font-size: 14px; /* Set size for annotations */
-            margin-bottom: 10px; /* Space below the annotation */
-            text-align: center; /* Center the text */
+            font-size: 14px;
+            color: #666; /* Lighter color for annotations */
+            margin-bottom: 10px; /* Space below annotations */
+            text-align: left; /* Align text to the left */
+            padding: 5px; /* Padding for better readability */
+            border-bottom: 1px solid #eaeaea; /* Underline for separation */
+            position: absolute; /* Position absolute for layering */
+            top: 10px; /* Position at the top */
+            left: 10px; /* Position at the left */
+            right: 10px; /* Position at the right */
+            z-index: 1; /* Bring annotation above other elements */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+        }
+
+        .visualization-title {
+            font-weight: bold; /* Bold title for each visualization */
+            font-size: 16px; /* Slightly larger font for titles */
+            margin-bottom: 10px; /* Space below titles */
+            color: #333; /* Darker color for better visibility */
         }
     </style>
 </head>
+
 <body>
     <h1>Exploring Tourism in Malaysia</h1>
 
     <div class="visualization-container">
-        <div class="annotation">
-            <strong>1. Top Tourist Sources:</strong> This chart presents the major countries from which tourists visit Malaysia, highlighting the international interest in Malaysian destinations.
+        <div class="visualization" id="top_tourist_sources">
+            <div class="annotation">
+                <div class="visualization-title">1. Top Tourist Sources:</div>
+                This chart presents the major countries from which tourists visit Malaysia, highlighting the international interest in Malaysian destinations.
+            </div>
         </div>
-        <div class="visualization" id="top_tourist_sources"></div>
 
-        <div class="annotation">
-            <strong>2. Seasonal Trends:</strong> This visualization depicts the seasonal fluctuations in tourist arrivals over the years, showcasing peak travel times.
+        <div class="visualization" id="seasonal_trends">
+            <div class="annotation">
+                <div class="visualization-title">2. Seasonal Trends:</div>
+                This visualization depicts the seasonal fluctuations in tourist arrivals over the years, showcasing peak travel times.
+            </div>
         </div>
-        <div class="visualization" id="seasonal_trends"></div>
 
-        <div class="annotation">
-            <strong>3. Revenue Generation:</strong> An analysis of the revenue generated from tourism, reflecting economic impacts and growth patterns from 2006 to 2023.
+        <div class="visualization" id="revenue_generation">
+            <div class="annotation">
+                <div class="visualization-title">3. Revenue Generation:</div>
+                An analysis of the revenue generated from tourism, reflecting economic impacts and growth patterns from 2006 to 2023.
+            </div>
         </div>
-        <div class="visualization" id="revenue_generation"></div>
 
-        <div class="annotation">
-            <strong>4. Gender Distribution:</strong> This chart illustrates the distribution of male and female tourists, providing insights into gender trends in tourism.
+        <div class="visualization" id="gender_distribution">
+            <div class="annotation">
+                <div class="visualization-title">4. Gender Distribution:</div>
+                This chart illustrates the distribution of male and female tourists, providing insights into gender trends in tourism.
+            </div>
         </div>
-        <div class="visualization" id="gender_distribution"></div>
 
-        <div class="annotation">
-            <strong>5. Global Gender Breakdown:</strong> A comparison of gender distribution globally, contextualizing Malaysia's tourism demographics.
+        <div class="visualization" id="global_gender_breakdown">
+            <div class="annotation">
+                <div class="visualization-title">5. Global Gender Breakdown:</div>
+                A comparison of gender distribution globally, contextualizing Malaysia's tourism demographics.
+            </div>
         </div>
-        <div class="visualization" id="global_gender_breakdown"></div>
 
-        <div class="annotation">
-            <strong>6. Travel Motivations:</strong> This visualization reveals the primary motivations for tourists visiting Malaysia, shedding light on what attracts visitors.
+        <div class="visualization" id="travel_motivations">
+            <div class="annotation">
+                <div class="visualization-title">6. Travel Motivations:</div>
+                This visualization reveals the primary motivations for tourists visiting Malaysia, shedding light on what attracts visitors.
+            </div>
         </div>
-        <div class="visualization" id="travel_motivations"></div>
 
-        <div class="annotation">
-            <strong>7. Expenditure Insights:</strong> A breakdown of tourist spending patterns across various components, informing stakeholders about financial contributions.
+        <div class="visualization" id="expenditure_insights">
+            <div class="annotation">
+                <div class="visualization-title">7. Expenditure Insights:</div>
+                A breakdown of tourist spending patterns across various components, informing stakeholders about financial contributions.
+            </div>
         </div>
-        <div class="visualization" id="expenditure_insights"></div>
 
-        <div class="annotation">
-            <strong>8. Geographic Analysis:</strong> A detailed look at tourism trends on a state-wise basis, showcasing regional differences and opportunities.
+        <div class="visualization" id="geographic_analysis">
+            <div class="annotation">
+                <div class="visualization-title">8. Geographic Analysis:</div>
+                A detailed look at tourism trends on a state-wise basis, showcasing regional differences and opportunities.
+            </div>
         </div>
-        <div class="visualization" id="geographic_analysis"></div>
 
-        <div class="annotation">
-            <strong>9. Changing Stay Patterns:</strong> This chart analyzes trends in the duration of tourist stays, providing insights into visitor behavior and preferences.
+        <div class="visualization" id="changing_stay_patterns">
+            <div class="annotation">
+                <div class="visualization-title">9. Changing Stay Patterns:</div>
+                This chart analyzes trends in the duration of tourist stays, providing insights into visitor behavior and preferences.
+            </div>
         </div>
-        <div class="visualization" id="changing_stay_patterns"></div>
     </div>
 
     <script type="text/javascript">
@@ -132,4 +175,5 @@
             .catch(function(error) { console.error("Error loading Changing Stay Patterns: ", error); });
     </script>
 </body>
+
 </html>
