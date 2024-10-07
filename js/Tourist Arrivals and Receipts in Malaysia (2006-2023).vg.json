@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Dual-axis line chart for Tourist Arrivals and Receipts in Malaysia (2006-2023) with point markers and spaced x-axis labels.",
+  "description": "Dual-axis line chart for Tourist Arrivals and Receipts in Malaysia (2006-2023) with point markers and a vertical hover rule.",
   "title": "Tourist Arrivals and Receipts in Malaysia (2006-2023)",
   "data": {
     "values": [
@@ -34,8 +34,8 @@
     {
       "mark": {
         "type": "line",
-        "point": true,  // Adds point markers on the line
-        "interpolate": "monotone"  // Smoothens the line
+        "point": true,  
+        "interpolate": "monotone"
       },
       "encoding": {
         "x": {
@@ -43,9 +43,9 @@
           "type": "ordinal",
           "title": "Year",
           "axis": {
-            "labelAngle": -45,  // Rotates the x-axis labels for better spacing
-            "labelPadding": 10,  // Adds extra space around labels
-            "grid": false        // Ensures no grid lines on x-axis
+            "labelAngle": -45,
+            "labelPadding": 10,
+            "grid": false    
           },
           "scale": {
             "domain": [
@@ -60,7 +60,7 @@
           "type": "quantitative",
           "title": "Total (in Million)",
           "axis": {
-            "grid": false        // Ensures no grid lines on y-axis
+            "grid": false
           }
         },
         "color": {
@@ -76,29 +76,38 @@
           {
             "field": "Metric",
             "title": "Value Type",
-            "format": "N", // Format as number
+            "format": "N",
             "type": "nominal",
-            "aggregate": "distinct",
-            "value": {"signal": "datum.Metric === 'Arrivals' ? 'Number of Arrivals' : 'Receipts (in Million RM)'"}
+            "aggregate": "distinct"
           },
           {
             "field": "Value",
             "title": "Value",
-            "format": ".2f",  // Format to 2 decimal places
+            "format": ".2f",
             "type": "quantitative"
           }
         ]
       }
+    },
+    {
+      "params": [{
+        "name": "hover",
+        "select": {
+          "type": "point",
+          "encodings": ["x"],
+          "on": "mouseover",
+          "nearest": true
+        }
+      }],
+      "mark": "rule",
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {"param": "hover", "value": 1},
+          "value": 0
+        }
+      }
     }
-  ],
-  "resolve": {
-    "scale": {
-      "y": "independent"
-    }
-  },
-  "config": {
-    "tooltip": {
-      "content": "data"
-    }
-  }
+  ]
 }
