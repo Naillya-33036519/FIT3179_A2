@@ -12,18 +12,18 @@
             font-family: Arial, sans-serif;
             background-color: #e0e0e0; /* Light grey background for the page */
             margin: 0;
-            padding: 20px;
-            max-width: 1000;
+            padding: 20px; /* Inner padding for the body */
         }
 
         .section {
             background-color: white;  /* White background for each section */
             border-radius: 8px;       /* Rounded corners */
-            padding: 20px;
-            margin-bottom: 30px;
+            padding: 20px;            /* Inner padding for section content */
+            margin: 10px;             /* Outer margin to create space between sections */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            width: 100%;
-            margin: 0 auto; 
+            width: calc(100% - 40px); /* Width adjusted for padding */
+            max-width: 1000px;        /* Maximum width for the sections */
+            margin: 10px auto;        /* Center sections with auto left/right margins */
         }
 
         h1 {
