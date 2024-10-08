@@ -31,6 +31,7 @@
         "color": {
           "field": "gender",
           "type": "nominal",
+          "legend": null,
           "scale": {
             "domain": ["Male", "Female"],
             "range": ["#87CEEB", "#FFB6C1"]
@@ -227,14 +228,5 @@
         }
       }
     }
-  ],
-  "config": {
-    "legend": {
-      "orient": "right",
-      "padding": 5,
-      "labelFontSize":14,
-      "titleFontSize":14,
-      "labelPadding":12
-    }
-  }
+  ]
 }
