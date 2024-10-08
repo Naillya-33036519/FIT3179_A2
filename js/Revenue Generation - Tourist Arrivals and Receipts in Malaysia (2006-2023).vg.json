@@ -6,8 +6,8 @@
     "fontSize": 16,
     "dy": -16
   },
-  "width":700,
-  "height":400,
+  "width":600,
+  "height":300,
   "data": {
     "values": [
       {"year": "2006", "Arrivals": 17.55, "Receipts": 36.27},
@@ -85,7 +85,8 @@
             "title": "Metric",
             "labelFontSize": 14,
             "titleFontSize": 14,
-            "titlePadding": 12
+            "titlePadding": 12,
+            "orient": "bottom"
           }
         },
         "tooltip": [
