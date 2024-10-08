@@ -33,7 +33,6 @@
             font-size: 1.8em; /* Increased font size */
             margin-top: 10px; /* Reduced margin */
             padding-top: 5px;
-            padding-bottom: 5px;
         }
 
         /* Section styling */
@@ -46,7 +45,6 @@
         /* Section title styling */
         .section h2 {
             font-size: 1.6em; /* Increased font size */
-            padding-bottom: 5px; /* Padding below title */
         }
 
         /* Flex and grid containers */
@@ -71,7 +69,7 @@
 
         /* Explanatory text for each chart */
         .chart-description {
-            font-size: 1.1em; /* Increased text size */
+            font-size: 1.5em; /* Increased text size */
             margin: 10px 0;
         }
 
@@ -184,8 +182,8 @@
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 14,   // Decreased axis label size
-                        titleFontSize: 14    // Decreased axis title size
+                        labelFontSize: 15,   // Decreased axis label size
+                        titleFontSize: 15   // Decreased axis title size
                     }
                 }
             }).catch(console.warn);
