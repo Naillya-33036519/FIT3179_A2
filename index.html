@@ -48,7 +48,6 @@
 
         .grid-container {
             display: grid;
-            grid-gap: 20px;
             width: 100%; 
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive grid */
         }
@@ -59,13 +58,11 @@
         
         .flex-container {
             display: flex;                     /* Create a flexible box layout */
-            justify-content: space-between;    /* Space items evenly */
             align-items: flex-start;           /* Align items at the top */
             margin-top: 20px;                  /* Add space above the charts */
         }
         
         .chart-container {
-            flex: 1;                            /* Allow each chart to take up equal space */
             margin-right: 20px;                /* Space between charts and description */
             background-color: white;            /* Ensure chart background is white */
             border-radius: 5px;                /* Rounded corners for the chart containers */
@@ -73,11 +70,9 @@
         }
         
         .description-container {
-            flex: 1;                            /* Allow description to take up equal space */
             max-width: 400px;                  /* Limit max width for the description */
             background-color: white;            /* Ensure description background is white */
             border-radius: 5px;                /* Rounded corners for the description */
-            padding: 10px;                     /* Padding inside description container */
         }
         
         .chart-item {
