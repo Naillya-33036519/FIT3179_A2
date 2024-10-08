@@ -24,7 +24,7 @@
             background-color: white; /* Background color for the container */
             border: 1px solid #d0d0d0; /* Border styling */
             border-radius: 5px; /* Rounded corners */
-            padding: 10px; /* Padding around content */
+            padding: 15px 10px; /* Reduced padding around content */
             display: flex; /* Use flex to control layout */
             flex-direction: column; /* Stack children vertically */
             align-items: center; /* Center child elements */
@@ -33,23 +33,27 @@
         /* Main header */
         h1 {
             text-align: center;
-            font-size: 1.6em; /* Slightly reduced font size */
+            font-size: 1.8em; /* Increased font size for emphasis */
             margin: 10px 0; /* Reduced margin */
             padding-top: 5px;
         }
 
         /* Section styling */
         .section {
-            margin: 10px 0; /* Reduced margins */
+            margin: 5px 0; /* Reduced margins */
             padding: 10px; /* Add padding around sections */
             background-color: #f9f9f9; /* Light background for sections */
             width: 100%; /* Full width */
+            border-radius: 5px; /* Rounded corners for sections */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
         }
 
         /* Section title styling */
         .section h2 {
-            font-size: 1.5em; /* Slightly reduced font size */
+            font-size: 1.6em; /* Adjusted section header font size */
             margin-top: 0; /* Removed top margin */
+            margin-bottom: 5px; /* Space below section header */
+            color: #333; /* Darker color for better visibility */
         }
 
         /* Flex and grid containers */
@@ -68,7 +72,7 @@
             background-color: white;
             border-radius: 5px;
             overflow: hidden;
-            margin: 0 10px; /* Small margin between charts */
+            margin: 0 5px; /* Reduced margin between charts */
             padding: 0;
             flex: 1; /* Allow charts to share space */
             height: auto;
@@ -77,11 +81,10 @@
 
         /* Explanatory text for each chart */
         .chart-description {
-            font-size: 1.5em; 
-            margin: 10px 0;
+            font-size: 1.2em; /* Reduced font size for description */
+            margin: 5px 0; /* Reduced margins */
             padding-bottom: 5px; /* Add padding below the chart description */
-            overflow-wrap: break-word; /* Allow long words to be broken */
-            line-height: 1.3; /* Increase line height for readability */
+            line-height: 1.3; /* Increased line height for readability */
             max-width: 78%; /* Limit the width to improve word count per line */
             display: inline-block; /* Allow word count control */
             text-align: justify; /* Justify text */
@@ -103,33 +106,23 @@
             }
 
             h1 {
-                font-size: 1.4em; /* Adjusted font size */
+                font-size: 1.5em; /* Adjusted font size */
                 padding: 5px;
             }
 
             .section {
-                padding: 5px;
+                padding: 5px; /* Reduced padding */
             }
 
             .visualization {
                 max-width: 100%; /* Full width on smaller screens */
-                margin: 5px 0;
+                margin: 5px 0; /* Reduced margin */
                 height: auto; /* Allow height to adjust on smaller screens */
             }
 
             .grid-container {
                 flex-direction: column; /* Stack charts vertically on smaller screens */
             }
-        }
-
-        /* Adjustments to enforce 10 words per line */
-        .chart-description {
-            display: -webkit-box; /* Use box layout for multi-line text */
-            -webkit-box-orient: vertical; 
-            -webkit-line-clamp: 3; /* Limit lines to 3 */
-            overflow: hidden; /* Hide overflow */
-            text-overflow: ellipsis; /* Show ellipsis for overflowing text */
-            width: 100%; /* Ensure it uses full width */
         }
     </style>
 </head>
@@ -146,10 +139,10 @@
             
             <!-- Visualization container for Section 1 -->
             <div class="visualization" id="tourist-countries-chart"></div>
-            <div class="chart-description">Tourism trends from 2016-2024 show strong recovery from nearby countries like Singapore and Indonesia.</div>
+            <div class="chart-description">Tourism trends from 2016-2024 show strong recovery from nearby countries.</div>
 
             <div class="visualization" id="seasonal-arrivals-chart"></div>
-            <div class="chart-description">The heatmap displays Malaysia's tourist arrivals from 2013 to 2023, illustrating notable trends over the years.</div>
+            <div class="chart-description">The heatmap displays Malaysia's tourist arrivals from 2013 to 2023, illustrating notable trends.</div>
         </div>
 
         <!-- Section 2: Tourist Profile -->
@@ -175,7 +168,7 @@
             <div class="chart-description">The chart shows tourist spending in Malaysia from 2014 to 2023, divided into various categories.</div>
 
             <div class="visualization" id="revenue-tourist-chart"></div>
-            <div class="chart-description">The "Revenue" chart correlates financial gains with visitor numbers, showcasing trends.</div>
+            <div class="chart-description">The revenue chart correlates financial gains with visitor numbers, showcasing trends.</div>
         </div>
 
         <!-- Section 4: Regional Tourism Insights -->
@@ -196,7 +189,7 @@
                 <div class="visualization" id="purpose-of-visit-chart"></div>
                 <div class="visualization wide" id="stay-trends-chart"></div>
             </div>
-            <div class="chart-description">The donut chart illustrates key travel reasons such as Leisure, Visiting Friends, and Family.</div>
+            <div class="chart-description">The donut chart illustrates key travel reasons such as Leisure and Visiting Friends.</div>
         </div>
     </div>
 
@@ -206,8 +199,8 @@
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 14,   // Decreased axis label size
-                        titleFontSize: 14   // Decreased axis title size
+                        labelFontSize: 12,   // Further decreased axis label size
+                        titleFontSize: 12   // Further decreased axis title size
                     }
                 }
             }).catch(console.warn);
