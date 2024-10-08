@@ -65,6 +65,8 @@
         }
         
         .chart-item {
+            display: flex;
+            flex-direction: column;
             flex: 1 1 45%;            /* Make each chart take up about 45% of the width */
             min-width: 300px;         /* Ensure charts don't get too narrow on small screens */
         }
@@ -129,22 +131,27 @@
             Understanding the composition of arrivals can aid in tailoring marketing strategies and services.
         </p>
         <div class="grid-container">
-            <div class="visualization" id="gender-arrivals-chart">
-                <!-- Chart 3: Arrivals by Gender -->
+            <div class="chart-item">
+                <div class="visualization" id="gender-arrivals-chart">
+                    <!-- Chart 3: Arrivals by Gender -->
+                </div>
+                <p class="chart-description">
+                    This chart analyzes gender distribution among tourists, highlighting 
+                    trends in male and female arrivals, which can inform targeted marketing.
+                </p>
             </div>
-            <p class="chart-description">
-                This chart analyzes gender distribution among tourists, highlighting 
-                trends in male and female arrivals, which can inform targeted marketing.
-            </p>
-            <div class="visualization" id="country-gender-chart">
-                <!-- Chart 4: Gender Distribution of Arrivals by Country -->
+            <div class="chart-item">
+                <div class="visualization" id="country-gender-chart">
+                    <!-- Chart 4: Gender Distribution of Arrivals by Country -->
+                </div>
+                <p class="chart-description">
+                    The gender distribution chart by country reveals interesting trends, 
+                    emphasizing which nations contribute to the male and female tourist ratios.
+                </p>
             </div>
-            <p class="chart-description">
-                The gender distribution chart by country reveals interesting trends, 
-                emphasizing which nations contribute to the male and female tourist ratios.
-            </p>
         </div>
     </div>
+
 
     <!-- Section 3 -->
     <div class="section">
