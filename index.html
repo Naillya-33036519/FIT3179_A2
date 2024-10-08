@@ -14,7 +14,7 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 5px;
-            max-width: 1400px; /* Smaller screen size */
+            max-width: 800px; /* Smaller screen size */
             margin-left: auto;
             margin-right: auto;
         }
@@ -24,23 +24,22 @@
             background-color: white;
             border: 1px solid #d0d0d0;
             border-radius: 8px;
-            padding: 10px; /* Reduced padding */
+            padding: 10px;
             margin: 10px 0;
-            max-width: 100%;
         }
 
         /* Grid and flex containers styling */
         .grid-container, .flex-container {
-            width: 100%; /* Full width containers */
+            width: 100%;
         }
 
         /* Visualization styling */
         .visualization {
             background-color: white;
             border-radius: 5px;
-            padding: 10px; /* Reduced padding */
-            margin: 10px 0; /* Margin for spacing */
-            overflow: hidden; /* Prevent overflow */
+            padding: 10px;
+            margin: 10px 0;
+            overflow: hidden;
         }
 
         /* Adjust chart container size */
@@ -61,6 +60,7 @@
         @media (max-width: 768px) {
             body {
                 padding: 10px;
+                max-width: 600px; /* Further reduce size for smaller screens */
             }
 
             .section {
@@ -75,7 +75,6 @@
 </head>
 <body>
 
-    <!-- Main header for the webpage -->
     <h1 style="text-align: center; font-size: 2em;">Exploring Tourism in Malaysia</h1>
 
     <!-- Section 1: Tourism Trends and Dynamics -->
@@ -83,27 +82,12 @@
         <h2 style="font-size: 1.8em;">Tourism Trends and Dynamics</h2>
         <p style="font-size: 1.4em;">Understanding fluctuations in tourist arrivals helps stakeholders adapt strategies. This section analyzes tourist sources and monthly trends to provide insights into visitor behavior.</p>
         
-        <!-- Visualization container -->
         <div class="grid-container">
             <div class="visualization" id="tourist-countries-chart"></div>
             <div class="visualization" id="seasonal-arrivals-chart"></div>
         </div>
 
         <p style="font-size: 1.4em;">The chart displays the top sources of tourists for Malaysia from 2015 to 2024, showing key contributors and the impact of global events on tourism.</p>
-    </div>
-
-    <!-- Section 2: Tourist Profile -->
-    <div class="section">
-        <h2 style="font-size: 1.8em;">Understanding the Tourist Profile</h2>
-        <p style="font-size: 1.4em;">This section focuses on the demographic profile of tourists, including gender and age distribution. Understanding the composition helps tailor marketing strategies effectively.</p>
-        
-        <!-- Visualization container -->
-        <div class="flex-container">
-            <div class="visualization" id="gender-arrivals-chart"></div>
-            <div class="visualization" id="country-gender-chart"></div>
-        </div>
-
-        <p style="font-size: 1.4em;">The "Arrivals by Gender" chart highlights the gender distribution among tourists, providing insights into visitor demographics.</p>
     </div>
 
     <!-- Section 3: Tourism Expenditure and Revenue -->
