@@ -64,6 +64,7 @@
         
         .chart-container {
             margin: 0;             
+
             background-color: white;            /* Ensure chart background is white */
             border-radius: 5px;                /* Rounded corners for the chart containers */
         }
@@ -219,7 +220,7 @@
     <script>
         // Function to embed Vega charts
         const embedCharts = (divId, url) => {
-            vegaEmbed(#${divId}, url, {
+            vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
                         labelFontSize: 14,   // Increase axis label size
