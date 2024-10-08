@@ -110,8 +110,8 @@
       {"Country": "Philippines", "year": 2015, "Visitors": 957408, "rank": 10}
     ]
   },
-  "width": 600,
-  "height": 400,
+  "width": 1200,
+  "height": 500,
   "mark": {
     "type": "line",
     "point": true,
