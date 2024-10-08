@@ -63,10 +63,13 @@
         }
         
         .chart-container {
-            margin: 0;             
-
+            flex: 1; /* Allow the chart container to grow and shrink */
+            margin: 0;
             background-color: white;            /* Ensure chart background is white */
             border-radius: 5px;                /* Rounded corners for the chart containers */
+            position: relative;                 /* Position relative for absolute positioning of charts */
+            overflow: hidden;                   /* Hide overflow to avoid any resizing issues */
+            height: 600px;                      /* Set a fixed height for the charts */
         }
         
         .description-container {
@@ -85,16 +88,11 @@
         .visualization {
             background-color: white;
             border-radius: 5px;
-            padding: 30px;
             text-align: center;
             position: relative;
-            max-width: 900px;
-        }
-
-        #regional-tourism-map {
-            /* Enlarge map container */
-            width: 100%;
-            height: 600px;
+            width: 100%;              /* Ensure charts take full width */
+            height: 100%;             /* Ensure charts take full height */
+            padding: 0;               /* Remove padding */
         }
 
         /* Style for the chart description text */
@@ -121,11 +119,15 @@
             and monthly trends, offering insights into visitor behavior.
         </p>
         <div class="grid-container single"> <!-- Changed to single column layout -->
-            <div class="visualization" id="tourist-countries-chart">
-                <!-- Chart 1: Top Tourist Sources by Country -->
+            <div class="chart-container">
+                <div class="visualization" id="tourist-countries-chart">
+                    <!-- Chart 1: Top Tourist Sources by Country -->
+                </div>
             </div>
-            <div class="visualization" id="seasonal-arrivals-chart">
-                <!-- Chart 2: Monthly Breakdown of Tourist Arrivals -->
+            <div class="chart-container">
+                <div class="visualization" id="seasonal-arrivals-chart">
+                    <!-- Chart 2: Monthly Breakdown of Tourist Arrivals -->
+                </div>
             </div>
         </div>
         <p class="section-description">
@@ -167,11 +169,15 @@
             and the correlation between tourist arrivals and economic receipts.
         </p>
         <div class="grid-container">
-            <div class="visualization" id="tourist-expenditure-chart">
-                <!-- Chart 5: Inbound Tourist Expenditure -->
+            <div class="chart-container">
+                <div class="visualization" id="tourist-expenditure-chart">
+                    <!-- Chart 5: Inbound Tourist Expenditure -->
+                </div>
             </div>
-            <div class="visualization" id="revenue-tourist-chart">
-                <!-- Chart 6: Revenue vs Tourist Arrivals -->
+            <div class="chart-container">
+                <div class="visualization" id="revenue-tourist-chart">
+                    <!-- Chart 6: Revenue vs Tourist Arrivals -->
+                </div>
             </div>
         </div>
         <p class="section-description">
@@ -184,16 +190,17 @@
         <h2>Section 4: Regional Tourism Insights</h2>
         <h3>Understanding regional dynamics in Malaysia’s tourism</h3>
         <p class="section-description">
-            This section focuses on regional tourism dynamics, showcasing how tourism rates vary by state 
-            and analyzing trends in tourist stay durations.
+            This section focuses on regional tourism dynamics, showcasing how different states in Malaysia attract 
+            varying numbers of tourists based on factors like culture, attractions, and accessibility.
         </p>
-        <div class="grid-container single">
-            <div class="visualization" id="regional-tourism-map">
-                <!-- Chart 7: Regional Choropleth Map -->
+        <div class="grid-container">
+            <div class="chart-container">
+                <div class="visualization" id="regional-tourism-map">
+                    <!-- Chart 7: Regional Choropleth Map -->
+                </div>
             </div>
             <p class="chart-description">
-                This regional tourism map displays state-wise trends, illustrating 
-                variations in tourist interest across Malaysia's regions.
+                This regional tourism map displays state-wise trends, illustrating variations in tourist interest across Malaysia's regions.
             </p>
         </div>
     </div>
@@ -207,12 +214,14 @@
             analyzing the potential growth areas and expected shifts in tourist behavior.
         </p>
         <div class="grid-container single">
-            <div class="visualization" id="future-trends-chart">
-                <!-- Chart 8: Future Trends in Tourism -->
+            <div class="chart-container">
+                <div class="visualization" id="future-trends-chart">
+                    <!-- Chart 8: Future Trends in Tourism -->
+                </div>
             </div>
             <p class="chart-description">
-                The future trends chart explores anticipated changes in tourist arrivals, 
-                showcasing growth prospects and areas of opportunity for stakeholders.
+                The future trends chart explores anticipated changes in tourist arrivals, showcasing growth prospects 
+                and areas of opportunity for stakeholders.
             </p>
         </div>
     </div>
@@ -225,6 +234,10 @@
                     axis: {
                         labelFontSize: 14,   // Increase axis label size
                         titleFontSize: 16    // Increase axis title size
+                    },
+                    view: {
+                        width: "100%",        // Ensure view width is 100%
+                        height: "100%"        // Ensure view height is 100%
                     }
                 }
             }).catch(console.warn);
