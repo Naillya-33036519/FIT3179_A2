@@ -19,9 +19,9 @@
             background-color: white;  /* White background for each section */
             border: 1px solid #d0d0d0; /* Light grey border for sections */
             border-radius: 8px;       /* Rounded corners */
-            padding: 30px;            /* Increased inner padding for section content */
-            margin: 20px 0;           /* Outer margin increased to create more space between sections */
-            max-width: 900px;         /* Maximum width for the sections */
+            padding: 40px;            /* Increased inner padding for section content */
+            margin: 15px 0;           /* Outer margin decreased to create less space between sections */
+            max-width: 800px;         /* Reduced maximum width for the sections */
             width: 100%;              /* Increase width to 100% of the page */
             box-shadow: none;         /* Remove shadow for a flatter look */
         }
@@ -90,7 +90,7 @@
             padding: 30px;
             text-align: center;
             position: relative;
-            max-width: 900px;
+            max-width: 800px; /* Adjusted width */
         }
 
         #regional-tourism-map {
@@ -202,21 +202,40 @@
 
     <!-- Section 5 -->
     <div class="section">
-        <h2>Section 5: Future Trends and Projections</h2>
-        <h3>Exploring anticipated trends in tourism post-2024</h3>
+        <h2>Section 5: Purpose of Visit and Stay Trends</h2>
+        <h3>Exploring motivations behind travel and stay durations</h3>
         <p class="section-description">
-            This section provides an outlook on future trends and projections in tourism activity in Malaysia, 
-            analyzing the potential growth areas and expected shifts in tourist behavior.
+            Understanding why tourists visit Malaysia and how long they stay 
+            provides crucial insights for improving tourism strategies.
         </p>
-        <div class="grid-container single">
-            <div class="visualization" id="stay-trends-chart">
-                <!-- Chart 8: Future Trends in Tourism -->
+        <div class="grid-container">
+            <div class="visualization" id="purpose-of-visit-chart">
+                <!-- Chart 8: Purpose of Visits -->
             </div>
-            <p class="chart-description">
-                The future trends chart explores anticipated changes in tourist arrivals, 
-                showcasing growth prospects and areas of opportunity for stakeholders.
-            </p>
+            <div class="visualization" id="stay-trends-chart">
+                <!-- Chart 9: Trends in Tourist Stay Duration -->
+            </div>
         </div>
+        <p class="chart-description">
+            The purpose of visit chart highlights key motivations for travel, 
+            while the stay duration chart reveals patterns in tourist behavior.
+        </p>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section">
+        <h2>Section 6: Future Trends in Tourism</h2>
+        <h3>Anticipating changes in tourism dynamics</h3>
+        <p class="section-description">
+            Exploring future trends can help stakeholders prepare for shifts in the tourism landscape.
+        </p>
+        <div class="visualization" id="future-trends-chart">
+            <!-- Chart 10: Future Trends in Tourism -->
+        </div>
+        <p class="chart-description">
+            The future trends chart explores anticipated changes in tourist arrivals, 
+            showcasing growth prospects and areas of opportunity for stakeholders.
+        </p>
     </div>
 
     <script>
