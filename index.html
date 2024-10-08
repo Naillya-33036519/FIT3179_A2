@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
+        /* Base styling */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0; /* Light grey background for the page */
@@ -18,100 +19,132 @@
             margin-right: auto; /* Center the content */
         }
 
+        /* Section styling */
         .section {
-            background-color: white;  /* White background for each section */
+            background-color: white; /* White background for each section */
             border: 1px solid #d0d0d0; /* Light grey border for sections */
-            border-radius: 8px;       /* Rounded corners */
-            padding: 15px;            /* Reduced padding for less whitespace */
-            margin: 10px 0;           /* Outer margin for spacing between sections */
-            box-shadow: none;         /* Remove shadow for a flatter look */
-            width: calc(100% - 20px); /* Adjust width to fill more space */
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px; /* Reduced padding for less whitespace */
+            margin: 10px 0; /* Outer margin for spacing between sections */
             max-width: 100%; /* Ensure sections take up the full width */
         }
 
-        h1 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 15px; /* Reduced margin for better visual hierarchy */
-        }
-
-        h2 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-
-        h3 {
-            font-size: 1.7em;
-            margin-bottom: 5px;
-        }
-
-        .section-description {
-            font-size: 1.6em; /* Set font size */
-            margin-bottom: 15px; /* Reduced margin for better spacing */
-            color: #6c757d;
-        }
-
+        /* Grid and flex containers styling */
         .grid-container, .flex-container {
             width: 100%; /* Ensure full width for both grid and flex containers */
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow items to wrap */
+            gap: 10px; /* Space between items */
         }
 
+        /* Visualization styling */
         .visualization {
-            background-color: white;
-            border-radius: 5px;
-            padding: 10px; /* Reduced padding for less whitespace */
-            margin: 10px 0; /* Separate visualizations with margin */
-            overflow: hidden; /* Prevent content overflow */
+            background-color: white; /* White background for visualizations */
+            border-radius: 5px; /* Rounded corners */
+            padding: 0; /* No padding for visualizations */
+            margin: 0; /* No margin for visualizations */
+            flex: 1; /* Allow flex to grow */
+            min-width: 280px; /* Minimum width for visualizations */
+            height: 300px; /* Fixed height for visualizations */
         }
 
-        /* Ensure all visualizations take up full width and height */
-        #tourist-countries-chart,
-        #seasonal-arrivals-chart,
-        #gender-arrivals-chart,
-        #country-gender-chart,
-        #tourist-expenditure-chart,
-        #revenue-tourist-chart,
-        #regional-tourism-map,
-        #purpose-of-visit-chart,
-        #stay-trends-chart {
-            width: 100%; /* Take up full container width */
-            height: 100%; /* Take up full container height */
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px; /* Increase padding on smaller screens */
+            }
+
+            .section {
+                padding: 10px; /* Adjust section padding */
+            }
+
+            .visualization {
+                padding: 0; /* No padding for visualizations */
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>Exploring Tourism in Malaysia</h1>
+    <!-- Main header for the webpage -->
+    <h1 style="text-align: center; font-size: 2.6em;">Exploring Tourism in Malaysia</h1>
 
-    <!-- Section 1 -->
+    <!-- Section 1: Tourism Trends and Dynamics -->
     <div class="section">
-        <h2>Section 1: Tourism Trends and Dynamics</h2>
-        <h3>Understanding fluctuations in tourist arrivals</h3>
-        <p class="section-description">
-            Tourism significantly impacts Malaysia’s economy, contributing to GDP and employment. Analyzing tourist arrival patterns is essential for stakeholders to enhance strategies and adapt to changing conditions. This analysis focuses on the sources of tourism and monthly trends, offering insights into visitor behavior.
-        </p>
-        <div class="grid-container single">
-            <div class="visualization" id="tourist-countries-chart">
-                <!-- Chart 1: Top Tourist Sources by Country -->
-            </div>
-            <div class="visualization" id="seasonal-arrivals-chart">
-                <!-- Chart 2: Monthly Breakdown of Tourist Arrivals -->
-            </div>
+        <h2 style="font-size: 2.5em;">Tourism Trends and Dynamics</h2>
+        <p style="font-size: 2.3em;">Understanding fluctuations in tourist arrivals helps stakeholders adapt strategies. This section analyzes tourist sources and monthly trends to provide insights into visitor behavior.</p>
+        
+        <!-- Visualization container -->
+        <div class="grid-container">
+            <div class="visualization" id="tourist-countries-chart"></div>
+            <div class="visualization" id="seasonal-arrivals-chart"></div>
         </div>
-        <p class="section-description">
-            The first chart depicts the top tourist sources for Malaysia from 2015 to 2024, highlighting significant contributors like Australia and China. It shows a sharp decline in arrivals during 2020, underscoring the tourism sector's vulnerability to global events, emphasizing the need for adaptive strategies. The second chart features a heatmap of monthly tourist arrivals over a decade, revealing seasonal trends, with peak arrivals occurring in December and January. The notable decline in 2020 reflects the impact of COVID-19, but a resurgence in 2022 and 2023 indicates the sector's resilience and potential for recovery.
-        </p>
+
+        <p style="font-size: 2.3em;">The chart displays the top sources of tourists for Malaysia from 2015 to 2024, showing key contributors and the impact of global events on tourism.</p>
     </div>
 
-    <!-- Add other sections here following the same structure -->
+    <!-- Section 2: Tourist Profile -->
+    <div class="section">
+        <h2 style="font-size: 2.5em;">Understanding the Tourist Profile</h2>
+        <p style="font-size: 2.3em;">This section focuses on the demographic profile of tourists, including gender and age distribution. Understanding the composition helps tailor marketing strategies effectively.</p>
+        
+        <!-- Visualization container -->
+        <div class="flex-container">
+            <div class="visualization" id="gender-arrivals-chart"></div>
+            <div class="visualization" id="country-gender-chart"></div>
+        </div>
 
+        <p style="font-size: 2.3em;">The "Arrivals by Gender" chart highlights the gender distribution among tourists, providing insights into visitor demographics.</p>
+    </div>
+
+    <!-- Section 3: Tourism Expenditure and Revenue -->
+    <div class="section">
+        <h2 style="font-size: 2.5em;">Tourism Expenditure and Revenue</h2>
+        <p style="font-size: 2.3em;">This section presents data on tourist expenditures and revenue generated by tourism in Malaysia, crucial for economic analysis and planning.</p>
+        
+        <!-- Visualization container -->
+        <div class="flex-container">
+            <div class="visualization" id="tourist-expenditure-chart"></div>
+            <div class="visualization" id="revenue-tourist-chart"></div>
+        </div>
+
+        <p style="font-size: 2.3em;">The "Expenditure" chart details areas where tourists spend the most, while the "Revenue" chart correlates financial gains with visitor numbers.</p>
+    </div>
+
+    <!-- Section 4: Regional Tourism Insights -->
+    <div class="section">
+        <h2 style="font-size: 2.5em;">Regional Tourism Insights</h2>
+        <p style="font-size: 2.3em;">This section explores tourism trends across various states, providing insights into regional dynamics and tourist stay durations.</p>
+        
+        <!-- Visualization container -->
+        <div class="visualization" id="regional-tourism-map"></div>
+
+        <p style="font-size: 2.3em;">The map showcases state-wise tourism trends, illustrating variations in tourist interest across Malaysia's regions.</p>
+    </div>
+
+    <!-- Section 5: Purpose of Visit and Stay Trends -->
+    <div class="section">
+        <h2 style="font-size: 2.5em;">Purpose of Visit and Stay Trends</h2>
+        <p style="font-size: 2.3em;">Understanding why tourists visit and how long they stay helps strategize tourism development plans. This section explores travel motivations and stay patterns.</p>
+        
+        <!-- Visualization container -->
+        <div class="flex-container">
+            <div class="visualization" id="purpose-of-visit-chart"></div>
+            <div class="visualization" id="stay-trends-chart"></div>
+        </div>
+
+        <p style="font-size: 2.3em;">The "Purpose of Visit" chart outlines key reasons for travel, while the "Stay Trends" chart reveals patterns in the average duration of visits.</p>
+    </div>
+
+    <!-- Vega-Lite Charts Integration -->
     <script>
         // Function to embed Vega charts
         const embedCharts = (divId, url) => {
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 14,
-                        titleFontSize: 16
+                        labelFontSize: 12,   // Axis label size
+                        titleFontSize: 14    // Axis title size
                     }
                 }
             }).catch(console.warn);
