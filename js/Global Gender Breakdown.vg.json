@@ -48,8 +48,7 @@
         {
             "filter": {
                 "or": [
-                    {"field": "gender", "equal": "Male"},
-                    {"field": "gender", "equal": "Female"},
+                    {"field": "gender", "equal": {"selection": "GenderSelection"}},
                     {"selection": "GenderSelection", "empty": "all"}
                 ]
             }
@@ -63,8 +62,8 @@
             "axis": {
                 "title": "Percentage of Total Arrivals",
                 "titlePadding": 12,
-                "titleFontSize":14,
-                "labelFontSize":14,
+                "titleFontSize": 14,
+                "labelFontSize": 14,
                 "format": ".0f",
                 "grid": true,
                 "labelAngle": 0,
@@ -81,8 +80,8 @@
             "axis": {
                 "title": "Country",
                 "labelAngle": 0,
-                "titleFontSize":14,
-                "labelFontSize":14
+                "titleFontSize": 14,
+                "labelFontSize": 14
             }
         },
         "color": {
@@ -97,7 +96,7 @@
                 "orient": "right",
                 "titleFontSize": 14,
                 "labelFontSize": 14,
-                "labelPadding":12
+                "labelPadding": 12
             }
         },
         "tooltip": [
