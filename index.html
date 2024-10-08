@@ -21,9 +21,9 @@
             padding: 20px;            /* Inner padding for section content */
             margin: 10px;             /* Outer margin to create space between sections */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            max-width: 2000px;        /* Maximum width for the sections */
+            max-width: 1200px;        /* Maximum width for the sections */
             margin: 20px auto;        /* Center sections with auto left/right margins */
-            width: 95%;              /* Increase width to 95% of the page */
+            width: 100%;              /* Increase width to 95% of the page */
         }
 
         h1 {
@@ -51,6 +51,8 @@
         .grid-container {
             display: grid;
             grid-gap: 20px;
+            grid-template-columns: 1fr 1fr;  /* Two charts side-by-side */
+            width: 95%; 
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         }
 
@@ -61,7 +63,7 @@
         .visualization {
             background-color: white;
             border-radius: 5px;
-            padding: 50px;
+            padding: 30px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
             position: relative;
