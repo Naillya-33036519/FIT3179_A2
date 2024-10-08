@@ -3,7 +3,7 @@
   "description": "Donut chart to show male and female arrivals",
   "title": {
     "text": "Arrivals by Gender",
-    "fontSize": 13,
+    "fontSize": 16,
     "anchor": "middle"
   },
   "width": 230,
@@ -67,7 +67,8 @@
       "mark": {
         "type": "text",
         "dx": -136,
-        "dy": 5
+        "dy": 5,
+        "fontSize":13
       },
       "encoding": {
         "theta": {
@@ -94,7 +95,8 @@
       "mark": {
         "type": "text",
         "dx": 132,
-        "dy": 5
+        "dy": 5,
+        "fontSize":13
       },
       "encoding": {
         "theta": {
@@ -122,7 +124,8 @@
         "type": "text",
         "dx": -135,
         "dy": -8,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "fontSize":13
       },
       "encoding": {
         "theta": {
@@ -149,7 +152,8 @@
         "type": "text",
         "dx": 135,
         "dy": -8,
-        "fontWeight": "bold"
+        "fontWeight": "bold",
+        "fontSize":13
       },
       "encoding": {
         "theta": {
@@ -175,7 +179,8 @@
       "mark": {
         "type": "text",
         "dx": -115,
-        "dy": 5
+        "dy": 5,
+        "fontSize":13
       },
       "encoding": {
         "theta": {
@@ -200,7 +205,8 @@
       "mark": {
         "type": "text",
         "dx": 152,
-        "dy": 5
+        "dy": 5,
+        "fontSize":13
       },
       "encoding": {
         "theta": {
@@ -225,7 +231,10 @@
   "config": {
     "legend": {
       "orient": "right",
-      "padding": 5
+      "padding": 5,
+      "labelFontSize":14,
+      "titleFontSize":14,
+      "labelPadding":12
     }
   }
 }
