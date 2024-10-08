@@ -110,7 +110,7 @@
       {"Country": "Philippines", "year": 2015, "Visitors": 957408, "rank": 10}
     ]
   },
-  "width": 900,
+  "width": 600,
   "height": 400,
   "mark": {
     "type": "line",
@@ -174,8 +174,8 @@
       "labelPadding":12
     },
     "tooltip":{
-      "labelFontSize":17,
-      "titleFontSize":17
+      "labelFontSize":20,
+      "titleFontSize":20
     }
   }
 }
