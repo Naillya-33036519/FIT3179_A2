@@ -12,13 +12,20 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
-            margin: 0;
-            max-width: 1500px; /* Smaller screen size */
+            margin: 0; /* Remove default body margin */
+            padding: 0; /* Remove default body padding */
+            max-width: 1500px;
             margin-left: auto;
             margin-right: auto;
-            transform: scale(0.60); /* Scale down to 50% size */
-            transform-origin: center;
+        }
 
+        /* Main header */
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-top: 0; /* Remove extra space above header */
+            padding-top: 10px; /* Optional: Small padding to balance */
+            padding-bottom: 10px; /* Optional: Small padding below */
         }
 
         /* Section styling */
@@ -26,14 +33,18 @@
             background-color: white;
             border: 1px solid #d0d0d0;
             border-radius: 8px;
-            padding: 10px; /* Reduced padding */
-            margin: 10px 0;
+            padding: 5px; /* Reduced padding */
+            margin: 5px 0; /* Reduced margins between sections */
             max-width: 100%;
         }
 
         /* Grid and flex containers styling */
         .grid-container, .flex-container {
-            width: 100%; /* Full width containers */
+            display: flex; /* Display as flex containers */
+            justify-content: space-around; /* Space between visualizations */
+            flex-wrap: wrap; /* Wrap contents in smaller screens */
+            margin: 0;
+            padding: 0;
         }
 
         /* Visualization styling */
@@ -41,40 +52,35 @@
             background-color: white;
             border-radius: 5px;
             overflow: hidden; /* Prevent overflow */
-        }
-
-        /* Adjust chart container size */
-        #tourist-countries-chart,
-        #seasonal-arrivals-chart,
-        #gender-arrivals-chart,
-        #country-gender-chart,
-        #tourist-expenditure-chart,
-        #revenue-tourist-chart,
-        #regional-tourism-map,
-        #purpose-of-visit-chart,
-        #stay-trends-chart {
-            width: 100%;
-            height: 100%;
+            margin: 0;
+            padding: 0;
+            flex: 1; /* Allow visualizations to flexibly adjust */
+            max-width: 48%; /* Limit width of each visualization */
         }
 
         /* Responsive adjustments for smaller screens */
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 0 5px; /* Minimal padding on small screens */
+            }
+
+            h1 {
+                font-size: 1.6em;
+                padding: 5px; /* Compact header on small screens */
             }
 
             .section {
-                padding: 10px;
+                padding: 5px; /* Reduced padding */
             }
 
             .visualization {
-                padding: 10px;
+                max-width: 100%; /* Full width on smaller screens */
+                margin: 5px 0; /* Space between visualizations */
             }
         }
     </style>
 </head>
 <body>
-
     <!-- Main header for the webpage -->
     <h1 style="text-align: center; font-size: 2em;">Exploring Tourism in Malaysia</h1>
 
