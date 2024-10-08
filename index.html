@@ -22,8 +22,8 @@
             margin: 10px;             /* Outer margin to create space between sections */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
             max-width: 1200px;        /* Maximum width for the sections */
-            margin: 20px auto;        /* Center sections with auto left/right margins */
             width: 100%;              /* Increase width to 95% of the page */
+            max-width: 95%;
         }
 
         h1 {
@@ -51,8 +51,7 @@
         .grid-container {
             display: grid;
             grid-gap: 20px;
-            grid-template-columns: 1fr 1fr;  /* Two charts side-by-side */
-            width: 95%; 
+            width: 100%; 
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
         }
 
