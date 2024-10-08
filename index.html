@@ -14,9 +14,17 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            max-width: 1200px; /* Reduced overall page width */
-            margin-left: auto;
-            margin-right: auto;
+            display: flex; /* Flexbox for centering */
+            justify-content: center; /* Center horizontally */
+        }
+
+        /* Container for content */
+        .container {
+            width: 50vw; /* Set width to half of the viewport */
+            background-color: white; /* Background color for the container */
+            border: 1px solid #d0d0d0; /* Border styling */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Padding around content */
         }
 
         /* Main header */
@@ -30,10 +38,6 @@
 
         /* Section styling */
         .section {
-            background-color: white;
-            border: 1px solid #d0d0d0;
-            border-radius: 5px;
-            padding: 10px; /* Reduced padding */
             margin: 10px 0; /* Reduced margins */
         }
 
@@ -69,6 +73,10 @@
                 padding: 0 5px;
             }
 
+            .container {
+                width: 90vw; /* Adjusted width for smaller screens */
+            }
+
             h1 {
                 font-size: 1.2em;
                 padding: 5px;
@@ -90,72 +98,75 @@
     </style>
 </head>
 <body>
-    <!-- Main header for the webpage -->
-    <h1>Exploring Tourism in Malaysia</h1>
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Main header for the webpage -->
+        <h1>Exploring Tourism in Malaysia</h1>
 
-    <!-- Section 1: Tourism Trends and Dynamics -->
-    <div class="section">
-        <h2 style="font-size: 1.4em;">Tourism Trends and Dynamics</h2>
-        <p class="chart-description">Understanding fluctuations in tourist arrivals helps stakeholders adapt strategies. This section analyzes the top 10 tourist sources and monthly trends to provide insights into visitor behavior.</p>
-        
-        <!-- Visualization container for Section 1 -->
-        <div class="visualization" id="tourist-countries-chart"></div>
-        <div class="chart-description">This chart displays the top sources of tourists for Malaysia from 2015 to 2024, showing key contributors and the impact of global events on tourism.</div>
+        <!-- Section 1: Tourism Trends and Dynamics -->
+        <div class="section">
+            <h2 style="font-size: 1.4em;">Tourism Trends and Dynamics</h2>
+            <p class="chart-description">Understanding fluctuations in tourist arrivals helps stakeholders adapt strategies. This section analyzes the top 10 tourist sources and monthly trends to provide insights into visitor behavior.</p>
+            
+            <!-- Visualization container for Section 1 -->
+            <div class="visualization" id="tourist-countries-chart"></div>
+            <div class="chart-description">This chart displays the top sources of tourists for Malaysia from 2015 to 2024, showing key contributors and the impact of global events on tourism.</div>
 
-        <div class="visualization" id="seasonal-arrivals-chart"></div>
-        <div class="chart-description">Tourism trends from 2016-2024 highlight Malaysia’s strong recovery, particularly from neighboring countries like Singapore and Indonesia, while long-haul markets like China and Australia recover more slowly.</div>
-    </div>
-
-    <!-- Section 2: Tourist Profile -->
-    <div class="section">
-        <h2 style="font-size: 1.4em;">Understanding the Tourist Profile</h2>
-        <p class="chart-description">This section focuses on the demographic profile of tourists, including gender and age distribution. Understanding the composition helps tailor marketing strategies effectively.</p>
-        
-        <!-- Visualization container with side-by-side alignment for Section 2 -->
-        <div class="grid-container">
-            <div class="visualization" id="gender-arrivals-chart"></div>
-            <div class="chart-description">The "Arrivals by Gender" chart highlights the gender distribution among tourists, providing insights into visitor demographics.</div>
-
-            <div class="visualization" id="country-gender-chart"></div>
-            <div class="chart-description">The "Country by Gender" chart presents a comparative analysis of tourist gender proportions from key source countries.</div>
+            <div class="visualization" id="seasonal-arrivals-chart"></div>
+            <div class="chart-description">Tourism trends from 2016-2024 highlight Malaysia’s strong recovery, particularly from neighboring countries like Singapore and Indonesia, while long-haul markets like China and Australia recover more slowly.</div>
         </div>
-    </div>
 
-    <!-- Section 3: Tourism Expenditure and Revenue -->
-    <div class="section">
-        <h2 style="font-size: 1.4em;">Tourism Expenditure and Revenue</h2>
-        <p class="chart-description">This section presents data on tourist expenditures and revenue generated by tourism in Malaysia, crucial for economic analysis and planning.</p>
-        
-        <!-- Visualization container for Section 3 -->
-        <div class="visualization" id="tourist-expenditure-chart"></div>
-        <div class="chart-description">The "Expenditure" chart details areas where tourists spend the most, including accommodation, food, and transportation.</div>
+        <!-- Section 2: Tourist Profile -->
+        <div class="section">
+            <h2 style="font-size: 1.4em;">Understanding the Tourist Profile</h2>
+            <p class="chart-description">This section focuses on the demographic profile of tourists, including gender and age distribution. Understanding the composition helps tailor marketing strategies effectively.</p>
+            
+            <!-- Visualization container with side-by-side alignment for Section 2 -->
+            <div class="grid-container">
+                <div class="visualization" id="gender-arrivals-chart"></div>
+                <div class="chart-description">The "Arrivals by Gender" chart highlights the gender distribution among tourists, providing insights into visitor demographics.</div>
 
-        <div class="visualization" id="revenue-tourist-chart"></div>
-        <div class="chart-description">The "Revenue" chart correlates financial gains with visitor numbers, showcasing trends in revenue generation over time.</div>
-    </div>
+                <div class="visualization" id="country-gender-chart"></div>
+                <div class="chart-description">The "Country by Gender" chart presents a comparative analysis of tourist gender proportions from key source countries.</div>
+            </div>
+        </div>
 
-    <!-- Section 4: Regional Tourism Insights -->
-    <div class="section">
-        <h2 style="font-size: 1.4em;">Regional Tourism Insights</h2>
-        <p class="chart-description">This section explores tourism trends across various states, providing insights into regional dynamics and tourist stay durations.</p>
-        
-        <!-- Visualization container for Section 4 -->
-        <div class="visualization" id="regional-tourism-map"></div>
-        <div class="chart-description">The map showcases state-wise tourism trends, illustrating variations in tourist interest across Malaysia's regions. Insights into regional dynamics help identify tourism hotspots and regions with growth potential.</div>
-    </div>
+        <!-- Section 3: Tourism Expenditure and Revenue -->
+        <div class="section">
+            <h2 style="font-size: 1.4em;">Tourism Expenditure and Revenue</h2>
+            <p class="chart-description">This section presents data on tourist expenditures and revenue generated by tourism in Malaysia, crucial for economic analysis and planning.</p>
+            
+            <!-- Visualization container for Section 3 -->
+            <div class="visualization" id="tourist-expenditure-chart"></div>
+            <div class="chart-description">The "Expenditure" chart details areas where tourists spend the most, including accommodation, food, and transportation.</div>
 
-    <!-- Section 5: Purpose of Visit and Stay Trends -->
-    <div class="section">
-        <h2 style="font-size: 1.4em;">Purpose of Visit and Stay Trends</h2>
-        <p class="chart-description">Understanding why tourists visit and how long they stay helps strategize tourism development plans. This section explores travel motivations and stay patterns.</p>
-        
-        <!-- Visualization container with side-by-side alignment for Section 5 -->
-        <div class="grid-container">
-            <div class="visualization" id="purpose-of-visit-chart"></div>
-            <div class="chart-description">The "Purpose of Visit" chart outlines key reasons for travel, such as leisure, business, or visiting family.</div>
+            <div class="visualization" id="revenue-tourist-chart"></div>
+            <div class="chart-description">The "Revenue" chart correlates financial gains with visitor numbers, showcasing trends in revenue generation over time.</div>
+        </div>
 
-            <div class="visualization" id="stay-trends-chart"></div>
-            <div class="chart-description">The "Stay Trends" chart reveals patterns in the average duration of visits, offering insights into tourist behavior and preferences.</div>
+        <!-- Section 4: Regional Tourism Insights -->
+        <div class="section">
+            <h2 style="font-size: 1.4em;">Regional Tourism Insights</h2>
+            <p class="chart-description">This section explores tourism trends across various states, providing insights into regional dynamics and tourist stay durations.</p>
+            
+            <!-- Visualization container for Section 4 -->
+            <div class="visualization" id="regional-tourism-map"></div>
+            <div class="chart-description">The map showcases state-wise tourism trends, illustrating variations in tourist interest across Malaysia's regions. Insights into regional dynamics help identify tourism hotspots and regions with growth potential.</div>
+        </div>
+
+        <!-- Section 5: Purpose of Visit and Stay Trends -->
+        <div class="section">
+            <h2 style="font-size: 1.4em;">Purpose of Visit and Stay Trends</h2>
+            <p class="chart-description">Understanding why tourists visit and how long they stay helps strategize tourism development plans. This section explores travel motivations and stay patterns.</p>
+            
+            <!-- Visualization container with side-by-side alignment for Section 5 -->
+            <div class="grid-container">
+                <div class="visualization" id="purpose-of-visit-chart"></div>
+                <div class="chart-description">The "Purpose of Visit" chart outlines key reasons for travel, such as leisure, business, or visiting family.</div>
+
+                <div class="visualization" id="stay-trends-chart"></div>
+                <div class="chart-description">The "Stay Trends" chart reveals patterns in the average duration of visits, offering insights into tourist behavior and preferences.</div>
+            </div>
         </div>
     </div>
 
