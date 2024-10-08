@@ -96,7 +96,7 @@
       },
       "legend": {
         "title": "Expenditure Component",
-        "orient": "right",
+        "orient": "bottom",
         "labelFontSize": 12,
         "titleFontSize": 14,
         "labelPadding":12
