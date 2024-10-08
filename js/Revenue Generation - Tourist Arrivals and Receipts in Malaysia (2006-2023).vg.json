@@ -6,8 +6,8 @@
     "fontSize": 16,
     "dy": -16
   },
-  "width":500,
-  "height":300,
+  "width":600,
+  "height":400,
   "data": {
     "values": [
       {"year": "2006", "Arrivals": 17.55, "Receipts": 36.27},
