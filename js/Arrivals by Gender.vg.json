@@ -6,8 +6,8 @@
     "fontSize": 16,
     "anchor": "middle"
   },
-  "width": 230,
-  "height": 250,
+  "width": 300,
+  "height": 300,
   "data": {
     "values": [
       {"gender": "Male", "percentage": 52.76, "count": 1862082, "total": 3528338},
