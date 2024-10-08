@@ -1,11 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Top Tourist Sources by Country (2015-2024)",
-    "fontSize": 17,
-    "anchor": "middle",
-    "dy": -16
-  },
+
   "data": {
     "values": [
       {"Country": "Singapore", "year": 2024, "Visitors": 4276007, "rank": 1},
@@ -110,7 +105,7 @@
       {"Country": "Philippines", "year": 2015, "Visitors": 957408, "rank": 10}
     ]
   },
-  "width": 600,
+  "width": 700,
   "height": 400,
   "mark": {
     "type": "line",
@@ -169,8 +164,8 @@
       "titlePadding":10
     },
     "legend": {
-      "labelFontSize": 15,
-      "titleFontSize": 15,
+      "labelFontSize": 14,
+      "titleFontSize": 14,
       "labelPadding":10
     },
     "tooltip":{
