@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Top Tourist Sources by Country (2015-2024)",
-    "fontSize": 20,
+    "fontSize": 17,
     "anchor": "middle",
     "dy": -16
   },
@@ -110,12 +110,12 @@
       {"Country": "Philippines", "year": 2015, "Visitors": 957408, "rank": 10}
     ]
   },
-  "width": 900,
-  "height": 500,
+  "width": 600,
+  "height": 400,
   "mark": {
     "type": "line",
     "point": true,
-    "strokeWidth": 2
+    "strokeWidth": 1.5
   },
   "encoding": {
     "x": {
@@ -164,18 +164,18 @@
   },
   "config": {
     "axis": {
-      "labelFontSize": 17,
-      "titleFontSize": 17,
-      "titlePadding":12
+      "labelFontSize": 15,
+      "titleFontSize": 15,
+      "titlePadding":10
     },
     "legend": {
-      "labelFontSize": 17,
-      "titleFontSize": 17,
-      "labelPadding":12
+      "labelFontSize": 15,
+      "titleFontSize": 15,
+      "labelPadding":10
     },
     "tooltip":{
-      "labelFontSize":20,
-      "titleFontSize":20
+      "labelFontSize":15,
+      "titleFontSize":15
     }
   }
 }
