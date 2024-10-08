@@ -197,7 +197,7 @@
         "align": "center",
         "baseline": "middle",
         "color": "white",
-        "fontSize": 15
+        "fontSize": 13
       },
       "encoding": {
         "text": {"field": "value", "type": "quantitative"},
@@ -209,7 +209,7 @@
     }
   ],
   "width": 800,
-  "height": 400
+  "height": 450
     }
   ]
 }
