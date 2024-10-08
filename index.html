@@ -24,7 +24,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
             width: 100%;
             margin: 0 auto; 
-            margin-bottom: 20px;
         }
 
         h1 {
@@ -54,7 +53,6 @@
             grid-template-columns: 1fr 1fr;
             grid-gap: 20px;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-
         }
 
         .grid-container.single {
@@ -76,6 +74,14 @@
             width: 100%;
             height: 600px;
         }
+
+        /* Style for the chart description text */
+        .chart-description {
+            margin-top: 10px; /* Add space above the text */
+            font-size: 1em;   /* Font size for description */
+            color: #333;      /* Darker color for contrast */
+            text-align: left; /* Align text to the left */
+        }
     </style>
 </head>
 <body>
@@ -95,25 +101,25 @@
         <div class="grid-container">
             <div class="visualization" id="tourist-countries-chart">
                 <!-- Chart 1: Top Tourist Sources by Country -->
-                <p>
-                    The first chart depicts the top tourist sources for Malaysia 
-                    from 2015 to 2024, highlighting significant contributors like 
-                    Australia and China. A sharp decline in arrivals during 
-                    2020 underscores the tourism sector's vulnerability to 
-                    global events, emphasizing the need for adaptive strategies.
-                </p>
             </div>
+            <p class="chart-description">
+                The first chart depicts the top tourist sources for Malaysia 
+                from 2015 to 2024, highlighting significant contributors like 
+                Australia and China. A sharp decline in arrivals during 
+                2020 underscores the tourism sector's vulnerability to 
+                global events, emphasizing the need for adaptive strategies.
+            </p>
             <div class="visualization" id="seasonal-arrivals-chart">
                 <!-- Chart 2: Monthly Breakdown of Tourist Arrivals -->
-                <p>
-                    The second chart features a heatmap of monthly tourist 
-                    arrivals over a decade, revealing seasonal trends. 
-                    Peak arrivals occur in December and January, while 
-                    a notable decline in 2020 reflects the impact of COVID-19. 
-                    However, a resurgence in 2022 and 2023 indicates the 
-                    sector's resilience and potential for recovery.
-                </p>
             </div>
+            <p class="chart-description">
+                The second chart features a heatmap of monthly tourist 
+                arrivals over a decade, revealing seasonal trends. 
+                Peak arrivals occur in December and January, while 
+                a notable decline in 2020 reflects the impact of COVID-19. 
+                However, a resurgence in 2022 and 2023 indicates the 
+                sector's resilience and potential for recovery.
+            </p>
         </div>
     </div>
 
@@ -129,9 +135,17 @@
             <div class="visualization" id="gender-arrivals-chart">
                 <!-- Chart 3: Arrivals by Gender -->
             </div>
+            <p class="chart-description">
+                This chart analyzes gender distribution among tourists, highlighting 
+                trends in male and female arrivals, which can inform targeted marketing.
+            </p>
             <div class="visualization" id="country-gender-chart">
                 <!-- Chart 4: Gender Distribution of Arrivals by Country -->
             </div>
+            <p class="chart-description">
+                The gender distribution chart by country reveals interesting trends, 
+                emphasizing which nations contribute to the male and female tourist ratios.
+            </p>
         </div>
     </div>
 
@@ -147,9 +161,18 @@
             <div class="visualization" id="tourist-expenditure-chart">
                 <!-- Chart 5: Inbound Tourist Expenditure -->
             </div>
+            <p class="chart-description">
+                This chart examines tourist expenditure trends, highlighting 
+                areas where tourists spend the most, influencing economic planning.
+            </p>
             <div class="visualization" id="revenue-tourist-chart">
                 <!-- Chart 6: Revenue vs Tourist Arrivals -->
             </div>
+            <p class="chart-description">
+                The revenue versus tourist arrivals chart correlates financial 
+                gains with visitor numbers, providing insights into economic 
+                sustainability.
+            </p>
         </div>
     </div>
 
@@ -165,6 +188,10 @@
             <div class="visualization" id="regional-tourism-map">
                 <!-- Chart 7: Regional Choropleth Map -->
             </div>
+            <p class="chart-description">
+                This regional tourism map displays state-wise trends, illustrating 
+                variations in tourist interest across Malaysia's regions.
+            </p>
         </div>
     </div>
 
@@ -180,6 +207,10 @@
             <div class="visualization" id="future-trends-chart">
                 <!-- Chart 8: Future Trends in Tourism -->
             </div>
+            <p class="chart-description">
+                The future trends chart explores anticipated changes in tourism, 
+                forecasting growth and shifts in visitor demographics.
+            </p>
         </div>
     </div>
 
