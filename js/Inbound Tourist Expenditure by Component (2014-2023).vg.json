@@ -2,11 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Inbound Tourist Expenditure by Component (2014-2023)",
-    "fontSize": 14,
+    "fontSize": 16,
     "anchor": "middle",
     "fontWeight": "bold",   
     "subtitle": " ",
-    "subtitlePadding": 10
+    "subtitlePadding": 16
   },
 
   "width": 400,
@@ -65,18 +65,22 @@
       "field": "Year",
       "type": "ordinal",
       "title": "Year",
-      "axis":{
-        "labelAngle":0,
-        "labelPadding":10,
-        "grid":false
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 14,
+        "titleFontSize": 14,
+        "labelPadding": 12,
+        "grid": false
       }
     },
     "y": {
       "field": "Expenditure",
       "type": "quantitative",
       "title": "Expenditure in Percentage",
-      "axis":{
-        "labelPadding":10,
+      "axis": {
+        "labelPadding": 12,
+        "labelFontSize": 14,
+        "titleFontSize": 14,
         "grid": false
       },
       "scale": {
@@ -89,6 +93,13 @@
       "title": "Expenditure Component",
       "scale": {
         "scheme": "category10"
+      },
+      "legend": {
+        "title": "Expenditure Component",
+        "orient": "right",
+        "labelFontSize": 12,
+        "titleFontSize": 14,
+        "labelPadding":12
       }
     },
     "opacity": {
