@@ -31,7 +31,7 @@
         /* Main header */
         h1 {
             text-align: center;
-            font-size: 1.8em; /* Increased font size */
+            font-size: 1.6em; /* Slightly reduced font size */
             margin-top: 10px; /* Reduced margin */
             padding-top: 5px;
         }
@@ -45,14 +45,15 @@
 
         /* Section title styling */
         .section h2 {
-            font-size: 1.6em; /* Increased font size */
+            font-size: 1.4em; /* Slightly reduced font size */
+            margin-top: 0; /* Removed top margin */
         }
 
         /* Flex and grid containers */
-        .grid-container, .flex-container {
+        .grid-container {
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Prevent wrapping */
             margin: 0;
             padding: 0;
         }
@@ -65,15 +66,19 @@
             margin: 0;
             padding: 0;
             flex: 1;
-            max-width: 100%; 
+            height: 400px; /* Fixed height for uniformity */
         }
 
         /* Explanatory text for each chart */
         .chart-description {
-            font-size: 1.4em; /* Increased text size */
+            font-size: 1.2em; /* Slightly reduced text size */
             margin: 10px 0;
             padding-bottom: 5px; /* Add padding below the chart description */
+        }
 
+        /* Specific widths for charts in specific sections */
+        .wide {
+            flex: 2; /* More space for the second chart */
         }
 
         /* Responsive adjustments for smaller screens */
@@ -98,10 +103,11 @@
             .visualization {
                 max-width: 100%; /* Full width on smaller screens */
                 margin: 5px 0;
+                height: auto; /* Allow height to adjust on smaller screens */
             }
 
             .grid-container {
-                flex-direction: column; /* Stack charts vertically */
+                flex-direction: column; /* Stack charts vertically on smaller screens */
             }
         }
     </style>
@@ -128,16 +134,14 @@
         <!-- Section 2: Tourist Profile -->
         <div class="section">
             <h2>Understanding the Tourist Profile</h2>
-            <p class="chart-description">This section focuses on the demographic profile of tourists, including gender and age distribution. Understanding the composition helps tailor marketing strategies effectively.</p>
+            <p class="chart-description">This section focuses on the demographic profile of tourists, including gender and age distribution.Analyzing gender distribution among tourists is essential for understanding tourism trends in Malaysia. It enables tailored marketing strategies and services, fostering inclusivity and addressing specific needs within the tourism sector.</p>
             
             <!-- Visualization container with side-by-side alignment for Section 2 -->
             <div class="grid-container">
                 <div class="visualization" id="gender-arrivals-chart"></div>
-                <div class="chart-description">The "Arrivals by Gender" chart highlights the gender distribution among tourists, providing insights into visitor demographics.</div>
-
-                <div class="visualization" id="country-gender-chart"></div>
-                <div class="chart-description">The "Country by Gender" chart presents a comparative analysis of tourist gender proportions from key source countries.</div>
+                <div class="visualization wide" id="country-gender-chart"></div>
             </div>
+            <div class="chart-description">The data reveals that 52.76% of tourists are male, with additional insights from key source countries. This highlights gender dynamics in tourism, aiding stakeholders in improving visitor experiences..</div>
         </div>
 
         <!-- Section 3: Tourism Expenditure and Revenue -->
@@ -171,11 +175,9 @@
             <!-- Visualization container with side-by-side alignment for Section 5 -->
             <div class="grid-container">
                 <div class="visualization" id="purpose-of-visit-chart"></div>
-                <div class="chart-description">The "Purpose of Visit" chart outlines key reasons for travel, such as leisure, business, or visiting family.</div>
-
-                <div class="visualization" id="stay-trends-chart"></div>
-                <div class="chart-description">The "Stay Trends" chart reveals patterns in the average duration of visits, offering insights into tourist behavior and preferences.</div>
+                <div class="visualization wide" id="stay-trends-chart"></div>
             </div>
+            <div class="chart-description">The "Purpose of Visit" chart outlines key reasons for travel, such as leisure, business, or visiting family. The "Stay Trends" chart reveals patterns in the average duration of visits, offering insights into tourist behavior and preferences.</div>
         </div>
     </div>
 
@@ -185,8 +187,8 @@
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 15,   // Decreased axis label size
-                        titleFontSize: 15   // Decreased axis title size
+                        labelFontSize: 12,   // Decreased axis label size
+                        titleFontSize: 12   // Decreased axis title size
                     }
                 }
             }).catch(console.warn);
