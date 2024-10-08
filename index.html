@@ -12,44 +12,44 @@
             font-family: Arial, sans-serif;
             background-color: #e0e0e0; /* Light grey background for the page */
             margin: 0;
-            padding: 20px; /* Inner padding for the body */
+            padding: 10px; /* Reduced inner padding for the body */
         }
 
         .section {
             background-color: white;  /* White background for each section */
             border-radius: 8px;       /* Rounded corners */
-            padding: 20px;            /* Inner padding for section content */
-            margin: 20px auto;        /* Outer margin to create space between sections */
-            max-width: 1600px;        /* Maximum width for the sections */
+            padding: 15px;            /* Reduced inner padding for section content */
+            margin: 10px auto;        /* Reduced outer margin to create space between sections */
+            max-width: 1200px;        /* Maximum width for the sections */
             width: 100%;              /* Increase width to 100% of the page */
         }
 
         h1 {
             text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
+            font-size: 1.8em; /* Reduced font size */
+            margin-bottom: 15px;
         }
 
         h2 {
-            font-size: 1.8em;
+            font-size: 1.6em; /* Reduced font size */
             margin-bottom: 10px;
         }
 
         h3 {
-            font-size: 1.4em;
+            font-size: 1.2em; /* Reduced font size */
             margin-bottom: 5px;
         }
 
         .section-description {
-            font-size: 1.3em;
-            margin-bottom: 20px;
+            font-size: 1.1em; /* Reduced font size */
+            margin-bottom: 15px;
             color: #6c757d;
         }
 
         .grid-container {
             display: grid;
             width: 100%; 
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive grid */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
         }
 
         .grid-container.single {
@@ -59,7 +59,7 @@
         .flex-container {
             display: flex;                     /* Create a flexible box layout */
             align-items: flex-start;           /* Align items at the top */
-            margin-top: 20px;                  /* Add space above the charts */
+            margin-top: 15px;                  /* Reduced space above the charts */
         }
         
         .chart-container {
@@ -70,7 +70,7 @@
         }
         
         .description-container {
-            max-width: 400px;                  /* Limit max width for the description */
+            max-width: 350px;                  /* Limit max width for the description */
             background-color: white;            /* Ensure description background is white */
             border-radius: 5px;                /* Rounded corners for the description */
         }
@@ -79,28 +79,27 @@
             display: flex;
             flex-direction: column;
             flex: 1 1 45%;            /* Make each chart take up about 45% of the width */
-            min-width: 300px;         /* Ensure charts don't get too narrow on small screens */
+            min-width: 250px;         /* Ensure charts don't get too narrow on small screens */
         }
         
         .visualization {
             background-color: white;
             border-radius: 5px;
-            padding: 30px;
+            padding: 20px; /* Reduced padding */
             text-align: center;
             position: relative;
-            max-width: 900px;
+            max-width: 800px; /* Reduced max width for charts */
         }
 
         #regional-tourism-map {
-            /* Enlarge map container */
             width: 100%;
-            height: 600px;
+            height: 500px; /* Reduced height for the map */
         }
 
         /* Style for the chart description text */
         .chart-description {
             margin-top: 0px; /* Add space above the text */
-            font-size: 1.2em;   /* Font size for description */
+            font-size: 1em;   /* Reduced font size for description */
             color: #6c757d;
             text-align: left; /* Align text to the left */
         }
@@ -223,8 +222,8 @@
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 14,   // Increase axis label size
-                        titleFontSize: 16    // Increase axis title size
+                        labelFontSize: 12,   // Reduced axis label size
+                        titleFontSize: 14    // Reduced axis title size
                     }
                 }
             }).catch(console.warn);
