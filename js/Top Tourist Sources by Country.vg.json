@@ -111,7 +111,7 @@
     ]
   },
   "width": 1200,
-  "height": 500,
+  "height": 700,
   "mark": {
     "type": "line",
     "point": true,
