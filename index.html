@@ -17,8 +17,8 @@
             max-width: 1400px; /* Smaller screen size */
             margin-left: auto;
             margin-right: auto;
-            transform: scale(0.5); /* Scale down to 50% size */
-            transform-origin: top left; /* Keep the scaling anchored to the top left */
+            transform: scale(0.75); /* Scale down to 50% size */
+            transform-origin: center;
 
         }
 
@@ -156,11 +156,6 @@
                     axis: {
                         labelFontSize: 17,   // Increase axis label size
                         titleFontSize: 17    // Increase axis title size
-                    },
-                    tooltip: {
-                        content: 'data',      // Display the content of the data point
-                        fontSize: 17,         // Increase tooltip font size
-                        padding: 12,          // Add padding around the tooltip text
                     }
                 }
             }).catch(console.warn);
