@@ -145,15 +145,14 @@
         <p style="font-size: 2.3em;">The "Purpose of Visit" chart outlines key reasons for travel, while the "Stay Trends" chart reveals patterns in the average duration of visits.</p>
     </div>
 
-    <!-- Vega-Lite Charts Integration -->
     <script>
         // Function to embed Vega charts
         const embedCharts = (divId, url) => {
-            vegaEmbed(#${divId}, url, {
+            vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 12,   // Axis label size
-                        titleFontSize: 14    // Axis title size
+                        labelFontSize: 14,   // Increase axis label size
+                        titleFontSize: 16    // Increase axis title size
                     }
                 }
             }).catch(console.warn);
@@ -172,3 +171,4 @@
     </script>
 </body>
 </html>
+
