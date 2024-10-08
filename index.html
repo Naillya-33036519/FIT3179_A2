@@ -13,7 +13,7 @@
             background-color: #f0f0f0; /* Light grey background for the page */
             margin: 0;
             padding: 5px; /* Reduced padding around the content */
-            max-width: 1200px; /* Increased width of the overall container */
+            max-width: 1000px; /* Increased width of the overall container */
             margin-left: auto; /* Center the content */
             margin-right: auto; /* Center the content */
         }
@@ -25,7 +25,7 @@
             padding: 20px;            /* Inner padding for more white space */
             margin: 10px 0;           /* Outer margin for spacing between sections */
             box-shadow: none;         /* Remove shadow for a flatter look */
-            width: calc(100% - 20px); /* Adjust width to fill more space */
+            width: calc(100% - 10px); /* Adjust width to fill more space */
         }
 
         h1 {
@@ -225,6 +225,29 @@
             </div>
         </div>
     </div>
+    <script>
+        // Function to embed Vega charts
+        const embedCharts = (divId, url) => {
+            vegaEmbed(`#${divId}`, url, {
+                config: {
+                    axis: {
+                        labelFontSize: 14,   // Increase axis label size
+                        titleFontSize: 16    // Increase axis title size
+                    }
+                }
+            }).catch(console.warn);
+        };
 
+        // Embedding the charts using their respective URLs
+        embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
+        embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
+        embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json');
+        embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json');
+        embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
+        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
+        embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.json');
+        embedCharts('purpose-of-visit-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation%20-%20Purpose%20of%20Visits.vg.json');        
+        embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Trends%20in%20Tourist%20Stay%20(2018-2023).vg.json');
+    </script>
 </body>
 </html>
