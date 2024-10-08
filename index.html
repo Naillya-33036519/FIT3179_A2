@@ -8,234 +8,152 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
+        /* Base styling */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0; /* Light grey background for the page */
+            background-color: #f0f0f0;
             margin: 0;
-            padding: 5px; /* Reduced padding around the content */
-            max-width: 1500px; /* Increased width of the overall container */
-            margin-left: auto; /* Center the content */
-            margin-right: auto; /* Center the content */
+            padding: 5px;
+            max-width: 1500px; /* Smaller screen size */
+            margin-left: auto;
+            margin-right: auto;
         }
 
+        /* Section styling */
         .section {
-            background-color: white;  /* White background for each section */
-            border: 1px solid #d0d0d0; /* Light grey border for sections */
-            border-radius: 8px;       /* Rounded corners */
-            padding: 20px;            /* Inner padding for more white space */
-            margin: 10px 0;           /* Outer margin for spacing between sections */
-            box-shadow: none;         /* Remove shadow for a flatter look */
-            width: calc(100% - 10px); /* Adjust width to fill more space */
-            max-width: 600px; /* Limit paragraph width to 600px */
-            margin: 0 auto; /* Center the text block within the container */
-
+            background-color: white;
+            border: 1px solid #d0d0d0;
+            border-radius: 8px;
+            padding: 10px; /* Reduced padding */
+            margin: 10px 0;
+            max-width: 100%;
         }
 
-        h1 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
+        /* Grid and flex containers styling */
+        .grid-container, .flex-container {
+            width: 100%; /* Full width containers */
         }
 
-        h2 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-
-        h3 {
-            font-size: 1.7em;
-            margin-bottom: 5px;
-        }
-
-        .section-description {
-            font-size: 1.6em;
-            margin-bottom: 20px;
-            color: #6c757d;
-        }
-
-        .grid-container {
-            display: grid;
-            width: 100%; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-        }
-
-        .grid-container.single {
-            grid-template-columns: 1fr; /* For single column sections */
-        }
-        
-        .flex-container {
-            display: flex;                     /* Create a flexible box layout */
-            align-items: flex-start;           /* Align items at the top */
-            margin-top: 20px;                  /* Add space above the charts */
-            width: 100%; /* Ensure container takes up full section width */
-        }
-        
-        .chart-container {
-            margin: 0;             
-            background-color: white;            /* Ensure chart background is white */
-            border-radius: 5px;                /* Rounded corners for the chart containers */
-            width: 100%; /* Ensure containers take up full width */
-        }
-        
-        .description-container {
-            max-width: 400px;                  /* Limit max width for the description */
-            background-color: white;            /* Ensure description background is white */
-            border-radius: 5px;                /* Rounded corners for the description */
-        }
-        
-        .chart-item {
-            display: flex;
-            flex-direction: column;
-            flex: 1 1 45%;            /* Make each chart take up about 45% of the width */
-            min-width: 250px;         /* Ensure charts don't get too narrow on small screens */
-        }
-        
+        /* Visualization styling */
         .visualization {
             background-color: white;
             border-radius: 5px;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            width: 100%; /* Ensure visualizations take up full section width */
+            padding: 10px; /* Reduced padding */
+            margin: 10px 0; /* Margin for spacing */
+            overflow: hidden; /* Prevent overflow */
         }
 
-        #regional-tourism-map {
-            /* Enlarge map container */
+        /* Adjust chart container size */
+        #tourist-countries-chart,
+        #seasonal-arrivals-chart,
+        #gender-arrivals-chart,
+        #country-gender-chart,
+        #tourist-expenditure-chart,
+        #revenue-tourist-chart,
+        #regional-tourism-map,
+        #purpose-of-visit-chart,
+        #stay-trends-chart {
             width: 100%;
-            height: 400px; /* Height remains the same */
+            height: 100%;
         }
 
-        /* Style for the chart description text */
-        .chart-description {
-            margin-top: 0px; /* Add space above the text */
-            font-size: 1.2em;   /* Font size for description */
-            color: #6c757d;
-            text-align: left; /* Align text to the left */
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .section {
+                padding: 10px;
+            }
+
+            .visualization {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h1>Exploring Tourism in Malaysia</h1>
+    <!-- Main header for the webpage -->
+    <h1 style="text-align: center; font-size: 2.6em;">Exploring Tourism in Malaysia</h1>
 
-    <!-- Section 1 -->
+    <!-- Section 1: Tourism Trends and Dynamics -->
     <div class="section">
-        <h2>Section 1: Tourism Trends and Dynamics</h2>
-        <h3>Understanding fluctuations in tourist arrivals</h3>
-        <p class="section-description">
-            Tourism significantly impacts Malaysia’s economy, contributing to GDP and employment. 
-            Analyzing tourist arrival patterns is essential for stakeholders to enhance strategies 
-            and adapt to changing conditions. This analysis focuses on the sources of tourism 
-            and monthly trends, offering insights into visitor behavior.
-        </p>
-        <div class="grid-container single"> <!-- Changed to single column layout -->
-            <div class="visualization" id="tourist-countries-chart">
-                <!-- Chart 1: Top Tourist Sources by Country -->
-            </div>
-            <div class="visualization" id="seasonal-arrivals-chart">
-                <!-- Chart 2: Monthly Breakdown of Tourist Arrivals -->
-            </div>
-        </div>
-        <p class="section-description">
-            The first chart depicts the top tourist sources for Malaysia from 2015 to 2024, highlighting significant contributors like Australia and China. It shows a sharp decline in arrivals during 2020, underscoring the tourism sector's vulnerability to global events, emphasizing the need for adaptive strategies. The second chart features a heatmap of monthly tourist arrivals over a decade, revealing seasonal trends, with peak arrivals occurring in December and January. The notable decline in 2020 reflects the impact of COVID-19, but a resurgence in 2022 and 2023 indicates the sector's resilience and potential for recovery.
-        </p>
-    </div>
-
-    <!-- Section 2 -->
-    <div class="section">
-        <h2>Section 2: Understanding the Tourist Profile</h2>
-        <h3>Demographic insights into tourists visiting Malaysia</h3>
-        <p class="section-description">
-            This section examines the demographics of tourists, focusing on gender distribution and age profiles. 
-            Understanding the composition of arrivals can aid in tailoring marketing strategies and services.
-        </p>
-        <div class="flex-container">
-            <div class="chart-container">
-                <div class="visualization" id="gender-arrivals-chart">
-                    <!-- Chart 3: Arrivals by Gender -->
-                </div>
-            </div>
-            <div class="chart-container">
-                <div class="visualization" id="country-gender-chart">
-                    <!-- Chart 4: Gender Distribution of Arrivals by Country -->
-                </div>
-            </div>
-            <div class="description-container">
-                <p class="section-description" style="margin-top: 0;">The "Arrivals by Gender" chart indicates a male majority among tourists in Malaysia, with notable fluctuations across different nationalities. The "Gender Distribution of Top 10 Countries" further illustrates these trends, revealing how cultural factors influence travel behaviors. Recognizing these gender dynamics is crucial for tourism professionals to create targeted marketing strategies and tailor services, ultimately improving visitor engagement and satisfaction.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 3 -->
-    <div class="section">
-        <h2>Section 3: Economic Impact of Tourism</h2>
-        <h3>Analyzing spending patterns and contributions</h3>
-        <p class="section-description">
-            This section delves into the economic impact of tourism in Malaysia by analyzing spending patterns of inbound tourists 
-            and the correlation between tourist arrivals and economic receipts.
-        </p>
+        <h2 style="font-size: 2.5em;">Tourism Trends and Dynamics</h2>
+        <p style="font-size: 2.3em;">Understanding fluctuations in tourist arrivals helps stakeholders adapt strategies. This section analyzes tourist sources and monthly trends to provide insights into visitor behavior.</p>
+        
+        <!-- Visualization container -->
         <div class="grid-container">
-            <div class="visualization" id="tourist-expenditure-chart">
-                <!-- Chart 5: Inbound Tourist Expenditure -->
-            </div>
-            <div class="visualization" id="revenue-tourist-chart">
-                <!-- Chart 6: Revenue vs Tourist Arrivals -->
-            </div>
+            <div class="visualization" id="tourist-countries-chart"></div>
+            <div class="visualization" id="seasonal-arrivals-chart"></div>
         </div>
-        <p class="section-description">
-            This chart examines tourist expenditure trends, highlighting areas where tourists spend the most, influencing economic planning. The revenue versus tourist arrivals chart correlates financial gains with visitor numbers, providing insights into economic sustainability.
-        </p>
+
+        <p style="font-size: 2.3em;">The chart displays the top sources of tourists for Malaysia from 2015 to 2024, showing key contributors and the impact of global events on tourism.</p>
     </div>
 
-    <!-- Section 4 -->
+    <!-- Section 2: Tourist Profile -->
     <div class="section">
-        <h2>Section 4: Regional Tourism Insights</h2>
-        <h3>Understanding regional dynamics in Malaysia’s tourism</h3>
-        <p class="section-description">
-            This section focuses on regional tourism dynamics, showcasing how tourism rates vary by state 
-            and analyzing trends in tourist stay durations.
-        </p>
-        <div class="grid-container single">
-            <div class="visualization" id="regional-tourism-map">
-                <!-- Chart 7: Regional Choropleth Map -->
-            </div>
-            <p class="chart-description">
-                This regional tourism map displays state-wise trends, illustrating 
-                variations in tourist interest across Malaysia's regions.
-            </p>
-        </div>
-    </div>
-
-    <!-- Section 5 -->
-    <div class="section">
-        <h2>Section 5: Purpose of Visit and Stay Trends</h2>
-        <h3>Exploring motivations behind travel and stay durations</h3>
-        <p class="section-description">
-            Understanding why tourists visit and how long they stay is vital for strategizing tourism 
-            development plans. This section analyzes the reasons behind travel and explores the patterns 
-            in the length of stays.
-        </p>
+        <h2 style="font-size: 2.5em;">Understanding the Tourist Profile</h2>
+        <p style="font-size: 2.3em;">This section focuses on the demographic profile of tourists, including gender and age distribution. Understanding the composition helps tailor marketing strategies effectively.</p>
+        
+        <!-- Visualization container -->
         <div class="flex-container">
-            <div class="chart-item">
-                <div class="visualization" id="purpose-chart">
-                    <!-- Chart 8: Purpose of Visit -->
-                </div>
-            </div>
-            <div class="chart-item">
-                <div class="visualization" id="stay-duration-chart">
-                    <!-- Chart 9: Average Length of Stay -->
-                </div>
-            </div>
+            <div class="visualization" id="gender-arrivals-chart"></div>
+            <div class="visualization" id="country-gender-chart"></div>
         </div>
+
+        <p style="font-size: 2.3em;">The "Arrivals by Gender" chart highlights the gender distribution among tourists, providing insights into visitor demographics.</p>
     </div>
+
+    <!-- Section 3: Tourism Expenditure and Revenue -->
+    <div class="section">
+        <h2 style="font-size: 2.5em;">Tourism Expenditure and Revenue</h2>
+        <p style="font-size: 2.3em;">This section presents data on tourist expenditures and revenue generated by tourism in Malaysia, crucial for economic analysis and planning.</p>
+        
+        <!-- Visualization container -->
+        <div class="flex-container">
+            <div class="visualization" id="tourist-expenditure-chart"></div>
+            <div class="visualization" id="revenue-tourist-chart"></div>
+        </div>
+
+        <p style="font-size: 2.3em;">The "Expenditure" chart details areas where tourists spend the most, while the "Revenue" chart correlates financial gains with visitor numbers.</p>
+    </div>
+
+    <!-- Section 4: Regional Tourism Insights -->
+    <div class="section">
+        <h2 style="font-size: 2.5em;">Regional Tourism Insights</h2>
+        <p style="font-size: 2.3em;">This section explores tourism trends across various states, providing insights into regional dynamics and tourist stay durations.</p>
+        
+        <!-- Visualization container -->
+        <div class="visualization" id="regional-tourism-map"></div>
+
+        <p style="font-size: 2.3em;">The map showcases state-wise tourism trends, illustrating variations in tourist interest across Malaysia's regions.</p>
+    </div>
+
+    <!-- Section 5: Purpose of Visit and Stay Trends -->
+    <div class="section">
+        <h2 style="font-size: 2.5em;">Purpose of Visit and Stay Trends</h2>
+        <p style="font-size: 2.3em;">Understanding why tourists visit and how long they stay helps strategize tourism development plans. This section explores travel motivations and stay patterns.</p>
+        
+        <!-- Visualization container -->
+        <div class="flex-container">
+            <div class="visualization" id="purpose-of-visit-chart"></div>
+            <div class="visualization" id="stay-trends-chart"></div>
+        </div>
+
+        <p style="font-size: 2.3em;">The "Purpose of Visit" chart outlines key reasons for travel, while the "Stay Trends" chart reveals patterns in the average duration of visits.</p>
+    </div>
+
+    <!-- Vega-Lite Charts Integration -->
     <script>
         // Function to embed Vega charts
         const embedCharts = (divId, url) => {
-            vegaEmbed(`#${divId}`, url, {
+            vegaEmbed(#${divId}, url, {
                 config: {
                     axis: {
-                        labelFontSize: 14,   // Increase axis label size
-                        titleFontSize: 16    // Increase axis title size
+                        labelFontSize: 12,   // Axis label size
+                        titleFontSize: 14    // Axis title size
                     }
                 }
             }).catch(console.warn);
