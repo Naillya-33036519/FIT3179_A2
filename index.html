@@ -22,8 +22,7 @@
             margin: 20px auto;        /* Outer margin to create space between sections */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
             max-width: 1600px;        /* Maximum width for the sections */
-            width: 100%;              /* Increase width to 95% of the page */
-            max-width: 98%;
+            width: 100%;              /* Increase width to 100% of the page */
         }
 
         h1 {
@@ -52,13 +51,25 @@
             display: grid;
             grid-gap: 20px;
             width: 100%; 
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive grid */
         }
 
         .grid-container.single {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr; /* For single column sections */
         }
-
+        
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;          /* Allow charts to wrap on smaller screens */
+            justify-content: space-between; /* Add space between charts */
+            gap: 20px;                /* Gap between charts */
+        }
+        
+        .chart-item {
+            flex: 1 1 45%;            /* Make each chart take up about 45% of the width */
+            min-width: 300px;         /* Ensure charts don't get too narrow on small screens */
+        }
+        
         .visualization {
             background-color: white;
             border-radius: 5px;
@@ -211,32 +222,21 @@
                     axis: {
                         labelFontSize: 14,   // Increase axis label size
                         titleFontSize: 16    // Increase axis title size
-                    },
-                    legend: {
-                        labelFontSize: 14,   // Increase legend label size
-                        titleFontSize: 16    // Increase legend title size
-                    },
-                    title: {
-                        fontSize: 18         // Increase chart title size
                     }
                 }
-            }).then(result => {
-                console.log(`${divId} chart successfully loaded.`);
-            }).catch(error => {
-                console.error(`Error loading ${divId} chart:`, error);
-            });
+            }).catch(console.warn);
         };
 
-        // Embedding the charts using their respective URLs
-        embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
-        embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
-        embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json');
-        embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json');
-        embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
-        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
-        embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.json');
-        embedCharts('purpose-of-visit-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation%20-%20Purpose%20of%20Visits.vg.json');        
-        embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Trends%20in%20Tourist%20Stay%20(2018-2023).vg.json');
+        // Embed charts with their respective Vega-Lite JSON files
+        embedCharts("tourist-countries-chart", "tourist_countries_chart.vl.json");
+        embedCharts("seasonal-arrivals-chart", "seasonal_arrivals_chart.vl.json");
+        embedCharts("gender-arrivals-chart", "gender_arrivals_chart.vl.json");
+        embedCharts("country-gender-chart", "country_gender_chart.vl.json");
+        embedCharts("tourist-expenditure-chart", "tourist_expenditure_chart.vl.json");
+        embedCharts("revenue-tourist-chart", "revenue_tourist_chart.vl.json");
+        embedCharts("regional-tourism-map", "regional_tourism_map.vl.json");
+        embedCharts("future-trends-chart", "future_trends_chart.vl.json");
     </script>
+
 </body>
 </html>
