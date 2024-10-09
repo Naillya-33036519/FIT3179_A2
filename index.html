@@ -176,18 +176,6 @@
     </div>
 
     <script>
-        // Function to embed Vega charts with custom sizes
-        const embedCharts = (divId, url) => {
-            // Default chart width and height
-            let defaultWidth = 400; // Reduced width
-            let defaultHeight = 300; // Reduced height
-    
-            // Check if the chart is part of the side-by-side views
-            if (divId.includes('gender-arrivals-chart') || divId.includes('country-gender-chart')) {
-                defaultWidth = 300; // Narrower width for side-by-side views
-                defaultHeight = 250; // Smaller height
-            }
-    
             vegaEmbed('#' + divId, url, {
                 width: defaultWidth,
                 height: defaultHeight,
