@@ -176,11 +176,16 @@
     </div>
 
     <script>
-            vegaEmbed('#' + divId, url, {
-                width: defaultWidth,
-                height: defaultHeight,
-                actions: false
-            }).catch(console.error);
+        // Function to embed Vega charts
+        const embedCharts = (divId, url) => {
+            vegaEmbed(`#${divId}`, url, {
+                config: {
+                    axis: {
+                        labelFontSize: 14,   // Decreased axis label size
+                        titleFontSize: 14   // Decreased axis title size
+                    }
+                }
+            }).catch(console.warn);
         };
 
         // Embedding the charts using their respective URLs
