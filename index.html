@@ -59,20 +59,6 @@
             color: #6c757d;
         }
 
-        .pure-g {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .pure-u-1-1 {
-            width: 100%;
-        }
-
-        .pure-u-md-2-3 {
-            width: 66.67%;
-        }
-
         h1 {
             font-size: 2.8rem;
             text-align: center;
@@ -132,6 +118,20 @@
             color: #7f8c8d;
         }
 
+        .pure-g {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pure-u-1-1 {
+            width: 100%;
+        }
+
+        .pure-u-md-1-2 {
+            width: 50%;
+        }
+
         @media (max-width: 768px) {
             .grid-container {
                 flex-direction: column;
@@ -170,9 +170,9 @@
             <h2>Understanding the Tourist Profile</h2>
             <p class="chart-description">Analyzing the demographic profile, such as gender distribution, helps tailor marketing strategies and services.</p>
 
-            <div class="grid-container pure-g">
-                <div class="pure-u-1 pure-u-md-1-2 visualization large-visualization" id="gender-arrivals-chart"></div>
-                <div class="pure-u-1 pure-u-md-1-2 visualization large-visualization" id="country-gender-chart"></div>
+            <div class="pure-g">
+                <div class="pure-u-1-2 visualization large-visualization" id="gender-arrivals-chart"></div>
+                <div class="pure-u-1-2 visualization large-visualization" id="country-gender-chart"></div>
             </div>
             <p class="chart-description">The data reveals a slight male dominance in visitor demographics and unique trends in specific countries.</p>
         </div>
@@ -198,9 +198,9 @@
             <h2>Travel Motivations and Stay Duration Insights</h2>
             <p class="chart-description">Understanding motivations and stay durations is crucial for enhancing visitor experience and tourism strategies.</p>
 
-            <div class="grid-container pure-g">
-                <div class="pure-u-1 pure-u-md-1-2 visualization large-visualization" id="purpose-of-visit-chart"></div>
-                <div class="pure-u-1 pure-u-md-1-2 visualization large-visualization" id="stay-trends-chart"></div>
+            <div class="pure-g">
+                <div class="pure-u-1-2 visualization large-visualization" id="purpose-of-visit-chart"></div>
+                <div class="pure-u-1-2 visualization large-visualization" id="stay-trends-chart"></div>
             </div>
             <p class="chart-description">Leisure and shopping dominate travel motivations, with average stays ranging from 2 to 2.5 days.</p>
         </div>
@@ -237,16 +237,17 @@
             }).catch(console.warn);
         };
 
-        // Embedding the charts using their respective URLs
-        embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
-        embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
-        embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json');
-        embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json');
-        embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
-        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
-        embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.json');
-        embedCharts('purpose-of-visit-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation%20-%20Purpose%20of%20Visits.vg.json');        
-        embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Trends%20in%20Tourist%20Stay%20(2018-2023).vg.json');
+        // Embedding the visualizations
+        embedCharts('tourist-countries-chart', 'tourist_countries_chart.vl.json');
+        embedCharts('seasonal-arrivals-chart', 'seasonal_arrivals_chart.vl.json');
+        embedCharts('gender-arrivals-chart', 'gender_arrivals_chart.vl.json');
+        embedCharts('country-gender-chart', 'country_gender_chart.vl.json');
+        embedCharts('tourist-expenditure-chart', 'tourist_expenditure_chart.vl.json');
+        embedCharts('revenue-tourist-chart', 'revenue_tourist_chart.vl.json');
+        embedCharts('regional-tourism-map', 'regional_tourism_map.vl.json');
+        embedCharts('purpose-of-visit-chart', 'purpose_of_visit_chart.vl.json');
+        embedCharts('stay-trends-chart', 'stay_trends_chart.vl.json');
     </script>
 </body>
+
 </html>
