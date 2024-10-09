@@ -14,22 +14,68 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
         body {
+            overflow-x: auto;
+            width: 1200px;
+            margin: 0 auto;
+            background: no-repeat url('../images/thong-vo-unsplash.jpg');
+            background-color: #273155;
+            background-size: cover;
+            background-position: top;
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
         }
 
         .container {
-            width: 85vw;
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .card-header {
+            background-color: #a50f15;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px 5px 0 0;
+            text-align: center;
+            font-size: 1.2rem; /* Adjusted for readability */
+        }
+
+        .card-body {
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-muted {
+            color: #6c757d;
+        }
+
+        .pure-g {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pure-u-1-1 {
+            width: 100%;
+        }
+
+        .pure-u-md-2-3 {
+            width: 66.67%;
         }
 
         h1 {
@@ -85,17 +131,6 @@
             margin: auto; /* Center the charts */
         }
 
-        .grid-container {
-            display: flex;
-            justify-content: space-between;
-            margin: 0 -10px;
-        }
-
-        .grid-item {
-            flex: 1;
-            margin: 0 10px;
-        }
-
         .footer {
             text-align: center;
             margin-top: 20px;
@@ -116,64 +151,70 @@
 </head>
 
 <body>
-    <div class="container pure-g">
-        <div class="pure-u-1">
-            <h1>Exploring Tourism in Malaysia</h1>
-
-            <div class="section pure-u-1">
-                <h2>Tourism Trends and Dynamics</h2>
-                <p class="chart-description">Malaysia's tourism is on a recovery trajectory. Seasonal fluctuations and travel restrictions impact these dynamics. Understanding these trends is crucial for effective policy-making.</p>
-
-                <div class="visualization large-visualization" id="tourist-countries-chart"></div>
-                <p class="chart-description">Key markets like Singapore and Indonesia are rebounding strongly, while long-haul markets are recovering more slowly.</p>
-
-                <div class="visualization large-visualization" id="seasonal-arrivals-chart"></div>
-                <p class="chart-description">The peak travel months highlight the significant impact of the pandemic on arrivals in 2020.</p>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Exploring Tourism in Malaysia</h1>
             </div>
-
-            <div class="section pure-u-1">
-                <h2>Understanding the Tourist Profile</h2>
-                <p class="chart-description">Analyzing the demographic profile, such as gender distribution, helps tailor marketing strategies and services.</p>
-
-                <div class="grid-container pure-g">
-                    <div class="grid-item pure-u-1 pure-u-md-1-2 visualization large-visualization" id="gender-arrivals-chart"></div>
-                    <div class="grid-item pure-u-1 pure-u-md-1-2 visualization large-visualization" id="country-gender-chart"></div>
-                </div>
-                <p class="chart-description">The data reveals a slight male dominance in visitor demographics and unique trends in specific countries.</p>
+            <div class="card-body">
+                <p>This analysis delves into the various aspects of tourism in Malaysia, highlighting trends, tourist demographics, and spending patterns.</p>
             </div>
+        </div>
 
-            <div class="section pure-u-1">
-                <h2>Tourism Expenditure and Revenue</h2>
-                <p class="chart-description">Tourist spending is a vital part of Malaysia's economy, impacting various sectors like accommodation and transport.</p>
+        <div class="section">
+            <h2>Tourism Trends and Dynamics</h2>
+            <p class="chart-description">Malaysia's tourism is on a recovery trajectory. Seasonal fluctuations and travel restrictions impact these dynamics. Understanding these trends is crucial for effective policy-making.</p>
 
-                <div class="visualization large-visualization" id="tourist-expenditure-chart"></div>
-                <p class="chart-description">Expenditure trends reflect economic conditions and travel disruptions in recent years.</p>
+            <div class="visualization large-visualization" id="tourist-countries-chart"></div>
+            <p class="chart-description">Key markets like Singapore and Indonesia are rebounding strongly, while long-haul markets are recovering more slowly.</p>
 
-                <div class="visualization large-visualization" id="revenue-tourist-chart"></div>
-                <p class="chart-description">Revenue trends align closely with tourist arrivals, showcasing the pandemic's significant impacts.</p>
+            <div class="visualization large-visualization" id="seasonal-arrivals-chart"></div>
+            <p class="chart-description">The peak travel months highlight the significant impact of the pandemic on arrivals in 2020.</p>
+        </div>
+
+        <div class="section">
+            <h2>Understanding the Tourist Profile</h2>
+            <p class="chart-description">Analyzing the demographic profile, such as gender distribution, helps tailor marketing strategies and services.</p>
+
+            <div class="grid-container pure-g">
+                <div class="pure-u-1 pure-u-md-1-2 visualization large-visualization" id="gender-arrivals-chart"></div>
+                <div class="pure-u-1 pure-u-md-1-2 visualization large-visualization" id="country-gender-chart"></div>
             </div>
+            <p class="chart-description">The data reveals a slight male dominance in visitor demographics and unique trends in specific countries.</p>
+        </div>
 
-            <div class="section pure-u-1">
-                <h2>Regional Tourism Insights</h2>
-                <p class="chart-description">This map visualization displays tourist distribution across Malaysia, identifying top destinations and regional preferences.</p>
-                <div class="visualization large-visualization" id="regional-tourism-map"></div>
+        <div class="section">
+            <h2>Tourism Expenditure and Revenue</h2>
+            <p class="chart-description">Tourist spending is a vital part of Malaysia's economy, impacting various sectors like accommodation and transport.</p>
+
+            <div class="visualization large-visualization" id="tourist-expenditure-chart"></div>
+            <p class="chart-description">Expenditure trends reflect economic conditions and travel disruptions in recent years.</p>
+
+            <div class="visualization large-visualization" id="revenue-tourist-chart"></div>
+            <p class="chart-description">Revenue trends align closely with tourist arrivals, showcasing the pandemic's significant impacts.</p>
+        </div>
+
+        <div class="section">
+            <h2>Regional Tourism Insights</h2>
+            <p class="chart-description">This map visualization displays tourist distribution across Malaysia, identifying top destinations and regional preferences.</p>
+            <div class="visualization large-visualization" id="regional-tourism-map"></div>
+        </div>
+
+        <div class="section">
+            <h2>Travel Motivations and Stay Duration Insights</h2>
+            <p class="chart-description">Understanding motivations and stay durations is crucial for enhancing visitor experience and tourism strategies.</p>
+
+            <div class="grid-container pure-g">
+                <div class="pure-u-1 pure-u-md-1-2 visualization large-visualization" id="purpose-of-visit-chart"></div>
+                <div class="pure-u-1 pure-u-md-1-2 visualization large-visualization" id="stay-trends-chart"></div>
             </div>
+            <p class="chart-description">Leisure and shopping dominate travel motivations, with average stays ranging from 2 to 2.5 days.</p>
+        </div>
 
-            <div class="section pure-u-1">
-                <h2>Travel Motivations and Stay Duration Insights</h2>
-                <p class="chart-description">Understanding motivations and stay durations is crucial for enhancing visitor experience and tourism strategies.</p>
-
-                <div class="grid-container pure-g">
-                    <div class="grid-item pure-u-1 pure-u-md-1-2 visualization large-visualization" id="purpose-of-visit-chart"></div>
-                    <div class="grid-item pure-u-1 pure-u-md-1-2 visualization large-visualization" id="stay-trends-chart"></div>
-                </div>
-                <p class="chart-description">Leisure and shopping dominate travel motivations, with average stays ranging from 2 to 2.5 days.</p>
-            </div>
-
-            <div class="footer pure-u-1">
-                <p>&copy; 2024 Malaysia Tourism Analysis. All rights reserved.</p>
-                <p>Metadata: This webpage was designed for a student project by Naillya Ganesan Visalakshi (ID: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
-            </div>
+        <div class="footer">
+            <p>&copy; 2024 Malaysia Tourism Analysis. All rights reserved.</p>
+            <p>Metadata: This webpage was designed for a student project by Naillya Ganesan Visalakshi (ID: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
+            <p>Source: <a href="https://example.com">Example Source Link</a></p> <!-- Example source link -->
         </div>
     </div>
 
@@ -205,13 +246,13 @@
         // Embedding the charts using their respective URLs
         embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
         embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
-        embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json');
-        embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json');
-        embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Expenditure%20Patterns%20(2013%20-%202023).vg.json');
-        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Revenue%20Malaysia%20(2013-2023).vg.json');
-        embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Regional%20Tourism%20Malaysia%20(2022).vg.json');
-        embedCharts('purpose-of-visit-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation%20Malaysia.vg.json');
-        embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Stay%20Duration%20Malaysia%20Trends%20(2015-2023).vg.json');
+        embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Gender%20Distribution%20of%20Tourists%20to%20Malaysia%20(2013-2023).vg.json');
+        embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Country%20Gender%20Distribution.vg.json');
+        embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Expenditure%20in%20Malaysia%20(2013-2023).vg.json');
+        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourism%20Revenue%20in%20Malaysia%20(2013-2023).vg.json');
+        embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Regional%20Tourism%20Distribution.vg.json');
+        embedCharts('purpose-of-visit-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Purpose%20of%20Visit.vg.json');
+        embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Average%20Stay%20Duration.vg.json');
     </script>
 </body>
 
