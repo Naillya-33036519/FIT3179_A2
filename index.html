@@ -176,18 +176,38 @@
     </div>
 
     <script>
-        // Function to embed Vega charts
+        // Function to embed Vega charts with custom sizes
         const embedCharts = (divId, url) => {
-            vegaEmbed(`#${divId}`, url, {
-                config: {
-                    axis: {
-                        labelFontSize: 14,   // Decreased axis label size
-                        titleFontSize: 14   // Decreased axis title size
+            // Default chart width and height
+            let defaultWidth = 600;
+            let defaultHeight = 400;
+    
+            // Check if the chart is part of the side-by-side layout and set custom sizes if needed
+            if (divId === 'gender-arrivals-chart' || divId === 'country-gender-chart') {
+                // Maintain original sizes for side-by-side charts
+                vegaEmbed(`#${divId}`, url, {
+                    config: {
+                        axis: {
+                            labelFontSize: 14,   // Axis label size
+                            titleFontSize: 14    // Axis title size
+                        }
                     }
-                }
-            }).catch(console.warn);
+                }).catch(console.warn);
+            } else {
+                // Apply default sizes for other charts
+                vegaEmbed(`#${divId}`, url, {
+                    width: defaultWidth,
+                    height: defaultHeight,
+                    config: {
+                        axis: {
+                            labelFontSize: 14,   // Axis label size
+                            titleFontSize: 14    // Axis title size
+                        }
+                    }
+                }).catch(console.warn);
+            }
         };
-
+    
         // Embedding the charts using their respective URLs
         embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
         embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
