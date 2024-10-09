@@ -12,7 +12,7 @@
         /* Base styling */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
+            background-color: #eef2f3;
             margin: 0;
             padding: 0;
             display: flex;
@@ -21,12 +21,18 @@
 
         /* Container for content */
         .container {
-            width: 85vw; 
-            background: #fff;
-            border: 1px solid #d0d0d0;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 85vw;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
         }
 
         /* Main header */
@@ -35,7 +41,7 @@
             text-align: center;
             font-size: 2.5em; 
             margin: 0;
-            color: #2c3e50;
+            color: #2980b9;
         }
 
         h3 {
@@ -43,32 +49,37 @@
             text-align: center;
             font-size: 1.5em;
             color: #7f8c8d;
+            margin-top: 5px;
+            margin-bottom: 20px;
         }
 
         /* Section styling */
         .section {
-            margin: 15px 0; 
+            margin: 20px 0; 
             padding: 15px;
-            background: #fcfcfc;
-            border-left: 3px solid #3498db;
+            background: #f9f9f9;
+            border-left: 5px solid #3498db;
+            border-radius: 5px;
         }
 
         /* Section title styling */
         .section h2 {
-            font-size: 1.8em;
+            font-size: 2em;
             font-family: 'Playfair Display', serif;
             margin: 0;
             padding-bottom: 10px;
             border-bottom: 1px solid #ddd;
+            color: #34495e;
         }
 
         /* Paragraph styling */
         .chart-description {
             font-size: 1em;
-            line-height: 1.5;
+            line-height: 1.6;
             margin: 10px 0;
             text-align: justify;
             max-width: 700px;
+            color: #555;
         }
 
         /* Visualization container */
@@ -78,6 +89,11 @@
             display: flex;
             align-items: center; 
             justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .visualization:hover {
+            transform: scale(1.02);
         }
 
         /* Responsive adjustments for smaller screens */
@@ -118,7 +134,7 @@
             <p class="chart-description">
                 Tourism in Malaysia has shown a steady resurgence post-pandemic. The visualization below highlights the annual tourist influx by source countries. Understanding these shifts helps inform decisions for tourism strategy and development.
             </p>
-            <div class="visualization" id="tourist-countries-chart"></div>
+            <div class="visualization" id="tourist-countries-chart" style="width: 100%; height: 400px;"></div>
             <p class="chart-description">
                 Strong recoveries are observed from neighboring countries like Singapore and Indonesia. In contrast, arrivals from further afield—such as Australia—remain relatively subdued, indicating varying levels of recovery.
             </p>
@@ -143,7 +159,7 @@
             <p class="chart-description">
                 Revenue from tourism is a critical economic driver. The visualizations below highlight spending patterns and their fluctuations over recent years.
             </p>
-            <div class="visualization" id="tourist-expenditure-chart"></div>
+            <div class="visualization" id="tourist-expenditure-chart" style="width: 100%; height: 400px;"></div>
             <p class="chart-description">
                 Spending has varied significantly, mirroring global economic conditions. Peaks in 2019 contrast with the deep troughs observed during 2020-2021.
             </p>
@@ -155,7 +171,7 @@
             <p class="chart-description">
                 The map visualization reveals tourist distribution across Malaysia's states, indicating preferred destinations. The darker regions show higher engagement, while lighter regions highlight areas with lower participation.
             </p>
-            <div class="visualization" id="regional-tourism-map"></div>
+            <div class="visualization" id="regional-tourism-map" style="width: 100%; height: 400px;"></div>
         </div>
 
         <!-- Section 5: Travel Motivations and Stay Duration -->
