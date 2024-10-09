@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tourism Analysis in Malaysia</title>
-    <meta name="author" content="Naillya Ganesan Visalakshi">
-    <meta name="student-id" content="33036519">
-    <meta name="sources" content="https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/data/sources">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script> 
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -180,7 +177,7 @@
 
         <footer>
             <p style="text-align: center;"><b>Naillya Ganesan Visalakshi</b> | Student ID: 33036519</p>
-            <p style="text-align: center;">Sources: <a href="https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/data/sources">References</a></p>
+            <p style="text-align: center;">Sources: <a href="path/to/references.txt">References</a></p>
         </footer>
     </div>
 
@@ -191,8 +188,19 @@
                 config: {
                     axis: {
                         labelFontSize: 14,
-                        titleFontSize: 14,
-                    }
+                        titleFontSize: 16, // Increased title font size
+                    },
+                    legend: {
+                        labelFontSize: 12, // Adjust legend label font size
+                        titleFontSize: 14, // Adjust legend title font size
+                    },
+                    tooltip: {
+                        content: 'data', // Show detailed tooltip information
+                        labelFontSize: 12, // Adjust tooltip label font size
+                    },
+                    view: {
+                        continuousWidth: 800, // Use full width for continuous views
+                    },
                 }
             }).catch(console.warn);
         };
