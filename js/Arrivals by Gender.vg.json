@@ -3,7 +3,7 @@
   "description": "Donut chart to show male and female arrivals",
 
   "width": 200,
-  "height": 300,
+  "height": 200,
   "data": {
     "values": [
       {"gender": "Male", "percentage": 52.76, "count": 1862082, "total": 3528338},
