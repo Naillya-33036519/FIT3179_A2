@@ -4,184 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tourism Analysis in Malaysia</title>
+    <!-- Import pure.css -->
+    <link href="https://cdn.jsdelivr.net/npm/purecss@2.0.6/build/pure-min.css" rel="stylesheet">
+    <!-- Import Poppins font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Import Vega & Vega-Lite -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
         /* Base styling */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            display: flex; /* Flexbox for centering */
-            justify-content: center; /* Center horizontally */
-        }
-
-        /* Container for content */
-        .container {
-            width: 85vw; 
-            background-color: white;
-            border: 1px solid #d0d0d0;
-            border-radius: 5px;
-            padding: 10px;
+            display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        /* Main header */
+        /* Container styling */
+        .container {
+            background-color: white;
+            width: 85vw;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        /* Header styling */
         h1 {
-            font-family: 'Georgia', serif; /* Use serif font for title */
+            font-size: 2.5rem;
             text-align: center;
-            font-size: 1.8em; /* Increased font size */
-            margin-top: 10px; 
-            padding-top: 5px;
+            margin: 0 0 20px;
             color: #333;
         }
 
-        /* Section styling */
+        h3 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: -10px;
+            color: #555;
+        }
+
         .section {
-            margin: 15px 0; /* Slightly larger margins */
-            padding: 15px;
-            background-color: #f9f9f9;
+            margin: 40px 0;
         }
 
-        /* Section title styling */
         .section h2 {
-            font-size: 1.3em;
-            margin-top: 0;
-            font-family: Arial, sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
         }
 
-        /* Flex and grid containers */
+        .section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .visualization {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        /* Flexbox for chart layout */
         .grid-container {
             display: flex;
-            justify-content: center;
-            flex-wrap: nowrap;
-            margin: 0;
-            padding: 0;
-            height: auto;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
 
-        /* Visualization styling */
+        /* Chart dimensions */
         .visualization {
-            background-color: white;
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 5px; /* Reduced margin for better use of space */
-            padding: 0;
             flex: 1;
-            height: auto;
-            max-width: 100%; 
-            display: flex;
-            align-items: center; /* Center-align the visualizations */
-            justify-content: center;
+            min-width: 45%;
+            height: 400px;
         }
 
-        /* Explanatory text for each chart */
-        .chart-description {
-            font-size: 0.9em; /* Slightly smaller font size */
-            margin: 10px 0;
-            padding-bottom: 5px;
-            line-height: 1.4; /* Improved line spacing */
-            max-width: 700px;
-            text-align: justify;
-        }
-
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 768px) {
-            body {
-                padding: 0 5px;
-            }
-
-            .container {
-                width: 90vw;
-            }
-
-            h1 {
-                font-size: 1.5em; /* Adjusted font size */
-                padding: 5px;
-            }
-
-            .section {
-                padding: 5px;
-            }
-
-            .visualization {
-                max-width: 100%;
-                margin: 5px 0;
-                height: auto;
-            }
-
-            .grid-container {
-                flex-direction: column; /* Stack charts vertically on smaller screens */
-            }
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 20px;
+            color: #999;
         }
     </style>
 </head>
 <body>
-    <!-- Main content container -->
     <div class="container">
-        <!-- Main header for the webpage -->
         <h1>Exploring Tourism in Malaysia</h1>
+        <h3>An In-Depth Look at Tourism Trends and Visitor Insights</h3>
 
         <!-- Section 1: Tourism Trends and Dynamics -->
         <div class="section">
             <h2>Tourism Trends and Dynamics</h2>
-            <p class="chart-description">Tourism trends reveal Malaysia's recovery post-pandemic, highlighting seasonal fluctuations and the impact of travel restrictions. This information is vital for effective policy-making.</p>
-            
-            <!-- Visualization container for Section 1 -->
+            <p>Tourism in Malaysia is recovering post-pandemic, with fluctuating trends reflecting travel restrictions and seasonal peaks. Effective policy-making can be informed by these patterns, driving strategic decisions in tourism management.</p>
             <div class="visualization" id="tourist-countries-chart"></div>
-            <div class="chart-description">Key markets like Singapore and Indonesia have shown strong recovery in tourist numbers, while long-haul markets such as Australia have been slower to rebound.</div>
+            <p class="chart-description">Countries like Singapore and Indonesia lead in visitor numbers, while long-haul markets such as Australia are seeing slower recoveries.</p>
 
             <div class="visualization" id="seasonal-arrivals-chart"></div>
-            <div class="chart-description">Peak travel months like July saw significant arrivals pre-pandemic. The dramatic drop in 2020 illustrates the pandemic's severe impact on global tourism.</div>
+            <p class="chart-description">The pandemic dramatically impacted travel, with peak months like July pre-2020 witnessing high tourist activity.</p>
         </div>
 
         <!-- Section 2: Tourist Profile -->
         <div class="section">
             <h2>Understanding the Tourist Profile</h2>
-            <p class="chart-description">Understanding the demographic profile, such as gender distribution, helps tailor marketing and services, supporting tourism growth in Malaysia.</p>
-            
-            <!-- Visualization container with side-by-side alignment for Section 2 -->
+            <p>Demographic analysis of tourists, such as gender, enables targeted marketing and better service offerings. Identifying visitor profiles can also support tourism growth strategies.</p>
             <div class="grid-container">
-                <div class="visualization" style="width: 30%; height: 400px;" id="gender-arrivals-chart"></div>
-                <div class="visualization wide" style="width: 70%; height: 400px;" id="country-gender-chart"></div>
+                <div class="visualization" id="gender-arrivals-chart"></div>
+                <div class="visualization" id="country-gender-chart"></div>
             </div>
-            <div class="chart-description">Data shows a slight male dominance in visitor demographics, with unique trends in specific source countries.</div>
+            <p class="chart-description">Malaysia’s tourist demographic shows a slight male dominance, with certain countries exhibiting unique trends.</p>
         </div>
 
         <!-- Section 3: Tourism Expenditure and Revenue -->
         <div class="section">
             <h2>Tourism Expenditure and Revenue</h2>
-            <p class="chart-description">Tourist expenditures significantly contribute to Malaysia's economy, with accommodation and transport being key revenue generators.</p>
-            
-            <!-- Visualization container for Section 3 -->
+            <p>Tourism is a significant contributor to Malaysia’s economy, especially in the accommodation and transport sectors. Expenditure trends help predict future economic outcomes.</p>
             <div class="visualization" id="tourist-expenditure-chart"></div>
-            <div class="chart-description">Expenditures have fluctuated over the years, reflecting broader economic trends and travel disruptions due to global events.</div>
+            <p class="chart-description">Economic disruptions, such as global events, reflect shifts in tourist spending patterns over the years.</p>
 
             <div class="visualization" id="revenue-tourist-chart"></div>
-            <div class="chart-description">Revenue trends mirror tourist arrivals, with significant dips during the pandemic and a gradual recovery afterward.</div>
+            <p class="chart-description">Revenue trends closely align with tourist arrivals, showing a substantial recovery in post-pandemic years.</p>
         </div>
 
         <!-- Section 4: Regional Tourism Insights -->
         <div class="section">
             <h2>Regional Tourism Insights</h2>
-            <p class="chart-description">This map visualization shows tourist distribution across Malaysia's states, helping identify top destinations and regional preferences.</p>
-           
+            <p>Tourist distribution across Malaysia's states highlights key travel destinations and regional preferences, enabling targeted marketing and development strategies.</p>
             <div class="visualization" id="regional-tourism-map"></div>
         </div>
 
-    <!-- Section 5: Purpose of Visit and Stay Trends -->
-    <div class="section">
-        <h2>Travel Motivations and Stay Duration Insights</h2>
-        <p class="chart-description">Tourist motivations and duration of stay are crucial for understanding visitor behavior and improving tourism strategies.</p>
-        
-        <!-- Visualization container with side-by-side alignment for Section 5 -->
-        <div class="grid-container">
-            <div class="visualization" style="width: 45%; height: 250px;" id="purpose-of-visit-chart"></div>
-            <div class="visualization wide" style="width: 55%; height: 250px;" id="stay-trends-chart"></div>
+        <!-- Section 5: Travel Motivations and Stay Trends -->
+        <div class="section">
+            <h2>Travel Motivations and Stay Duration Insights</h2>
+            <p>Understanding why tourists visit Malaysia and how long they stay can shape the country’s tourism policies and help optimize marketing efforts.</p>
+            <div class="grid-container">
+                <div class="visualization" id="purpose-of-visit-chart"></div>
+                <div class="visualization" id="stay-trends-chart"></div>
+            </div>
+            <p class="chart-description">Leisure and shopping remain the dominant travel motivations, with stays typically ranging from 2 to 2.5 days.</p>
         </div>
-        <div class="chart-description">Leisure and shopping dominate travel motivations, with average stays ranging from 2 to 2.5 days.</div>
+
+        <div class="footer">
+            <p>Tourism Analysis | 2024</p>
+        </div>
     </div>
 
     <script>
