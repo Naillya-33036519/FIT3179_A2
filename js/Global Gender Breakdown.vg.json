@@ -98,6 +98,6 @@
             {"field": "percentage", "type": "quantitative", "title": "Percentage of Arrivals", "format": ".1f"}
         ]
     },
-    "width": 600,
-    "height": 300
+    "width": 500,
+    "height": 450
 }
