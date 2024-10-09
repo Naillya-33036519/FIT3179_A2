@@ -24,6 +24,7 @@
 
         .container {
             width: 85vw;
+            max-width: 1200px; /* Maximum width for large screens */
             background-color: #ffffff;
             border-radius: 12px;
             padding: 30px;
@@ -31,7 +32,7 @@
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem; /* Increased font size */
             text-align: center;
             color: #2c3e50;
             margin-bottom: 20px;
@@ -40,7 +41,7 @@
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 2.5rem; /* Increased font size */
             color: #2980b9;
             margin-top: 20px;
             border-bottom: 1px solid #dcdcdc;
@@ -61,7 +62,7 @@
         }
 
         .chart-description {
-            font-size: 1rem;
+            font-size: 1.2rem; /* Increased font size */
             line-height: 1.6;
             margin: 5px 0;
             text-align: justify;
@@ -74,6 +75,7 @@
             border-radius: 8px;
             padding: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Make visualization take full width */
         }
 
         .grid-container {
@@ -85,12 +87,13 @@
         .grid-item {
             flex: 1;
             margin: 0 10px;
+            width: 100%; /* Make grid item take full width */
         }
 
         .footer {
             text-align: center;
             margin-top: 20px;
-            font-size: 0.9rem;
+            font-size: 1rem; /* Increased font size */
             color: #7f8c8d;
         }
 
@@ -170,8 +173,8 @@
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 12,
-                        titleFontSize: 14,
+                        labelFontSize: 14, // Increased font size for axis labels
+                        titleFontSize: 16, // Increased font size for axis titles
                     },
                     mark: {
                         tooltip: true // Enable tooltips for interactivity
@@ -180,16 +183,16 @@
             }).catch(console.warn);
         };
 
+        // Embedding the charts using their respective URLs
         embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
-        embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Time%20Series.vg.json');
-        embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Gender%20of%20Arrivals.vg.json');
-        embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Country%20vs%20Gender.vg.json');
-        embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Expenditure.vg.json');
-        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json'); // Added missing chart
-        embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Regional%20Tourism%20Insights.vg.json');
-        embedCharts('purpose-of-visit-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Purpose%20of%20Visit.vg.json');
-        embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Stay%20Trends.vg.json');
+        embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
+        embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json');
+        embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json');
+        embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
+        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
+        embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.json');
+        embedCharts('purpose-of-visit-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation%20-%20Purpose%20of%20Visits.vg.json');        
+        embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Trends%20in%20Tourist%20Stay%20(2018-2023).vg.json');
     </script>
 </body>
-
 </html>
