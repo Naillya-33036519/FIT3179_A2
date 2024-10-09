@@ -7,15 +7,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script> 
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Base styling */
         body {
-            font-family: 'Poppins', sans-serif; /* Updated font */
-            background-color: #eaeaea;
+            font-family: 'Montserrat', sans-serif; /* Updated font */
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            display: flex; /* Flexbox for centering */
-            justify-content: center; /* Center horizontally */
             color: #333; /* Default text color */
         }
 
@@ -24,35 +23,39 @@
             width: 90vw; /* Width of the content */
             max-width: 1200px; /* Maximum width for larger screens */
             background-color: #ffffff;
-            border: 1px solid #d0d0d0;
-            border-radius: 8px; /* More rounded corners */
+            border-radius: 8px; /* Rounded corners */
             padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            margin: auto; /* Center the container */
         }
 
         /* Main header */
         h1 {
-            font-family: 'Georgia', serif; /* Use serif font for title */
+            font-family: 'Playfair Display', serif; /* Use serif font for title */
             text-align: center;
-            font-size: 2.5em; /* Increased font size */
+            font-size: 2.8em; /* Increased font size */
             margin: 10px 0; 
-            color: #2c3e50; /* Darker color for better contrast */
+            color: #2980b9; /* Blue color for title */
         }
 
         /* Section styling */
         .section {
-            margin: 20px 0; /* Increased margins for better spacing */
+            margin: 30px 0; /* Increased margins for better spacing */
             padding: 20px;
-            background-color: #f9f9f9; /* Lighter section background */
-            border-radius: 5px; /* Rounded corners for sections */
+            background-color: #fafafa; /* Lighter section background */
+            border-radius: 10px; /* Rounded corners for sections */
+            border: 1px solid #ddd; /* Light border for sections */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for sections */
         }
 
         /* Section title styling */
         .section h2 {
-            font-size: 1.6em; /* Larger section title */
+            font-size: 1.8em; /* Larger section title */
             margin-top: 0;
-            font-family: 'Poppins', sans-serif; /* Consistent font */
+            font-family: 'Playfair Display', serif; /* Consistent font */
             color: #2980b9; /* Blue color for section titles */
+            border-bottom: 2px solid #2980b9; /* Underline for section titles */
+            padding-bottom: 10px; /* Padding below title */
         }
 
         /* Flex container for charts */
@@ -69,10 +72,10 @@
             background-color: #ffffff;
             border-radius: 5px;
             overflow: hidden;
-            margin: 10px; /* Reduced margin for better use of space */
+            margin: 10px; /* Margin for spacing */
             padding: 0;
-            flex: 1 0 100%; /* Full width for each chart */
-            max-width: 100%; 
+            width: 100%; /* Full width for each chart */
+            max-width: 600px; /* Maximum width for better control */
             display: flex;
             align-items: center; /* Center-align the visualizations */
             justify-content: center;
@@ -81,25 +84,33 @@
 
         /* Explanatory text for each chart */
         .chart-description {
-            font-size: 1em; /* Increased font size */
+            font-size: 1.1em; /* Slightly increased font size */
             margin: 15px 0;
             line-height: 1.5; /* Improved line spacing */
-            max-width: 700px; /* Limit width for better readability */
-            text-align: justify;
+            max-width: 600px; /* Limit width for better readability */
+            text-align: center; /* Center text for aesthetics */
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center; 
+            margin-top: 20px; 
+            font-size: 1em;
+            color: #777; /* Lighter color for footer */
         }
 
         /* Responsive adjustments for smaller screens */
         @media (max-width: 768px) {
             body {
-                padding: 0 5px;
+                padding: 0 10px;
             }
 
             h1 {
-                font-size: 2em; /* Adjusted font size for smaller screens */
+                font-size: 2.5em; /* Adjusted font size for smaller screens */
             }
 
             .section {
-                padding: 10px;
+                padding: 15px;
             }
 
             .visualization {
@@ -135,8 +146,8 @@
             
             <!-- Visualization container with side-by-side alignment for Section 2 -->
             <div class="grid-container">
-                <div class="visualization" style="flex: 1 0 45%; height: 400px;" id="gender-arrivals-chart"></div>
-                <div class="visualization" style="flex: 1 0 45%; height: 400px;" id="country-gender-chart"></div>
+                <div class="visualization" id="gender-arrivals-chart"></div>
+                <div class="visualization" id="country-gender-chart"></div>
             </div>
             <div class="chart-description">Data shows a slight male dominance in visitor demographics, with unique trends in specific source countries.</div>
         </div>
@@ -169,15 +180,15 @@
             
             <!-- Visualization container with side-by-side alignment for Section 5 -->
             <div class="grid-container">
-                <div class="visualization" style="flex: 1 0 45%; height: 250px;" id="purpose-of-visit-chart"></div>
-                <div class="visualization" style="flex: 1 0 45%; height: 250px;" id="stay-trends-chart"></div>
+                <div class="visualization" id="purpose-of-visit-chart"></div>
+                <div class="visualization" id="stay-trends-chart"></div>
             </div>
             <div class="chart-description">Leisure and shopping dominate travel motivations, with average stays ranging from 2 to 2.5 days.</div>
         </div>
 
         <footer>
-            <p style="text-align: center;"><b>Naillya Ganesan Visalakshi</b> | Student ID: 33036519</p>
-            <p style="text-align: center;">Sources: <a href="path/to/references.txt">References</a></p>
+            <p><b>Naillya Ganesan Visalakshi</b> | Student ID: 33036519</p>
+            <p>Sources: <a href="path/to/references.txt">References</a></p>
         </footer>
     </div>
 
@@ -193,7 +204,6 @@
                 }
             }).catch(console.warn);
         };
-
         // Embedding the charts using their respective URLs
         embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
         embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
