@@ -4,156 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tourism Analysis in Malaysia</title>
-    <!-- Import pure.css -->
-    <link href="https://cdn.jsdelivr.net/npm/purecss@2.0.6/build/pure-min.css" rel="stylesheet">
-    <!-- Import Poppins font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Import Vega & Vega-Lite -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script> 
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
         /* Base styling */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
 
-        /* Container styling */
+        /* Container for content */
         .container {
-            background-color: white;
-            width: 85vw;
+            width: 85vw; 
+            background: #fff;
+            border: 1px solid #d0d0d0;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 20px;
+            padding: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Header styling */
+        /* Main header */
         h1 {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
             text-align: center;
-            margin: 0 0 20px;
-            color: #333;
+            font-size: 2.5em; 
+            margin: 0;
+            color: #2c3e50;
         }
 
         h3 {
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
             text-align: center;
-            margin-top: -10px;
-            color: #555;
+            font-size: 1.5em;
+            color: #7f8c8d;
         }
 
+        /* Section styling */
         .section {
-            margin: 40px 0;
+            margin: 15px 0; 
+            padding: 15px;
+            background: #fcfcfc;
+            border-left: 3px solid #3498db;
         }
 
+        /* Section title styling */
         .section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-size: 1.8em;
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
         }
 
-        .section p {
-            font-size: 1rem;
-            line-height: 1.6;
+        /* Paragraph styling */
+        .chart-description {
+            font-size: 1em;
+            line-height: 1.5;
+            margin: 10px 0;
             text-align: justify;
-            margin-bottom: 20px;
+            max-width: 700px;
         }
 
+        /* Visualization container */
         .visualization {
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-
-        /* Flexbox for chart layout */
-        .grid-container {
+            margin: 10px 0;
+            padding: 0;
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            align-items: center; 
+            justify-content: center;
         }
 
-        /* Chart dimensions */
-        .visualization {
-            flex: 1;
-            min-width: 45%;
-            height: 400px;
-        }
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            body {
+                padding: 0 5px;
+            }
 
-        /* Footer */
-        .footer {
-            text-align: center;
-            font-size: 1rem;
-            margin-top: 20px;
-            color: #999;
+            .container {
+                width: 95vw;
+            }
+
+            h1 {
+                font-size: 2em; 
+            }
+
+            .section {
+                padding: 10px;
+            }
+
+            .visualization {
+                max-width: 100%;
+                margin: 5px 0;
+                height: auto;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Main header for the webpage -->
         <h1>Exploring Tourism in Malaysia</h1>
-        <h3>An In-Depth Look at Tourism Trends and Visitor Insights</h3>
+        <h3>A Visual Journey into Key Trends and Visitor Dynamics</h3>
 
         <!-- Section 1: Tourism Trends and Dynamics -->
         <div class="section">
             <h2>Tourism Trends and Dynamics</h2>
-            <p>Tourism in Malaysia is recovering post-pandemic, with fluctuating trends reflecting travel restrictions and seasonal peaks. Effective policy-making can be informed by these patterns, driving strategic decisions in tourism management.</p>
+            <p class="chart-description">
+                Tourism in Malaysia has shown a steady resurgence post-pandemic. The visualization below highlights the annual tourist influx by source countries. Understanding these shifts helps inform decisions for tourism strategy and development.
+            </p>
             <div class="visualization" id="tourist-countries-chart"></div>
-            <p class="chart-description">Countries like Singapore and Indonesia lead in visitor numbers, while long-haul markets such as Australia are seeing slower recoveries.</p>
-
-            <div class="visualization" id="seasonal-arrivals-chart"></div>
-            <p class="chart-description">The pandemic dramatically impacted travel, with peak months like July pre-2020 witnessing high tourist activity.</p>
+            <p class="chart-description">
+                Strong recoveries are observed from neighboring countries like Singapore and Indonesia. In contrast, arrivals from further afield—such as Australia—remain relatively subdued, indicating varying levels of recovery.
+            </p>
         </div>
 
         <!-- Section 2: Tourist Profile -->
         <div class="section">
-            <h2>Understanding the Tourist Profile</h2>
-            <p>Demographic analysis of tourists, such as gender, enables targeted marketing and better service offerings. Identifying visitor profiles can also support tourism growth strategies.</p>
-            <div class="grid-container">
-                <div class="visualization" id="gender-arrivals-chart"></div>
-                <div class="visualization" id="country-gender-chart"></div>
-            </div>
-            <p class="chart-description">Malaysia’s tourist demographic shows a slight male dominance, with certain countries exhibiting unique trends.</p>
+            <h2>Tourist Profile Analysis</h2>
+            <p class="chart-description">
+                Analyzing tourist profiles offers insights into visitor demographics, essential for effective marketing. The data showcases gender distribution across various countries.
+            </p>
+            <div class="visualization" style="width: 30%; height: 400px;" id="gender-arrivals-chart"></div>
+            <div class="visualization" style="width: 70%; height: 400px;" id="country-gender-chart"></div>
+            <p class="chart-description">
+                Male tourists slightly outnumber their female counterparts. Gender ratios differ significantly based on country of origin, revealing unique trends that can help tailor destination offerings.
+            </p>
         </div>
 
         <!-- Section 3: Tourism Expenditure and Revenue -->
         <div class="section">
             <h2>Tourism Expenditure and Revenue</h2>
-            <p>Tourism is a significant contributor to Malaysia’s economy, especially in the accommodation and transport sectors. Expenditure trends help predict future economic outcomes.</p>
+            <p class="chart-description">
+                Revenue from tourism is a critical economic driver. The visualizations below highlight spending patterns and their fluctuations over recent years.
+            </p>
             <div class="visualization" id="tourist-expenditure-chart"></div>
-            <p class="chart-description">Economic disruptions, such as global events, reflect shifts in tourist spending patterns over the years.</p>
-
-            <div class="visualization" id="revenue-tourist-chart"></div>
-            <p class="chart-description">Revenue trends closely align with tourist arrivals, showing a substantial recovery in post-pandemic years.</p>
+            <p class="chart-description">
+                Spending has varied significantly, mirroring global economic conditions. Peaks in 2019 contrast with the deep troughs observed during 2020-2021.
+            </p>
         </div>
 
         <!-- Section 4: Regional Tourism Insights -->
         <div class="section">
             <h2>Regional Tourism Insights</h2>
-            <p>Tourist distribution across Malaysia's states highlights key travel destinations and regional preferences, enabling targeted marketing and development strategies.</p>
+            <p class="chart-description">
+                The map visualization reveals tourist distribution across Malaysia's states, indicating preferred destinations. The darker regions show higher engagement, while lighter regions highlight areas with lower participation.
+            </p>
             <div class="visualization" id="regional-tourism-map"></div>
         </div>
 
-        <!-- Section 5: Travel Motivations and Stay Trends -->
+        <!-- Section 5: Travel Motivations and Stay Duration -->
         <div class="section">
-            <h2>Travel Motivations and Stay Duration Insights</h2>
-            <p>Understanding why tourists visit Malaysia and how long they stay can shape the country’s tourism policies and help optimize marketing efforts.</p>
-            <div class="grid-container">
-                <div class="visualization" id="purpose-of-visit-chart"></div>
-                <div class="visualization" id="stay-trends-chart"></div>
-            </div>
-            <p class="chart-description">Leisure and shopping remain the dominant travel motivations, with stays typically ranging from 2 to 2.5 days.</p>
-        </div>
-
-        <div class="footer">
-            <p>Tourism Analysis | 2024</p>
+            <h2>Travel Motivations and Stay Duration</h2>
+            <p class="chart-description">
+                Understanding why tourists visit and how long they stay provides deeper insight into visitor behavior. This helps optimize service offerings and enhance experiences.
+            </p>
+            <div class="visualization" style="width: 45%; height: 250px;" id="purpose-of-visit-chart"></div>
+            <div class="visualization" style="width: 55%; height: 250px;" id="stay-trends-chart"></div>
+            <p class="chart-description">
+                Leisure and shopping are the primary motivations. Short stays of 2-3 days dominate, suggesting opportunities for increasing overnight stays through targeted campaigns.
+            </p>
         </div>
     </div>
 
@@ -176,7 +191,6 @@
         embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Gender%20of%20Arrivals.vg.json');
         embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Country%20vs%20Gender.vg.json');
         embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Expenditure.vg.json');
-        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Revenue.vg.json');
         embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Regional%20Tourism%20Insights.vg.json');
         embedCharts('purpose-of-visit-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Purpose%20of%20Visit.vg.json');
         embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Stay%20Trends.vg.json');
