@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Naillya Ganesan Visalakshi"> <!-- Your name -->
     <meta name="student-id" content="33036519"> <!-- Your student ID -->
-    <meta name="description" content="An analysis of tourism trends, demographics, and economic impacts in Malaysia.">
     <title>Tourism Analysis in Malaysia</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -63,11 +61,12 @@
         }
 
         .chart-description {
-            font-size: 1rem;
+            font-size: 1.2rem;
             line-height: 1.6;
             margin: 5px 0;
             text-align: justify;
             color: #34495e;
+            max-width: 600px; /* Ensures shorter lines for better readability */
         }
 
         .visualization {
@@ -76,6 +75,7 @@
             border-radius: 8px;
             padding: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Ensure charts take full width */
         }
 
         .grid-container {
@@ -164,6 +164,7 @@
 
         <div class="footer">
             <p>&copy; 2024 Malaysia Tourism Analysis. All rights reserved.</p>
+            <p>Metadata: This webpage was designed for a student project by Naillya Ganesan Visalakshi (ID: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
         </div>
     </div>
 
@@ -172,11 +173,19 @@
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 12,
-                        titleFontSize: 14,
+                        labelFontSize: 14, /* Adjusted font size */
+                        titleFontSize: 16,
+                        labelFont: 'Poppins',
+                        titleFont: 'Poppins'
+                    },
+                    legend: {
+                        labelFontSize: 14, /* Adjusted font size */
+                        titleFontSize: 16,
+                        labelFont: 'Poppins',
+                        titleFont: 'Poppins'
                     },
                     mark: {
-                        tooltip: true // Enable tooltips for interactivity
+                        tooltip: true /* Enable tooltips for interactivity */
                     }
                 }
             }).catch(console.warn);
@@ -194,4 +203,5 @@
         embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Trends%20in%20Tourist%20Stay%20(2018-2023).vg.json');
     </script>
 </body>
+
 </html>
