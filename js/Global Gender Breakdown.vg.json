@@ -1,12 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {
-        "text": "Gender Distribution of Arrivals from Various Countries",
-        "fontSize": 16,
-        "titlePadding": 20,
-        "align": "center",
-        "dy": -7
-    },
     "data": {
         "values": [
             {"country": "Singapore", "gender": "Male", "percentage": 56.14},
@@ -61,9 +54,9 @@
             "type": "quantitative",
             "axis": {
                 "title": "Percentage of Total Arrivals",
-                "titlePadding": 12,
-                "titleFontSize": 14,
-                "labelFontSize": 14,
+                "titlePadding": 10,
+                "titleFontSize": 15,
+                "labelFontSize": 15,
                 "format": ".0f",
                 "grid": true,
                 "labelAngle": 0,
@@ -80,8 +73,8 @@
             "axis": {
                 "title": "Country",
                 "labelAngle": 0,
-                "titleFontSize": 14,
-                "labelFontSize": 14
+                "titleFontSize": 15,
+                "labelFontSize": 15
             }
         },
         "color": {
@@ -94,9 +87,9 @@
             "legend": {
                 "title": "Gender",
                 "orient": "right",
-                "titleFontSize": 14,
-                "labelFontSize": 14,
-                "labelPadding": 12
+                "titleFontSize": 15,
+                "labelFontSize": 15,
+                "labelPadding": 10
             }
         },
         "tooltip": [
@@ -106,5 +99,5 @@
         ]
     },
     "width": 400,
-    "height": 300
+    "height": 400
 }
