@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width":300,
-  "height":300,
+  "width": 300,
+  "height": 200,
   "data": {
     "values": [
       {"Category": "Official Business", "Value": 1.2},
@@ -9,23 +9,48 @@
       {"Category": "Medical/Wellness", "Value": 10.3},
       {"Category": "Leisure", "Value": 22.1},
       {"Category": "Shopping", "Value": 36.4},
-      {"Category": "Visiting Friends and Family", "Value": 24.2}
+      {"Category": "Visiting Friends & Family", "Value": 24.2}
     ]
   },
   "encoding": {
-    "color": {"field": "Category", "type": "nominal"},
-    "theta": {"field": "Value", "type": "quantitative"},
+    "color": {
+      "field": "Category",
+      "type": "nominal",
+      "legend": {
+        "title": "Purpose of Visit",
+        "titleFontSize": 14,
+        "labelFontSize": 14,
+        "orient": "right",
+        "offset": 0
+      }
+    },
+    "theta": {
+      "field": "Value",
+      "type": "quantitative"
+    },
     "tooltip": [
-      {"field": "Category", "title": "Purpose of Visit"},
-      {"field": "Value", "title": "Percentage", "format": ".1f"}
+      {
+        "field": "Category",
+        "title": "Purpose of Visit"
+      },
+      {
+        "field": "Value",
+        "title": "Percentage",
+        "format": ".1f"
+      }
     ]
-  
   },
   "mark": {
     "type": "arc",
     "innerRadius": 60,
     "outerRadius": 85,
     "tooltip": true
+  },
+  "config": {
+    "tooltip": {
+      "size": {
+        "value": 15
+      }
+    }
   }
-  
 }
