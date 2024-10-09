@@ -1,194 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Your Name"> <!-- Update with your name -->
     <title>Tourism Analysis in Malaysia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
-        /* Base styling */
         body {
-            font-family: 'Poppins', sans-serif; /* Updated font */
-            background-color: #eaeaea;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            display: flex; /* Flexbox for centering */
-            justify-content: center; /* Center horizontally */
-            color: #333; /* Default text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
-        /* Container for content */
         .container {
-            width: 90vw; /* Width of the content */
-            max-width: 1200px; /* Maximum width for larger screens */
+            width: 90vw; /* Increase width for larger display */
+            max-width: 1200px; /* Maximum width for large screens */
             background-color: #ffffff;
-            border: 1px solid #d0d0d0;
-            border-radius: 8px; /* More rounded corners */
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Main header */
         h1 {
-            font-family: 'Georgia', serif; /* Use serif font for title */
+            font-size: 3rem; /* Increased font size */
             text-align: center;
-            font-size: 2.5em; /* Increased font size */
-            margin: 10px 0; 
-            color: #2c3e50; /* Darker color for better contrast */
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 10px;
         }
 
-        /* Section styling */
+        h2 {
+            font-size: 2.5rem; /* Increased font size */
+            color: #2980b9;
+            margin-top: 20px;
+            border-bottom: 1px solid #dcdcdc;
+            padding-bottom: 5px;
+        }
+
         .section {
-            margin: 20px 0; /* Increased margins for better spacing */
-            padding: 20px;
-            background-color: #f9f9f9; /* Lighter section background */
-            border-radius: 5px; /* Rounded corners for sections */
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            position: relative;
+            transition: transform 0.2s;
         }
 
-        /* Section title styling */
-        .section h2 {
-            font-size: 1.6em; /* Larger section title */
-            margin-top: 0;
-            font-family: 'Poppins', sans-serif; /* Consistent font */
-            color: #2980b9; /* Blue color for section titles */
+        .section:hover {
+            transform: scale(1.02);
         }
 
-        /* Flex container for charts */
+        .chart-description {
+            font-size: 1.2rem; /* Increased font size */
+            line-height: 1.6;
+            margin: 5px 0;
+            text-align: justify;
+            color: #34495e;
+        }
+
+        .visualization {
+            margin: 20px 0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Make visualization take full width */
+            display: flex;
+            justify-content: center; /* Center the chart */
+            align-items: center; /* Center content vertically */
+        }
+
         .grid-container {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap; /* Allow wrapping */
-            margin: 0;
-            padding: 0;
+            justify-content: space-between;
+            margin: 0 -10px;
+            flex-wrap: wrap; /* Wrap to next line on small screens */
         }
 
-        /* Visualization styling */
-        .visualization {
-            background-color: #ffffff;
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 10px; /* Reduced margin for better use of space */
-            padding: 0;
-            flex: 1 0 100%; /* Full width for each chart */
-            max-width: 100%; 
-            display: flex;
-            align-items: center; /* Center-align the visualizations */
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for charts */
+        .grid-item {
+            flex: 1;
+            margin: 0 10px;
+            width: 100%; /* Make grid item take full width */
+            max-width: 600px; /* Limit width for large screens */
         }
 
-        /* Explanatory text for each chart */
-        .chart-description {
-            font-size: 1em; /* Increased font size */
-            margin: 15px 0;
-            line-height: 1.5; /* Improved line spacing */
-            max-width: 700px; /* Limit width for better readability */
-            text-align: justify;
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1rem; /* Increased font size */
+            color: #7f8c8d;
         }
 
-        /* Responsive adjustments for smaller screens */
         @media (max-width: 768px) {
-            body {
-                padding: 0 5px;
+            .grid-container {
+                flex-direction: column;
             }
 
-            h1 {
-                font-size: 2em; /* Adjusted font size for smaller screens */
-            }
-
-            .section {
-                padding: 10px;
-            }
-
-            .visualization {
-                margin: 10px 0; /* Ensure charts stack correctly */
-                height: auto; /* Allow height to be dynamic */
+            .grid-item {
+                margin: 10px 0;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- Main content container -->
     <div class="container">
-        <!-- Main header for the webpage -->
         <h1>Exploring Tourism in Malaysia</h1>
 
-        <!-- Section 1: Tourism Trends and Dynamics -->
         <div class="section">
             <h2>Tourism Trends and Dynamics</h2>
-            <p class="chart-description">Tourism trends reveal Malaysia's recovery post-pandemic, highlighting seasonal fluctuations and the impact of travel restrictions. This information is vital for effective policy-making.</p>
-            
-            <!-- Visualization container for Section 1 -->
-            <div class="visualization" id="tourist-countries-chart"></div>
-            <div class="chart-description">Key markets like Singapore and Indonesia have shown strong recovery in tourist numbers, while long-haul markets such as Australia have been slower to rebound.</div>
+            <p class="chart-description">Malaysia's tourism is on a recovery trajectory. Seasonal fluctuations and travel restrictions impact these dynamics. Understanding these trends is crucial for effective policy-making.</p>
 
-            <div class="visualization" id="seasonal-arrivals-chart"></div>
-            <div class="chart-description">Peak travel months like July saw significant arrivals pre-pandemic. The dramatic drop in 2020 illustrates the pandemic's severe impact on global tourism.</div>
+            <div class="visualization" id="tourist-countries-chart" style="height: 500px;"></div>
+            <p class="chart-description">Key markets like Singapore and Indonesia are rebounding strongly, while long-haul markets are recovering more slowly.</p>
+
+            <div class="visualization" id="seasonal-arrivals-chart" style="height: 500px;"></div>
+            <p class="chart-description">The peak travel months highlight the significant impact of the pandemic on arrivals in 2020.</p>
         </div>
 
-        <!-- Section 2: Tourist Profile -->
         <div class="section">
             <h2>Understanding the Tourist Profile</h2>
-            <p class="chart-description">Understanding the demographic profile, such as gender distribution, helps tailor marketing and services, supporting tourism growth in Malaysia.</p>
-            
-            <!-- Visualization container with side-by-side alignment for Section 2 -->
+            <p class="chart-description">Analyzing the demographic profile, such as gender distribution, helps tailor marketing strategies and services.</p>
+
             <div class="grid-container">
-                <div class="visualization" style="flex: 1 0 45%; height: 400px;" id="gender-arrivals-chart"></div>
-                <div class="visualization" style="flex: 1 0 45%; height: 400px;" id="country-gender-chart"></div>
+                <div class="grid-item visualization" id="gender-arrivals-chart" style="height: 500px;"></div>
+                <div class="grid-item visualization" id="country-gender-chart" style="height: 500px;"></div>
             </div>
-            <div class="chart-description">Data shows a slight male dominance in visitor demographics, with unique trends in specific source countries.</div>
+            <p class="chart-description">The data reveals a slight male dominance in visitor demographics and unique trends in specific countries.</p>
         </div>
 
-        <!-- Section 3: Tourism Expenditure and Revenue -->
         <div class="section">
             <h2>Tourism Expenditure and Revenue</h2>
-            <p class="chart-description">Tourist expenditures significantly contribute to Malaysia's economy, with accommodation and transport being key revenue generators.</p>
-            
-            <!-- Visualization container for Section 3 -->
-            <div class="visualization" id="tourist-expenditure-chart"></div>
-            <div class="chart-description">Expenditures have fluctuated over the years, reflecting broader economic trends and travel disruptions due to global events.</div>
+            <p class="chart-description">Tourist spending is a vital part of Malaysia's economy, impacting various sectors like accommodation and transport.</p>
 
-            <div class="visualization" id="revenue-tourist-chart"></div>
-            <div class="chart-description">Revenue trends mirror tourist arrivals, with significant dips during the pandemic and a gradual recovery afterward.</div>
+            <div class="visualization" id="tourist-expenditure-chart" style="height: 500px;"></div>
+            <p class="chart-description">Expenditure trends reflect economic conditions and travel disruptions in recent years.</p>
+
+            <div class="visualization" id="revenue-tourist-chart" style="height: 500px;"></div>
+            <p class="chart-description">Revenue trends align closely with tourist arrivals, showcasing the pandemic's significant impacts.</p>
         </div>
 
-        <!-- Section 4: Regional Tourism Insights -->
         <div class="section">
             <h2>Regional Tourism Insights</h2>
-            <p class="chart-description">This map visualization shows tourist distribution across Malaysia's states, helping identify top destinations and regional preferences.</p>
-           
-            <div class="visualization" id="regional-tourism-map"></div>
+            <p class="chart-description">This map visualization displays tourist distribution across Malaysia, identifying top destinations and regional preferences.</p>
+            <div class="visualization" id="regional-tourism-map" style="height: 500px;"></div>
         </div>
 
-        <!-- Section 5: Purpose of Visit and Stay Trends -->
         <div class="section">
             <h2>Travel Motivations and Stay Duration Insights</h2>
-            <p class="chart-description">Tourist motivations and duration of stay are crucial for understanding visitor behavior and improving tourism strategies.</p>
-            
-            <!-- Visualization container with side-by-side alignment for Section 5 -->
+            <p class="chart-description">Understanding motivations and stay durations is crucial for enhancing visitor experience and tourism strategies.</p>
+
             <div class="grid-container">
-                <div class="visualization" style="flex: 1 0 45%; height: 250px;" id="purpose-of-visit-chart"></div>
-                <div class="visualization" style="flex: 1 0 45%; height: 250px;" id="stay-trends-chart"></div>
+                <div class="grid-item visualization" id="purpose-of-visit-chart" style="height: 350px;"></div>
+                <div class="grid-item visualization" id="stay-trends-chart" style="height: 350px;"></div>
             </div>
-            <div class="chart-description">Leisure and shopping dominate travel motivations, with average stays ranging from 2 to 2.5 days.</div>
+            <p class="chart-description">Leisure and shopping dominate travel motivations, with average stays ranging from 2 to 2.5 days.</p>
         </div>
 
-        <footer>
-            <p style="text-align: center;"><b>Naillya Ganesan Visalakshi</b> | Student ID: 33036519</p>
-            <p style="text-align: center;">Sources: <a href="path/to/references.txt">References</a></p>
-        </footer>
+        <div class="footer">
+            <p>&copy; 2024 Malaysia Tourism Analysis. All rights reserved.</p>
+        </div>
     </div>
 
     <script>
-        // Function to embed Vega charts
         const embedCharts = (divId, url) => {
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 14,
-                        titleFontSize: 14,
+                        labelFontSize: 14, // Increased font size for axis labels
+                        titleFontSize: 16, // Increased font size for axis titles
+                    },
+                    mark: {
+                        tooltip: true // Enable tooltips for interactivity
                     }
                 }
             }).catch(console.warn);
