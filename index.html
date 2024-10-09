@@ -188,22 +188,12 @@
                 config: {
                     axis: {
                         labelFontSize: 14,
-                        titleFontSize: 16, // Increased title font size
-                    },
-                    legend: {
-                        labelFontSize: 12, // Adjust legend label font size
-                        titleFontSize: 14, // Adjust legend title font size
-                    },
-                    tooltip: {
-                        content: 'data', // Show detailed tooltip information
-                        labelFontSize: 12, // Adjust tooltip label font size
-                    },
-                    view: {
-                        continuousWidth: 800, // Use full width for continuous views
-                    },
+                        titleFontSize: 14,
+                    }
                 }
             }).catch(console.warn);
         };
+
 
         // Embedding the charts using their respective URLs
         embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
