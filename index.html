@@ -35,7 +35,7 @@
             border-radius: 5px 5px 0 0;
             text-align: center;
             font-size: 1.1rem;
-            padding-top: 10px;
+            padding-top: 10px; 
             padding-bottom: 10px;
         }
 
@@ -62,6 +62,8 @@
             font-size: 2.8rem;
             text-align: center;
             color: #2c3e50;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
             margin-bottom: 5px;
             padding-bottom: 5px;
         }
@@ -131,23 +133,6 @@
             width: 50%;
         }
 
-        /* Styles for centering the dropdown */
-        .dropdown-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .dropdown-label {
-            font-size: 16px; /* Adjust font size */
-            font-weight: bold; /* Adjust font weight */
-            margin-right: 10px; /* Space between label and dropdown */
-        }
-
-        select {
-            font-size: 16px; /* Adjust dropdown font size */
-            padding: 5px; /* Padding inside the dropdown */
-        }
-
         @media (max-width: 768px) {
             .grid-container {
                 flex-direction: column;
@@ -196,25 +181,6 @@
             <p class="chart-description">Tourist spending is a vital part of Malaysia's economy, impacting various sectors like accommodation and transport.</p>
             <div class="visualization large-visualization" id="tourist-expenditure-chart"></div>
             <p class="chart-description">Expenditure trends reflect economic conditions and travel disruptions in recent years.</p>
-           
-            <!-- Dropdown for year selection -->
-            <div class="dropdown-container">
-                <label for="yearSelect" class="dropdown-label">Select Year:</label>
-                <select id="yearSelect" onchange="updateCharts()">
-                    <option value="All">All</option>
-                    <option value="2014">2014</option>
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                </select>
-            </div>
-            
             <div class="visualization large-visualization" id="revenue-tourist-chart"></div>
             <p class="chart-description">Revenue trends align closely with tourist arrivals, showcasing the pandemic's significant impacts.</p>
         </div>
