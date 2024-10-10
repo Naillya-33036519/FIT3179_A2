@@ -23,21 +23,19 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
         }
 
         .card {
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            padding: 20px;
         }
 
         .card-header {
             color: #fff;
             border-radius: 5px 5px 0 0;
             text-align: center;
-            font-size: 1.1rem; /* Reduced font size */
+            font-size: 1.1rem;
         }
 
         .card-body {
@@ -107,7 +105,7 @@
 
         .large-visualization {
             width: 100%;
-            height: 600px;
+            height: 450px;
             margin: auto; /* Center the charts */
         }
 
@@ -151,7 +149,6 @@
                 <h1>Exploring Tourism in Malaysia</h1>
             </div>
             <div class="card-body">
-                <!-- Removed text below the heading -->
             </div>
         </div>
 
@@ -206,8 +203,7 @@
         </div>
 
         <div class="footer">
-            <p>&copy; 2024 Malaysia Tourism Analysis. All rights reserved.</p>
-            <p>Metadata: This webpage was designed for a student project by Naillya Ganesan Visalakshi (ID: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
+            <p>Metadata: This webpage was designed by Naillya Ganesan Visalakshi (Student Id: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
             <p>Source: <a href="https://example.com">Example Source Link</a></p> <!-- Example source link -->
         </div>
     </div>
@@ -217,22 +213,22 @@
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 14, /* Adjusted font size */
+                        labelFontSize: 14,
                         titleFontSize: 16,
                         labelFont: 'Poppins',
                         titleFont: 'Poppins'
                     },
                     legend: {
-                        labelFontSize: 14, /* Adjusted font size */
+                        labelFontSize: 14,
                         titleFontSize: 16,
                         labelFont: 'Poppins',
                         titleFont: 'Poppins'
                     },
                     mark: {
-                        tooltip: true /* Enable tooltips for interactivity */
+                        tooltip: true
                     },
-                    width: 600, /* Chart width */
-                    height: 400 /* Chart height */
+                    width: 600,
+                    height: 400
                 }
             }).catch(console.warn);
         };
