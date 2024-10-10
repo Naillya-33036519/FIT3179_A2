@@ -158,7 +158,25 @@
         <div class="section">
             <h2>Tourism Trends and Dynamics</h2>
             <p class="chart-description">Malaysia's tourism is on a recovery trajectory. Seasonal fluctuations and travel restrictions impact these dynamics. Understanding these trends is crucial for effective policy-making.</p>
-
+            
+            <!-- Dropdown for year selection -->
+            <div class="text-center">
+                <label for="yearSelect">Select Year: </label>
+                <select id="yearSelect" onchange="updateCharts()">
+                    <option value="All">All</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+            
             <div class="visualization large-visualization" id="tourist-countries-chart"></div>
             <p class="chart-description">Key markets like Singapore and Indonesia are rebounding strongly, while long-haul markets are recovering more slowly.</p>
 
