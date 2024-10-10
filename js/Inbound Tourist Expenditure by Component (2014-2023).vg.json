@@ -2,7 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
   "height": 420,
-  
   "data": {
     "values": [
       {"Year": "2014", "Component": "Shopping", "Expenditure": 28},
@@ -89,7 +88,8 @@
         "title": "Expenditure Component",
         "labelFontSize": 14,
         "titleFontSize": 14,
-        "labelPadding":10
+        "labelPadding": 10,
+        "orient": "bottom"
       }
     },
     "opacity": {
