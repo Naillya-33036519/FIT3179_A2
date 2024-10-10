@@ -35,7 +35,7 @@
             border-radius: 5px 5px 0 0;
             text-align: center;
             font-size: 1.1rem;
-            padding-top: 10px; 
+            padding-top: 10px;
             padding-bottom: 10px;
         }
 
@@ -62,8 +62,6 @@
             font-size: 2.8rem;
             text-align: center;
             color: #2c3e50;
-            margin-bottom: 5px;
-            padding-bottom: 5px;
             margin-bottom: 5px;
             padding-bottom: 5px;
         }
@@ -133,6 +131,23 @@
             width: 50%;
         }
 
+        /* Styles for centering the dropdown */
+        .dropdown-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .dropdown-label {
+            font-size: 16px; /* Adjust font size */
+            font-weight: bold; /* Adjust font weight */
+            margin-right: 10px; /* Space between label and dropdown */
+        }
+
+        select {
+            font-size: 16px; /* Adjust dropdown font size */
+            padding: 5px; /* Padding inside the dropdown */
+        }
+
         @media (max-width: 768px) {
             .grid-container {
                 flex-direction: column;
@@ -183,8 +198,8 @@
             <p class="chart-description">Expenditure trends reflect economic conditions and travel disruptions in recent years.</p>
            
             <!-- Dropdown for year selection -->
-            <div class="text-center">
-                <label for="yearSelect">Select Year: </label>
+            <div class="dropdown-container">
+                <label for="yearSelect" class="dropdown-label">Select Year:</label>
                 <select id="yearSelect" onchange="updateCharts()">
                     <option value="All">All</option>
                     <option value="2014">2014</option>
