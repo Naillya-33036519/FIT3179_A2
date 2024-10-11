@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Donut chart to show male and female arrivals",
 
-  "width": 200,
-  "height": 200,
+  "width": 300,
+  "height": 300,
   "data": {
     "values": [
       {"gender": "Male", "percentage": 52.76, "count": 1862082, "total": 3528338},
