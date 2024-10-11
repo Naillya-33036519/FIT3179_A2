@@ -146,7 +146,7 @@
           "field": "month",
           "type": "ordinal",
           "title": "Month",
-          "axis": {"labelAngle": -45, "titlePadding": 10, "labelFontSize":15,"titleFontSize":15},
+          "axis": {"labelAngle": -45, "labelFontSize":14,"titleFontSize":14},
           "sort": ["January", "February", "March", "April", "May", "June", 
         "July", "August", "September", "October", "November", "December"
       ]
@@ -154,7 +154,7 @@
         "y": {
           "field": "year",
           "type": "ordinal",
-          "axis": {"title": "Year", "titlePadding": 10, "labelFontSize":15,"titleFontSize":15}
+          "axis": {"title": "Year", "titlePadding": 10, "labelFontSize":14,"titleFontSize":14}
         },
         "color": {
           "field": "value",
@@ -162,8 +162,8 @@
           "title": "Arrivals",
           "legend":{
             "titlePadding": 10,
-            "labelFontSize":14,
-            "titleFontSize":14          
+            "labelFontSize":13,
+            "titleFontSize":13          
           },
       "scale": {
         "range": ["#b3cde3", "#6497b1", "#005b96"]
@@ -209,7 +209,7 @@
     }
   ],
   "width": 700,
-  "height": 400
+  "height": 420
     }
   ]
 }
