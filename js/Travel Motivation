@@ -1,0 +1,155 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "hconcat": [
+    {
+      "width": 300,
+      "height": 250,
+      "data": {
+        "values": [
+          {"Category": "Official Business", "Value": 1.2},
+          {"Category": "Attending Events", "Value": 5.4},
+          {"Category": "Medical/Wellness", "Value": 10.3},
+          {"Category": "Leisure", "Value": 22.1},
+          {"Category": "Shopping", "Value": 36.4},
+          {"Category": "Visiting Friends & Family", "Value": 24.2}
+        ]
+      },
+      "encoding": {
+        "color": {
+          "field": "Category",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Official Business",
+              "Attending Events",
+              "Medical/Wellness",
+              "Leisure",
+              "Shopping",
+              "Visiting Friends & Family"
+            ]
+          },
+          "legend": {
+            "title": "Purpose of Visit",
+            "titleFontSize": 14,
+            "labelFontSize": 12,
+            "orient": "bottom",
+            "offset": 0
+          }
+        },
+        "theta": {
+          "field": "Value",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "Category",
+            "title": "Purpose of Visit"
+          },
+          {
+            "field": "Value",
+            "title": "Percentage",
+            "format": ".1f"
+          }
+        ]
+      },
+      "mark": {
+        "type": "arc",
+        "innerRadius": 60,
+        "outerRadius": 85,
+        "tooltip": true
+      },
+      "config": {
+        "tooltip": {
+          "size": {
+            "value": 15
+          }
+        }
+      }
+    },
+    {
+      "description": "Lollipop chart showing days data for each year",
+      "data": {
+        "values": [
+          {"year": 2018, "days": 2.40},
+          {"year": 2019, "days": 2.50},
+          {"year": 2020, "days": 1.90},
+          {"year": 2021, "days": 2.20},
+          {"year": 2022, "days": 2.50},
+          {"year": 2023, "days": 2.45}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "strokeWidth": 2,
+            "color": "#683191"
+          },
+          "encoding": {
+            "x": {
+              "field": "year",
+              "type": "ordinal"
+            },
+            "y": {
+              "field": "days",
+              "type": "quantitative",
+              "scale": {
+                "domain": [1, 3],
+                "nice": false,
+                "tickCount": 5
+              }
+            },
+            "tooltip": [
+              {"field": "year", "type": "ordinal", "title": "Year"},
+              {"field": "days", "type": "quantitative", "title": "Number of Days"}
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "circle",
+            "filled": true,
+            "size": 100,
+            "color": "#8b5ead"
+          },
+          "encoding": {
+            "x": {
+              "field": "year",
+              "type": "ordinal"
+            },
+            "y": {
+              "field": "days",
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {"field": "year", "type": "ordinal", "title": "Year"},
+              {"field": "days", "type": "quantitative", "title": "Number of Days"}
+            ]
+          }
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "axis": {
+            "title": "Year",
+            "labelAngle": 0,
+            "titlePadding": 7
+          }
+        },
+        "y": {
+          "field": "days",
+          "type": "quantitative",
+          "axis": {
+            "title": "Number of Days",
+            "titlePadding": 7
+          }
+        }
+      },
+      "width": 300,
+      "height": 250
+    }
+  ],
+  "spacing": 20
+}
