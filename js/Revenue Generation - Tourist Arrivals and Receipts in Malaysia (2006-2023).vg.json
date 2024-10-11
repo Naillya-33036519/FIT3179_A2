@@ -167,6 +167,6 @@
           "filter": {"field": "Value", "equal": 0.24} 
         }
       ]
-    },
+    }
   ]
 }
