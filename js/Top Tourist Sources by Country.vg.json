@@ -119,7 +119,7 @@
       "title": "Year",
       "axis": {
         "labelOverlap": "parity",
-        "labelAngle": -45
+        "labelAngle": 0
       }
     },
     "y": {
@@ -167,10 +167,6 @@
       "labelFontSize": 13,
       "titleFontSize": 13,
       "labelPadding":10
-    },
-    "tooltip":{
-      "labelFontSize":15,
-      "titleFontSize":15
-    }
   }
+}
 }
