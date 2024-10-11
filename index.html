@@ -216,25 +216,38 @@
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFont: 'Poppins',
-                        titleFont: 'Poppins'
+                        labelFontSize: 14,           // Set font size for axis labels
+                        titleFontSize: 16,           // Set font size for axis titles
+                        labelFont: 'Poppins',        // Set axis labels font to Poppins
+                        titleFont: 'Poppins'         // Set axis title font to Poppins
                     },
                     legend: {
-                        labelFont: 'Poppins',
-                        titleFont: 'Poppins'
+                        labelFontSize: 14,           // Set font size for legend labels
+                        titleFontSize: 16,           // Set font size for legend title
+                        labelFont: 'Poppins',        // Set legend label font to Poppins
+                        titleFont: 'Poppins'         // Set legend title font to Poppins
+                    },
+                    tooltip: {
+                        titleFontSize: 14,           // Set font size for tooltip title
+                        contentFontSize: 12,         // Set font size for tooltip content
+                        titleFont: 'Poppins',        // Set tooltip title font to Poppins
+                        contentFont: 'Poppins'       // Set tooltip content font to Poppins
                     },
                     header: {
-                        labelFont: 'Poppins',
-                        titleFont: 'Poppins'
+                        labelFont: 'Poppins',        // Set font for headers
+                        titleFont: 'Poppins',        // Set font for header titles
+                        labelFontSize: 14,           // Set font size for header labels
+                        titleFontSize: 16            // Set font size for header titles
                     },
                     mark: {
-                        tooltip: { content: "data" }, /* Ensures tooltips display data */
+                        tooltip: { content: "data" } // Ensures tooltips display data
                     },
                     width: 600,
                     height: 545
                 }
             }).catch(console.warn);
         };
+
 
         // Embedding the charts using their respective URLs
         embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
