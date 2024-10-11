@@ -36,7 +36,8 @@
           "legend": {
             "labelPadding": 10,
             "titleFontSize": 13,  
-            "labelFontSize": 13 
+            "labelFontSize": 13,
+            "offset": 50
           }
         },
         "tooltip": [
