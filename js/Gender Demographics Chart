@@ -64,7 +64,7 @@
         {
           "mark": {
             "type": "text",
-            "dx": -136,
+            "dx": -137,
             "dy": 5,
             "fontSize": 14
           },
@@ -120,7 +120,7 @@
         {
           "mark": {
             "type": "text",
-            "dx": -135,
+            "dx": -136,
             "dy": -8,
             "fontWeight": "bold",
             "fontSize": 14
@@ -148,7 +148,7 @@
         {
           "mark": {
             "type": "text",
-            "dx": 135,
+            "dx": 137,
             "dy": -8,
             "fontWeight": "bold",
             "fontSize": 14
@@ -176,7 +176,7 @@
         {
           "mark": {
             "type": "text",
-            "dx": -115,
+            "dx": -113,
             "dy": 5,
             "fontSize": 14
           },
@@ -202,7 +202,7 @@
         {
           "mark": {
             "type": "text",
-            "dx": 152,
+            "dx": 156,
             "dy": 5,
             "fontSize": 14
           },
@@ -331,5 +331,5 @@
       "height": 250
     }
   ],
-  "spacing": 20
+  "spacing": 45
 }
