@@ -223,7 +223,8 @@
                         labelFontSize: 14,
                         titleFontSize: 16,
                         labelFont: 'Poppins',
-                        titleFont: 'Poppins'
+                        titleFont: 'Poppins',
+                        labelAngle: -45
                     },
                     legend: {
                         labelFontSize: 14,
@@ -234,8 +235,10 @@
                     mark: {
                         tooltip: true
                     },
-                    width: 600,
-                    height: 545
+                    autosize: {
+                        type: "fit",
+                        contains: "padding"
+                    }
                 }
             }).catch(console.warn);
         };
