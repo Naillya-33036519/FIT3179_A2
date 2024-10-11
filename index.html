@@ -175,16 +175,7 @@
         <div class="section">
             <h2>Understanding the Tourist Profile</h2>
             <p class="chart-description">Analyzing the demographic profile, such as gender distribution, helps tailor marketing strategies and services to meet tourist expectations. This analysis reveals unique patterns.</p>
-
-            <div class="pure-g">
-                <!-- Tourist Profile Charts (2 side-by-side) -->
-                <div class="pure-u-md-1-2">
-                    <div class="visualization medium-visualization" id="gender-arrivals-chart"></div>
-                </div>
-                <div class="pure-u-md-1-2    ">
-                    <div class="visualization medium-visualization" id="country-gender-chart"></div>
-                </div>
-            </div>
+            <div class="visualization large-visualization" id="gender-demographic-chart"></div>
             <p class="chart-description">The data reveals a slight male dominance in visitor demographics and unique trends in specific countries. These insights can inform targeted marketing efforts.</p>
         </div>
 
@@ -253,8 +244,7 @@
         // Embedding the charts using their respective URLs
         embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
         embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
-        embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json');
-        embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json');
+        embedCharts('gender-demographic-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Gender%20Demographics%20Chart');
         embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
         embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
         embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.json');
