@@ -8,16 +8,16 @@
     <title>Tourism Analysis in Malaysia</title>
     <!-- Import pure.css for better styling -->
     <link href="https://cdn.jsdelivr.net/npm/purecss@2.0.6/build/pure-min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
         body {
-            overflow-x: auto;
-            width: 1200px;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            max-width: 1200px; /* Adjust width to prevent overflow */
             margin: 0 auto;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', sans-serif; /* Apply Poppins font to body text */
         }
 
         .container {
@@ -37,13 +37,14 @@
             font-size: 1.1rem;
             padding-top: 10px;
             padding-bottom: 10px;
+            background-color: #2980b9; /* Add background color for better visibility */
         }
 
         .card-body {
             padding: 20px;
             line-height: 1.5;
             padding-top: 30px;
-            padding-bottom: 30px; 
+            padding-bottom: 30px;
         }
 
         .text-center {
@@ -59,6 +60,7 @@
         }
 
         h1 {
+            font-family: 'Merriweather', serif; /* Use Merriweather for the heading */
             font-size: 2.8rem;
             text-align: center;
             color: #2c3e50;
@@ -67,6 +69,7 @@
         }
 
         h2 {
+            font-family: 'Poppins', sans-serif; /* Keep h2 with Poppins */
             font-size: 2rem;
             color: #2980b9;
             margin-top: 20px;
@@ -116,7 +119,7 @@
 
         .medium-visualization {
             height: 400px;
-            margin: 10px 0; 
+            margin: 10px 0;
             width: 100%;
         }
 
@@ -171,7 +174,7 @@
             <div class="visualization large-visualization" id="seasonal-arrivals-chart"></div>
             <p class="chart-description">The peak travel months highlight the significant impact of the pandemic on arrivals in 2020. Understanding these fluctuations helps us plan future marketing strategies.</p>
         </div>
-        
+
         <div class="section">
             <h2>Understanding the Tourist Profile</h2>
             <p class="chart-description">Analyzing the demographic profile, such as gender distribution, helps tailor marketing strategies and services to meet tourist expectations. This analysis reveals unique patterns.</p>
@@ -212,19 +215,19 @@
             vegaEmbed(`#${divId}`, url, {
                 config: {
                     axis: {
-                        labelFontSize: 14,
-                        titleFontSize: 16,
                         labelFont: 'Poppins',
                         titleFont: 'Poppins'
                     },
                     legend: {
-                        labelFontSize: 14,
-                        titleFontSize: 16,
+                        labelFont: 'Poppins',
+                        titleFont: 'Poppins'
+                    },
+                    header: {
                         labelFont: 'Poppins',
                         titleFont: 'Poppins'
                     },
                     mark: {
-                        tooltip: true
+                        tooltip: { content: "data" }, /* Ensures tooltips display data */
                     },
                     width: 600,
                     height: 545
@@ -242,4 +245,5 @@
         embedCharts('travel-motivation', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation');
     </script>
 </body>
+
 </html>
