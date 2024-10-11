@@ -15,13 +15,13 @@
     <style>
         body {
             overflow-x: auto;
-            width: 1200px;
+            max-width: 1200px;
             margin: 0 auto;
             font-family: 'Poppins', sans-serif;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -37,25 +37,14 @@
             font-size: 1.1rem;
             padding-top: 10px;
             padding-bottom: 10px;
+            background-color: #2980b9;
         }
 
         .card-body {
             padding: 20px;
             line-height: 1.5;
             padding-top: 30px;
-            padding-bottom: 30px; 
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-right {
-            text-align: right;
-        }
-
-        .text-muted {
-            color: #6c757d;
+            padding-bottom: 30px;
         }
 
         h1 {
@@ -94,8 +83,6 @@
             text-align: justify;
             color: #34495e;
             padding: 5px 0;
-            padding-left: 5px;
-            padding-right: 5px;
         }
 
         .visualization {
@@ -116,7 +103,7 @@
 
         .medium-visualization {
             height: 350px;
-            margin: 10px 0; 
+            margin: 10px 0;
             width: 100%;
         }
 
@@ -127,27 +114,30 @@
             color: #7f8c8d;
         }
 
+        /* Grid Layout */
         .pure-g {
             display: flex;
             flex-wrap: wrap;
-        }
-
-        .pure-u-1-1 {
-            width: 100%;
+            gap: 20px; /* Added spacing between charts */
         }
 
         .pure-u-md-1-2 {
-            width: 50%;
+            width: 48%; /* Equal width for both elements */
+        }
+
+        .pure-u-md-2-3 {
+            width: 66%; /* Increased width for the right side chart */
         }
 
         @media (max-width: 768px) {
-            .grid-container {
-                flex-direction: column;
+            .pure-u-md-1-2,
+            .pure-u-md-2-3 {
+                width: 100%; /* Stack on smaller screens */
             }
+        }
 
-            .grid-item {
-                margin: 10px 0;
-            }
+        * {
+            box-sizing: border-box; /* Fix layout calculation issues */
         }
     </style>
 </head>
@@ -181,7 +171,7 @@
                 <div class="pure-u-md-1-2">
                     <div class="visualization medium-visualization" id="gender-arrivals-chart"></div>
                 </div>
-                <div class="pure-u-md-1-2    ">
+                <div class="pure-u-md-2-3">
                     <div class="visualization medium-visualization" id="country-gender-chart"></div>
                 </div>
             </div>
@@ -218,48 +208,266 @@
             </div>
             <p class="chart-description">The average length of stay provides insight into changing travel behaviors, with implications for revenue and infrastructure planning.</p>
         </div>
+    </div>
 
-        <div class="footer">
-            <p>Metadata: This webpage was designed by Naillya Ganesan Visalakshi (Student Id: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
-            <p>Source: <a href="https://github.com/Naillya-33036519/FIT3179_A2/blob/main/data/sources">Example Source Link</a></p> <!-- Example source link -->
-        </div>
+    <div class="footer">
+        <p>Tourism Analysis - Malaysia | Designed by: Your Name</p>
     </div>
 
     <script>
-        const embedCharts = (divId, url) => {
-            vegaEmbed(`#${divId}`, url, {
-                config: {
-                    axis: {
-                        labelFontSize: 14,
-                        titleFontSize: 16,
-                        labelFont: 'Poppins',
-                        titleFont: 'Poppins'
-                    },
-                    legend: {
-                        labelFontSize: 14,
-                        titleFontSize: 16,
-                        labelFont: 'Poppins',
-                        titleFont: 'Poppins'
-                    },
-                    mark: {
-                        tooltip: true
-                    },
-                    width: 600,
-                    height: 545
+        // Tourist Arrivals by Country of Origin Chart
+        vegaEmbed('#tourist-countries-chart', {
+            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+            width: 'container',
+            height: 550,
+            title: 'Tourist Arrivals by Country of Origin',
+            data: {
+                url: 'tourist_countries.csv'
+            },
+            mark: 'bar',
+            encoding: {
+                x: {
+                    field: 'Country',
+                    type: 'nominal',
+                    title: 'Country'
+                },
+                y: {
+                    field: 'Arrivals',
+                    type: 'quantitative',
+                    title: 'Arrivals'
+                },
+                color: {
+                    field: 'Arrivals',
+                    type: 'quantitative',
+                    scale: { scheme: 'blues' },
+                    title: 'Arrivals'
                 }
-            }).catch(console.warn);
-        };
+            }
+        });
 
-        // Embedding the charts using their respective URLs
-        embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
-        embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
-        embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json');
-        embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json');
-        embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
-        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
-        embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.json');
-        embedCharts('purpose-of-visit-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation%20-%20Purpose%20of%20Visits.vg.json');        
-        embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Trends%20in%20Tourist%20Stay%20(2018-2023).vg.json');
+        // Seasonal Arrivals Chart
+        vegaEmbed('#seasonal-arrivals-chart', {
+            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+            width: 'container',
+            height: 550,
+            title: 'Tourist Arrivals by Month',
+            data: {
+                url: 'seasonal_arrivals.csv'
+            },
+            mark: 'line',
+            encoding: {
+                x: {
+                    field: 'Month',
+                    type: 'ordinal',
+                    title: 'Month'
+                },
+                y: {
+                    field: 'Arrivals',
+                    type: 'quantitative',
+                    title: 'Arrivals'
+                },
+                color: {
+                    field: 'Year',
+                    type: 'nominal',
+                    title: 'Year'
+                }
+            }
+        });
+
+        // Gender Arrivals Chart
+        vegaEmbed('#gender-arrivals-chart', {
+            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+            width: 'container',
+            height: 350,
+            title: 'Gender Breakdown of Arrivals',
+            data: {
+                url: 'gender_arrivals.csv'
+            },
+            mark: 'bar',
+            encoding: {
+                x: {
+                    field: 'Gender',
+                    type: 'nominal',
+                    title: 'Gender'
+                },
+                y: {
+                    field: 'Arrivals',
+                    type: 'quantitative',
+                    title: 'Arrivals'
+                },
+                color: {
+                    field: 'Gender',
+                    type: 'nominal',
+                    title: 'Gender'
+                }
+            }
+        });
+
+        // Country Gender Chart
+        vegaEmbed('#country-gender-chart', {
+            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+            width: 'container',
+            height: 350,
+            title: 'Gender Arrivals by Country',
+            data: {
+                url: 'country_gender.csv'
+            },
+            mark: 'bar',
+            encoding: {
+                x: {
+                    field: 'Country',
+                    type: 'nominal',
+                    title: 'Country'
+                },
+                y: {
+                    field: 'Arrivals',
+                    type: 'quantitative',
+                    title: 'Arrivals'
+                },
+                color: {
+                    field: 'Gender',
+                    type: 'nominal',
+                    title: 'Gender'
+                }
+            }
+        });
+
+        // Tourist Expenditure Chart
+        vegaEmbed('#tourist-expenditure-chart', {
+            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+            width: 'container',
+            height: 550,
+            title: 'Tourist Expenditure Over Time',
+            data: {
+                url: 'tourist_expenditure.csv'
+            },
+            mark: 'line',
+            encoding: {
+                x: {
+                    field: 'Year',
+                    type: 'ordinal',
+                    title: 'Year'
+                },
+                y: {
+                    field: 'Expenditure',
+                    type: 'quantitative',
+                    title: 'Expenditure (Millions)'
+                },
+                color: {
+                    field: 'Category',
+                    type: 'nominal',
+                    title: 'Category'
+                }
+            }
+        });
+
+        // Tourism Revenue Chart
+        vegaEmbed('#revenue-tourist-chart', {
+            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+            width: 'container',
+            height: 550,
+            title: 'Tourism Revenue Over Time',
+            data: {
+                url: 'tourism_revenue.csv'
+            },
+            mark: 'line',
+            encoding: {
+                x: {
+                    field: 'Year',
+                    type: 'ordinal',
+                    title: 'Year'
+                },
+                y: {
+                    field: 'Revenue',
+                    type: 'quantitative',
+                    title: 'Revenue (Millions)'
+                },
+                color: {
+                    field: 'Year',
+                    type: 'nominal',
+                    title: 'Year'
+                }
+            }
+        });
+
+        // Regional Tourism Map
+        vegaEmbed('#regional-tourism-map', {
+            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+            width: 'container',
+            height: 550,
+            title: 'Tourist Distribution Across Malaysia',
+            data: {
+                url: 'regional_tourism.csv'
+            },
+            mark: 'geoshape',
+            encoding: {
+                color: {
+                    field: 'Tourists',
+                    type: 'quantitative',
+                    title: 'Tourists'
+                },
+                tooltip: { field: 'Region', type: 'nominal' }
+            }
+        });
+
+        // Purpose of Visit Chart
+        vegaEmbed('#purpose-of-visit-chart', {
+            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+            width: 'container',
+            height: 350,
+            title: 'Purpose of Visit Breakdown',
+            data: {
+                url: 'purpose_of_visit.csv'
+            },
+            mark: 'bar',
+            encoding: {
+                x: {
+                    field: 'Purpose',
+                    type: 'nominal',
+                    title: 'Purpose'
+                },
+                y: {
+                    field: 'Percentage',
+                    type: 'quantitative',
+                    title: 'Percentage'
+                },
+                color: {
+                    field: 'Purpose',
+                    type: 'nominal',
+                    title: 'Purpose'
+                }
+            }
+        });
+
+        // Stay Trends Chart
+        vegaEmbed('#stay-trends-chart', {
+            $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+            width: 'container',
+            height: 350,
+            title: 'Average Length of Stay Over Time',
+            data: {
+                url: 'stay_trends.csv'
+            },
+            mark: 'line',
+            encoding: {
+                x: {
+                    field: 'Year',
+                    type: 'ordinal',
+                    title: 'Year'
+                },
+                y: {
+                    field: 'Average Stay (Days)',
+                    type: 'quantitative',
+                    title: 'Average Stay (Days)'
+                },
+                color: {
+                    field: 'Year',
+                    type: 'nominal',
+                    title: 'Year'
+                }
+            }
+        });
     </script>
 </body>
+
 </html>
