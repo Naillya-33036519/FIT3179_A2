@@ -235,9 +235,14 @@
                     mark: {
                         tooltip: true
                     },
-                    width: 600,
-                    height: 545
-                }
+                    autosize: {
+                        type: "fit",  // Make chart fit into the container
+                        contains: "padding"
+                    }
+                },
+                width: 'container', // Set to container width
+                height: 300, // Adjust height for better scaling
+                padding: { left: 10, right: 10, top: 10, bottom: 10 }
             }).catch(console.warn);
         };
         
