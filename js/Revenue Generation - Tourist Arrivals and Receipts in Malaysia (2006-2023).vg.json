@@ -43,8 +43,8 @@
           "axis": {
             "labelAngle": -45,
             "titlePadding": 10,
-            "labelFontSize": 15,
-            "titleFontSize": 15,
+            "labelFontSize": 14,
+            "titleFontSize": 14,
             "grid": true,
             "gridOpacity": 0.45
           }
@@ -55,8 +55,8 @@
           "title": "Total (in Million)",
           "axis": {
             "titlePadding": 10,
-            "labelFontSize": 15,
-            "titleFontSize": 15,
+            "labelFontSize": 14,
+            "titleFontSize": 14,
             "grid": false
           },
           "scale": {
@@ -72,8 +72,8 @@
           },
           "legend": {
             "title": "Metric",
-            "labelFontSize": 14,
-            "titleFontSize": 14,
+            "labelFontSize": 13,
+            "titleFontSize": 13,
             "titlePadding": 10
           }
         }
@@ -96,46 +96,18 @@
           {"field": "Value", "title": "Value", "format": ".2f"}
         ]
       }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "fontSize": 10,
-        "align": "left",
 
-        "color": "#000",
-        "dx": 17,
-        "dy": -7.5 
-      },
-      "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal",
-          "title": "Year"
-        },
-        "y": {
-          "field": "Value", 
-          "type": "quantitative"
-        },
-        "text": {
-          "value": "Pandemic Effect"
-        }
-      },
-      "transform": [
-        {
-          "filter": {"field": "year", "equal": "2021"} 
-        }
-      ]
     },
         {
       "mark": {
         "type": "text",
-        "fontSize": 10,
+        "fontSize": 12,
+        "fontStyle": "Helvetica Neue",
         "align": "left",
 
         "color": "#000",
         "dx": 17,
-        "dy": -1 
+        "dy": -1
       },
       "encoding": {
         "x": {
@@ -149,8 +121,9 @@
         },
         "text": {
         "value": [
-        "Malaysian Ringgit depreciation", 
-        "and global economic slowdown"
+        "Malaysian Ringgit",
+        "depreciation and global",
+        "economic slowdown"
       ]
 
         }
@@ -160,6 +133,40 @@
           "filter": {"field": "Value", "equal": 69.12} 
         }
       ]
-    }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontStyle": "Helvetica Neue",
+        "align": "left",
+
+        "color": "#000",
+        "dx": 20,
+        "dy": -7.5 
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "field": "Value", 
+          "type": "quantitative"
+        },
+        "text": {
+        "value": [
+        "Pandemic Effect"
+      ]
+
+        }
+      },
+      "transform": [
+        {
+          "filter": {"field": "Value", "equal": 0.24} 
+        }
+      ]
+    },
   ]
 }
