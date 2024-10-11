@@ -127,11 +127,10 @@
         }
 
         .pure-u-md-1-2 {
-            width: 50%;
-            padding: 0 10px;
+            flex: 1 1 45%;
+            margin: 0 10px;
             box-sizing: border-box;
-            max-width: 100%;
-            overflow: hidden; 
+            min-width: 300px;
         }
 
         @media (max-width: 768px) {
@@ -235,17 +234,12 @@
                     mark: {
                         tooltip: true
                     },
-                    autosize: {
-                        type: "fit",  // Make chart fit into the container
-                        contains: "padding"
-                    }
-                },
-                width: 'container', // Set to container width
-                height: 300, // Adjust height for better scaling
-                padding: { left: 10, right: 10, top: 10, bottom: 10 }
+                    width: 600,
+                    height: 545
+                }
             }).catch(console.warn);
         };
-        
+
         // Embedding the charts using their respective URLs
         embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
         embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
@@ -259,5 +253,3 @@
     </script>
 </body>
 </html>
-
-
