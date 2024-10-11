@@ -30,8 +30,8 @@
           },
           "legend": {
             "title": "Purpose of Visit",
-            "titleFontSize": 14,
-            "labelFontSize": 12,
+            "titleFontSize": 13,
+            "labelFontSize": 13,
             "orient": "bottom",
             "offset": 0
           }
@@ -143,7 +143,9 @@
           "type": "quantitative",
           "axis": {
             "title": "Number of Days",
-            "titlePadding": 7
+            "titlePadding": 7,
+            "titleFontSize": 14,
+            "labelFontSize": 14
           }
         }
       },
