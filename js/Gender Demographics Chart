@@ -66,7 +66,7 @@
             "type": "text",
             "dx": -136,
             "dy": 5,
-            "fontSize": 13
+            "fontSize": 14
           },
           "encoding": {
             "theta": {
@@ -94,7 +94,7 @@
             "type": "text",
             "dx": 132,
             "dy": 5,
-            "fontSize": 13
+            "fontSize": 14
           },
           "encoding": {
             "theta": {
@@ -123,7 +123,7 @@
             "dx": -135,
             "dy": -8,
             "fontWeight": "bold",
-            "fontSize": 13
+            "fontSize": 14
           },
           "encoding": {
             "theta": {
@@ -151,7 +151,7 @@
             "dx": 135,
             "dy": -8,
             "fontWeight": "bold",
-            "fontSize": 13
+            "fontSize": 14
           },
           "encoding": {
             "theta": {
@@ -178,7 +178,7 @@
             "type": "text",
             "dx": -115,
             "dy": 5,
-            "fontSize": 13
+            "fontSize": 14
           },
           "encoding": {
             "theta": {
@@ -204,7 +204,7 @@
             "type": "text",
             "dx": 152,
             "dy": 5,
-            "fontSize": 13
+            "fontSize": 14
           },
           "encoding": {
             "theta": {
@@ -284,8 +284,8 @@
           "axis": {
             "title": "Percentage of Total Arrivals",
             "titlePadding": 10,
-            "titleFontSize": 15,
-            "labelFontSize": 15,
+            "titleFontSize": 14,
+            "labelFontSize": 14,
             "format": ".0f",
             "grid": true,
             "labelAngle": 0,
@@ -302,8 +302,8 @@
           "axis": {
             "title": "Country",
             "labelAngle": 0,
-            "titleFontSize": 15,
-            "labelFontSize": 15
+            "titleFontSize": 14,
+            "labelFontSize": 14
           }
         },
         "color": {
@@ -316,8 +316,8 @@
           "legend": {
             "title": "Gender",
             "orient": "right",
-            "titleFontSize": 15,
-            "labelFontSize": 15,
+            "titleFontSize": 13,
+            "labelFontSize": 13,
             "labelPadding": 10
           }
         },
@@ -331,5 +331,5 @@
       "height": 300
     }
   ],
-  "spacing": 50
+  "spacing": 20
 }
