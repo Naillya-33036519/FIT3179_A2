@@ -89,7 +89,8 @@
         "labelFontSize": 13,
         "titleFontSize": 13,
         "labelPadding": 10,
-        "orient": "bottom"
+        "orient": "bottom",
+        "labelLimit":1000
       }
     },
     "opacity": {
