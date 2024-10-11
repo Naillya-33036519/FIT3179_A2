@@ -1,0 +1,335 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "hconcat": [
+    {
+      "description": "Donut chart to show male and female arrivals",
+      "width": 300,
+      "height": 300,
+      "data": {
+        "values": [
+          {"gender": "Male", "percentage": 52.76, "count": 1862082, "total": 3528338},
+          {"gender": "Female", "percentage": 47.24, "count": 1666256, "total": 3528338}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "arc",
+            "innerRadius": 75,
+            "outerRadius": 100,
+            "tooltip": true
+          },
+          "encoding": {
+            "theta": {
+              "field": "percentage",
+              "type": "quantitative",
+              "stack": true
+            },
+            "color": {
+              "field": "gender",
+              "type": "nominal",
+              "legend": null,
+              "scale": {
+                "domain": ["Male", "Female"],
+                "range": ["#87CEEB", "#FFB6C1"]
+              },
+              "title": "Gender"
+            },
+            "tooltip": [
+              {
+                "field": "gender",
+                "type": "nominal",
+                "title": "Gender"
+              },
+              {
+                "field": "total",
+                "type": "quantitative",
+                "title": "Total Arrivals",
+                "format": ","
+              },
+              {
+                "field": "count",
+                "type": "quantitative",
+                "title": "Total Gender Arrivals",
+                "format": ","
+              },
+              {
+                "field": "percentage",
+                "type": "quantitative",
+                "title": "Percentage"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": -136,
+            "dy": 5,
+            "fontSize": 13
+          },
+          "encoding": {
+            "theta": {
+              "field": "percentage",
+              "type": "quantitative"
+            },
+            "radius": {
+              "value": 0
+            },
+            "text": {
+              "condition": {
+                "test": "datum.gender === 'Male'",
+                "field": "percentage",
+                "type": "quantitative",
+                "format": ".2f"
+              },
+              "else": {
+                "value": ""
+              }
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": 132,
+            "dy": 5,
+            "fontSize": 13
+          },
+          "encoding": {
+            "theta": {
+              "field": "percentage",
+              "type": "quantitative"
+            },
+            "radius": {
+              "value": 0
+            },
+            "text": {
+              "condition": {
+                "test": "datum.gender === 'Female'",
+                "field": "percentage",
+                "type": "quantitative",
+                "format": ".2f"
+              },
+              "else": {
+                "value": ""
+              }
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": -135,
+            "dy": -8,
+            "fontWeight": "bold",
+            "fontSize": 13
+          },
+          "encoding": {
+            "theta": {
+              "field": "gender",
+              "type": "nominal"
+            },
+            "radius": {
+              "value": 0
+            },
+            "text": {
+              "condition": {
+                "test": "datum.gender === 'Male'",
+                "field": "gender",
+                "type": "nominal"
+              },
+              "else": {
+                "value": ""
+              }
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": 135,
+            "dy": -8,
+            "fontWeight": "bold",
+            "fontSize": 13
+          },
+          "encoding": {
+            "theta": {
+              "field": "gender",
+              "type": "nominal"
+            },
+            "radius": {
+              "value": 0
+            },
+            "text": {
+              "condition": {
+                "test": "datum.gender === 'Female'",
+                "field": "gender",
+                "type": "nominal"
+              },
+              "else": {
+                "value": ""
+              }
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": -115,
+            "dy": 5,
+            "fontSize": 13
+          },
+          "encoding": {
+            "theta": {
+              "field": "percentage",
+              "type": "quantitative"
+            },
+            "radius": {
+              "value": 0
+            },
+            "text": {
+              "condition": {
+                "test": "datum.gender === 'Male'",
+                "value": "%"
+              },
+              "else": {
+                "value": ""
+              }
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dx": 152,
+            "dy": 5,
+            "fontSize": 13
+          },
+          "encoding": {
+            "theta": {
+              "field": "percentage",
+              "type": "quantitative"
+            },
+            "radius": {
+              "value": 0
+            },
+            "text": {
+              "condition": {
+                "test": "datum.gender === 'Female'",
+                "value": "%"
+              },
+              "else": {
+                "value": ""
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Bar chart of gender breakdown across countries",
+      "data": {
+        "values": [
+          {"country": "Singapore", "gender": "Male", "percentage": 56.14},
+          {"country": "Singapore", "gender": "Female", "percentage": 43.86},
+          {"country": "Brunei", "gender": "Male", "percentage": 53.61},
+          {"country": "Brunei", "gender": "Female", "percentage": 46.39},
+          {"country": "Australia", "gender": "Male", "percentage": 55.67},
+          {"country": "Australia", "gender": "Female", "percentage": 44.33},
+          {"country": "China", "gender": "Male", "percentage": 45.01},
+          {"country": "China", "gender": "Female", "percentage": 54.99},
+          {"country": "India", "gender": "Male", "percentage": 66.37},
+          {"country": "India", "gender": "Female", "percentage": 33.63},
+          {"country": "Indonesia", "gender": "Male", "percentage": 46.16},
+          {"country": "Indonesia", "gender": "Female", "percentage": 53.84},
+          {"country": "Philippines", "gender": "Male", "percentage": 36.12},
+          {"country": "Philippines", "gender": "Female", "percentage": 63.88},
+          {"country": "South Korea", "gender": "Male", "percentage": 47.96},
+          {"country": "South Korea", "gender": "Female", "percentage": 52.04},
+          {"country": "Thailand", "gender": "Male", "percentage": 51.41},
+          {"country": "Thailand", "gender": "Female", "percentage": 48.59},
+          {"country": "Vietnam", "gender": "Male", "percentage": 35.24},
+          {"country": "Vietnam", "gender": "Female", "percentage": 64.76}
+        ]
+      },
+      "selection": {
+        "GenderSelection": {
+          "type": "single",
+          "fields": ["gender"],
+          "bind": {
+            "input": "select",
+            "options": [null, "Male", "Female"],
+            "labels": ["Both", "Male", "Female"],
+            "name": "Select Gender"
+          },
+          "empty": "all"
+        }
+      },
+      "transform": [
+        {
+          "filter": {
+            "or": [
+              {"field": "gender", "equal": {"selection": "GenderSelection"}},
+              {"selection": "GenderSelection", "empty": "all"}
+            ]
+          }
+        }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "percentage",
+          "type": "quantitative",
+          "axis": {
+            "title": "Percentage of Total Arrivals",
+            "titlePadding": 10,
+            "titleFontSize": 15,
+            "labelFontSize": 15,
+            "format": ".0f",
+            "grid": true,
+            "labelAngle": 0,
+            "tickCount": 6,
+            "domain": false
+          },
+          "scale": {
+            "domain": [0, 100]
+          }
+        },
+        "y": {
+          "field": "country",
+          "type": "nominal",
+          "axis": {
+            "title": "Country",
+            "labelAngle": 0,
+            "titleFontSize": 15,
+            "labelFontSize": 15
+          }
+        },
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Male", "Female"],
+            "range": ["#87CEEB", "#FFB6C1"]
+          },
+          "legend": {
+            "title": "Gender",
+            "orient": "right",
+            "titleFontSize": 15,
+            "labelFontSize": 15,
+            "labelPadding": 10
+          }
+        },
+        "tooltip": [
+          {"field": "country", "type": "nominal", "title": "Country"},
+          {"field": "gender", "type": "nominal", "title": "Gender"},
+          {"field": "percentage", "type": "quantitative", "title": "Percentage of Arrivals", "format": ".1f"}
+        ]
+      },
+      "width": 400,
+      "height": 300
+    }
+  ],
+  "spacing": 50
+}
