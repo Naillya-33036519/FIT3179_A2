@@ -4,16 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="student-id" content="33036519">
-    
+    <meta name="student-id" content="33036519"> <!-- Your student ID -->
     <title>Tourism Analysis in Malaysia</title>
-    
+    <!-- Import pure.css for better styling -->
     <link href="https://cdn.jsdelivr.net/npm/purecss@2.0.6/build/pure-min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    
     <style>
         body {
             overflow-x: auto;
@@ -37,18 +35,23 @@
             border-radius: 5px 5px 0 0;
             text-align: center;
             font-size: 1.1rem;
-            padding: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
         .card-body {
             padding: 20px;
             line-height: 1.5;
             padding-top: 30px;
-            padding-bottom: 30px;
+            padding-bottom: 30px; 
         }
 
         .text-center {
             text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
         }
 
         .text-muted {
@@ -68,6 +71,8 @@
             color: #2980b9;
             margin-top: 20px;
             padding: 5px 0;
+            padding-left: 5px;
+            padding-right: 5px;
         }
 
         .section {
@@ -88,25 +93,31 @@
             margin: 20px 0;
             text-align: justify;
             color: #34495e;
+            padding: 5px 0;
+            padding-left: 5px;
+            padding-right: 5px;
         }
 
         .visualization {
+            margin: 20px 0;
             background-color: #ffffff;
             border-radius: 8px;
+            padding: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin: 20px 0; 
-            overflow: hidden;
+            width: 100%;
+            height: auto;
         }
 
         .large-visualization {
-            height: 545px;
             width: 100%;
+            height: 545px;
             margin: auto;
         }
 
         .medium-visualization {
             height: 350px;
-            width: 100%; 
+            margin: 10px 0; 
+            width: 100%;
         }
 
         .footer {
@@ -119,7 +130,6 @@
         .pure-g {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
         }
 
         .pure-u-1-1 {
@@ -127,16 +137,16 @@
         }
 
         .pure-u-md-1-2 {
-            flex: 1 1 45%;
-            margin: 0 10px;
-            box-sizing: border-box;
-            min-width: 300px;
+            width: 50%;
         }
 
         @media (max-width: 768px) {
-            .pure-u-md-1-2 {
-                width: 100%;
-                margin-bottom: 20px;
+            .grid-container {
+                flex-direction: column;
+            }
+
+            .grid-item {
+                margin: 10px 0;
             }
         }
     </style>
@@ -171,7 +181,7 @@
                 <div class="pure-u-md-1-2">
                     <div class="visualization medium-visualization" id="gender-arrivals-chart"></div>
                 </div>
-                <div class="pure-u-md-1-2">
+                <div class="pure-u-md-1-2    ">
                     <div class="visualization medium-visualization" id="country-gender-chart"></div>
                 </div>
             </div>
@@ -211,7 +221,7 @@
 
         <div class="footer">
             <p>Metadata: This webpage was designed by Naillya Ganesan Visalakshi (Student Id: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
-            <p>Source: <a href="https://github.com/Naillya-33036519/FIT3179_A2/blob/main/data.md">Link to Data</a></p>
+            <p>Source: <a href="https://github.com/Naillya-33036519/FIT3179_A2/blob/main/data/sources">Example Source Link</a></p> <!-- Example source link -->
         </div>
     </div>
 
@@ -223,8 +233,7 @@
                         labelFontSize: 14,
                         titleFontSize: 16,
                         labelFont: 'Poppins',
-                        titleFont: 'Poppins',
-                        labelAngle: -45
+                        titleFont: 'Poppins'
                     },
                     legend: {
                         labelFontSize: 14,
@@ -235,10 +244,8 @@
                     mark: {
                         tooltip: true
                     },
-                    autosize: {
-                        type: "fit",
-                        contains: "padding"
-                    }
+                    width: 600,
+                    height: 545
                 }
             }).catch(console.warn);
         };
