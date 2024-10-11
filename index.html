@@ -88,10 +88,12 @@
 
         .chart-description {
             font-size: 1.4rem;
-            margin: 20px 0; /* Added margin for spacing */
+            margin: 20px 0;
             text-align: justify;
             color: #34495e;
-            padding: 10px 0; /* Added padding for spacing */
+            padding: 10px 0;
+            padding-left: 20px;
+            padding-right: 20px;
         }
 
         .visualization {
@@ -162,14 +164,19 @@
             <div class="visualization large-visualization" id="seasonal-arrivals-chart"></div>
             <p class="chart-description">The peak travel months highlight the significant impact of the pandemic on arrivals in 2020. Understanding these fluctuations helps us plan future marketing strategies.</p>
         </div>
-
+        
         <div class="section">
             <h2>Understanding the Tourist Profile</h2>
             <p class="chart-description">Analyzing the demographic profile, such as gender distribution, helps tailor marketing strategies and services to meet tourist expectations. This analysis reveals unique patterns.</p>
 
             <div class="pure-g">
-                <div class="pure-u-1-2 visualization large-visualization" id="gender-arrivals-chart"></div>
-                <div class="pure-u-1-2 visualization large-visualization" id="country-gender-chart"></div>
+                <!-- Tourist Profile Charts (2 side-by-side) -->
+                <div class="pure-u-md-1-2">
+                    <div class="visualization large-visualization" id="gender-arrivals-chart"></div>
+                </div>
+                <div class="pure-u-md-1-2">
+                    <div class="visualization large-visualization" id="country-gender-chart"></div>
+                </div>
             </div>
             <p class="chart-description">The data reveals a slight male dominance in visitor demographics and unique trends in specific countries. These insights can inform targeted marketing efforts.</p>
         </div>
@@ -190,19 +197,24 @@
         </div>
 
         <div class="section">
-            <h2>Travel Motivations and Stay Duration Insights</h2>
-            <p class="chart-description">Understanding motivations and stay durations is crucial for enhancing visitor experience and tourism strategies. These insights help in customizing services for tourists.</p>
+            <h2>Travel Motivation and Stay Trends</h2>
+            <p class="chart-description">Exploring why tourists visit Malaysia offers valuable insights into emerging travel trends, helping to shape future tourism strategies.</p>
 
             <div class="pure-g">
-                <div class="pure-u-1-2 visualization large-visualization" id="purpose-of-visit-chart"></div>
-                <div class="pure-u-1-2 visualization large-visualization" id="stay-trends-chart"></div>
+                <!-- Travel Motivation and Stay Trends Charts (2 side-by-side) -->
+                <div class="pure-u-md-1-2">
+                    <div class="visualization large-visualization" id="purpose-of-visit-chart"></div>
+                </div>
+                <div class="pure-u-md-1-2">
+                    <div class="visualization large-visualization" id="stay-trends-chart"></div>
+                </div>
             </div>
-            <p class="chart-description">Leisure and shopping dominate travel motivations, with average stays ranging from 2 to 2.5 days. This data is vital for optimizing offerings in the tourism sector.</p>
+            <p class="chart-description">The average length of stay provides insight into changing travel behaviors, with implications for revenue and infrastructure planning.</p>
         </div>
 
         <div class="footer">
             <p>Metadata: This webpage was designed by Naillya Ganesan Visalakshi (Student Id: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
-            <p>Source: <a href="https://example.com">Example Source Link</a></p> <!-- Example source link -->
+            <p>Source: <a href="https://github.com/Naillya-33036519/FIT3179_A2/blob/main/data/sources">Example Source Link</a></p> <!-- Example source link -->
         </div>
     </div>
 
