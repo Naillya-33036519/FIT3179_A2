@@ -14,7 +14,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
         body {
-            overflow-x: auto;
             width: 1200px;
             margin: 0 auto;
             font-family: 'Poppins', sans-serif;
@@ -35,7 +34,8 @@
             border-radius: 5px 5px 0 0;
             text-align: center;
             font-size: 1.1rem;
-            padding: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
         .card-body {
@@ -43,14 +43,6 @@
             line-height: 1.5;
             padding-top: 30px;
             padding-bottom: 30px; 
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-muted {
-            color: #6c757d;
         }
 
         h1 {
@@ -66,6 +58,8 @@
             color: #2980b9;
             margin-top: 20px;
             padding: 5px 0;
+            padding-left: 5px;
+            padding-right: 5px;
         }
 
         .section {
@@ -86,6 +80,9 @@
             margin: 20px 0;
             text-align: justify;
             color: #34495e;
+            padding: 5px 0;
+            padding-left: 5px;
+            padding-right: 5px;
         }
 
         .visualization {
@@ -95,6 +92,7 @@
             padding: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 100%;
+            height: auto;
         }
 
         .large-visualization {
@@ -116,23 +114,19 @@
             color: #7f8c8d;
         }
 
+        /* Flexbox setup for two columns */
         .pure-g {
             display: flex;
-            flex-wrap: wrap;
-        }
-
-        .pure-u-1-1 {
-            width: 100%;
+            justify-content: space-between;
         }
 
         .pure-u-md-1-2 {
-            width: 50%;
-            padding: 10px; /* Added padding to separate items */
+            width: 48%; /* Ensure the two charts fit side by side with a small gap */
         }
 
         @media (max-width: 768px) {
             .pure-u-md-1-2 {
-                width: 100%; /* Stack charts on smaller screens */
+                width: 100%; /* Stack the charts on smaller screens */
             }
         }
     </style>
@@ -226,26 +220,23 @@
                         titleFontSize: 16,
                         labelFont: 'Poppins',
                         titleFont: 'Poppins'
-                    },
-                    mark: {
-                        tooltip: true
-                    },
-                    width: 600,
-                    height: 545
+                    }
                 }
-            }).catch(console.warn);
+            }).catch(console.error);
         };
 
-        // Embedding the charts using their respective URLs
-        embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
-        embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
-        embedCharts('gender-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Arrivals%20by%20Gender.vg.json');
-        embedCharts('country-gender-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Global%20Gender%20Breakdown.vg.json');
-        embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
-        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
-        embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.json');
-        embedCharts('purpose-of-visit-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation%20-%20Purpose%20of%20Visits.vg.json');        
-        embedCharts('stay-trends-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Trends%20in%20Tourist%20Stay%20(2018-2023).vg.json');
+        // Embed charts
+        embedCharts('tourist-countries-chart', 'vegaLiteSpecs/tourist_countries.vl.json');
+        embedCharts('seasonal-arrivals-chart', 'vegaLiteSpecs/seasonal_arrivals.vl.json');
+        embedCharts('gender-arrivals-chart', 'vegaLiteSpecs/gender_arrivals.vl.json');
+        embedCharts('country-gender-chart', 'vegaLiteSpecs/country_gender.vl.json');
+        embedCharts('tourist-expenditure-chart', 'vegaLiteSpecs/tourist_expenditure.vl.json');
+        embedCharts('revenue-tourist-chart', 'vegaLiteSpecs/revenue_tourist.vl.json');
+        embedCharts('regional-tourism-map', 'vegaLiteSpecs/regional_tourism.vl.json');
+        embedCharts('purpose-of-visit-chart', 'vegaLiteSpecs/purpose_of_visit.vl.json');
+        embedCharts('stay-trends-chart', 'vegaLiteSpecs/stay_trends.vl.json');
     </script>
+
 </body>
+
 </html>
