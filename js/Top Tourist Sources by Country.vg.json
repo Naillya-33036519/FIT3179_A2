@@ -109,7 +109,7 @@
   },
   "mark": {
     "type": "line",
-    "point": {"filled": true, "size": 70},
+    "point": {"filled": true, "size": 80 , "fillOpacity": 0.8},
     "tooltip": true,
     "strokeWidth": 1.5
   },
