@@ -135,8 +135,7 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size":70,
-        "fillOpacity": 0.8
+        "size":100
       },
       "encoding": {
         "x": {
