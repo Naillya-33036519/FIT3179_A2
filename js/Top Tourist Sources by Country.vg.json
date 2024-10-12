@@ -111,10 +111,12 @@
     {
       "mark": "line",
       "encoding": {
-        "x": {"field": "year", "type": "ordinal", "title": "Year"},
+        "x": {"field": "year", "type": "ordinal", "title": "Year",
+          "axis":{"labelAngle":0},},
         "y": {
           "field": "rank",
           "type": "quantitative",
+          "axis":{"labelAngle":0},
           "title": "Rank",
           "scale": {"domain": [1, 10], "reverse": true}
         },
