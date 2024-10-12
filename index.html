@@ -214,31 +214,26 @@
 
         <div class="footer">
             <p>Metadata: This webpage was designed by Naillya Ganesan Visalakshi (Student Id: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
-            <p>Source: <a href="https://naillya-33036519.github.io/FIT3179_A2/tourism_sources.html">Source Link</a></p>
+            <p>Source: <a href="https://naillya-33036519.github.io/FIT3179_A2/tourism_sources.html">Source Page</a></p>
         </div>
     </div>
 
+    <!-- Add scripts for embedding the visualizations -->
     <script>
-        const embedCharts = (divId, url) => {
-            vegaEmbed(`#${divId}`, url, {
-                config: {
-                    mark: {
-                        tooltip: { content: "data" } // Ensures tooltips display data
-                    },
-                    width: 600,
-                    height: 545
-                }
-            }).catch(console.warn);
-        };
+        function embedChart(divId, vegaSpecUrl) {
+            vegaEmbed('#' + divId, vegaSpecUrl).then(function (result) {
+                console.log(result);
+            }).catch(console.error);
+        }
 
-        // Embedding the charts using their respective URLs
-        embedCharts('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
-        embedCharts('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
-        embedCharts('gender-demographic-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Gender%20Demographics%20Chart');
-        embedCharts('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
-        embedCharts('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
-        embedCharts('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.json');
-        embedCharts('travel-motivation', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation');
+        // Embed the visualizations with the correct div IDs and URLs
+        embedChart("tourist-countries-chart", "tourist_countries.vg.json");
+        embedChart("seasonal-arrivals-chart", "seasonal_arrivals.vg.json");
+        embedChart("gender-demographic-chart", "gender_demographics.vg.json");
+        embedChart("tourist-expenditure-chart", "tourist_expenditure.vg.json");
+        embedChart("revenue-tourist-chart", "revenue_tourist.vg.json");
+        embedChart("regional-tourism-map", "regional_tourism.vg.json");
+        embedChart("travel-motivation", "travel_motivation.vg.json");
     </script>
 </body>
 
