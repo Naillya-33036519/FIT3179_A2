@@ -110,6 +110,7 @@
   "mark": {
     "type": "line",
     "point": true,
+    "tooltip": true,
     "strokeWidth": 1.5
   },
   "encoding": {
