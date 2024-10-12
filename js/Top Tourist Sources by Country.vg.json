@@ -2,7 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
   "height": 420,
-
   "data": {
     "values": [
       {"Country": "Singapore", "year": 2024, "Visitors": 4276007, "rank": 1},
@@ -107,67 +106,77 @@
       {"Country": "Philippines", "year": 2015, "Visitors": 957408, "rank": 10}
     ]
   },
-  "mark": {
-    "type": "line",
-    "point": {"filled": true, "size": 80 , "fillOpacity": 0.8},
-    "tooltip": true,
-    "strokeWidth": 1.5
-  },
-  "encoding": {
-    "x": {
-      "field": "year",
-      "type": "ordinal",
-      "title": "Year",
-      "axis": {
-        "labelOverlap": "parity",
-        "labelAngle": 0
+  "layer": [
+    {
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Rank",
+          "scale": {
+            "domain": [1, 9],
+            "reverse": true
+          }
+        },
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "title": "Country"
+        }
       }
     },
-    "y": {
-      "field": "rank",
-      "type": "quantitative",
-      "title": "Rank",
-      "scale": {
-        "domain": [10, 1],
-        "nice": true
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size":70,
+        "fillOpacity": 0.8
       },
-      "axis": {
-        "reverse": true
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Rank",
+          "scale": {
+            "domain": [1, 10],
+            "reverse": true
+          }
+        },
+        "color": {
+          "field": "Country",
+          "type": "nominal",
+          "title": "Country"
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {"field": "year", "type": "ordinal", "title": "Year"},
+          {"field": "Visitors", "type": "quantitative", "title": "Number of Visitors","format": ",d"},
+          {"field": "rank", "type": "quantitative", "title": "Rank"}
+        ]
       }
-    },
-    "color": {
-      "field": "Country",
-      "type": "nominal",
-      "scale": {
-        "scheme": "category10"
-      }
-    },
-    "tooltip": [
-      {"field": "Country", "type": "nominal", "title": "Country"},
-      {"field": "year", "type": "ordinal", "title": "Year"},
-      {
-        "field": "rank",
-        "type": "quantitative",
-        "title": "Rank"
-      },
-      {
-        "field": "Visitors",
-        "type": "quantitative",
-        "title": "Visitors",
-        "format": ","
-      }
-    ]
-  },
-  "config": {
-    "axis": {
-      "labelFontSize": 14,
-      "titleFontSize": 14,
-      "titlePadding":10
-    },
+    }
+  ],
+    "config": {
     "legend": {
-      "labelFontSize": 13,
       "titleFontSize": 13,
-      "labelPadding":10
+      "labelPadding": 10,
+      "labelFontSize": 13
+    },
+    "axis": {
+      "titleFontSize": 14,
+       "labelPadding": 10,     
+      "labelFontSize": 14
+    }
   }
-}
 }
