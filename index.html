@@ -45,7 +45,7 @@
         .card-body {
             padding: 20px;
             line-height: 1.5;
-            padding-top: 30px;
+            padding-top: 5px;
             padding-bottom: 30px;
         }
 
@@ -106,7 +106,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 100%;
             height: auto;
-            position: relative; /* Ensure tooltip positioning works */
+            position: relative;
         }
 
         .large-visualization {
@@ -141,11 +141,10 @@
             width: 50%;
         }
 
-        /* Ensure tooltip is visible */
         .vega-tooltip {
-            z-index: 10000 !important; /* Adjust z-index for visibility */
-            position: absolute !important; /* Ensure tooltip is positioned correctly */
-            pointer-events: none; /* Prevent mouse events on tooltip */
+            z-index: 10000 !important;
+            position: absolute !important;
+            pointer-events: none;
         }
 
         @media (max-width: 768px) {
@@ -217,14 +216,13 @@
         </div>
     </div>
 
-    <!-- Add scripts for embedding the visualizations -->
     <script>
         function embedChart(divId, vegaSpecUrl) {
             vegaEmbed('#' + divId, vegaSpecUrl, {
                 actions: false, // Disable actions menu
                 tooltip: true   // Ensure tooltips are enabled
             }).then(function (result) {
-                vegaTooltip.vega(result.view);  // Activate tooltip
+                vegaTooltip.vega(result.view);
             }).catch(console.error);
         }
 
