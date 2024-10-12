@@ -111,7 +111,7 @@
       "mark": {
         "type": "line",
         "point": true,
-        "strokeWidth": 2 // Adjust line thickness
+        "strokeWidth": 2
       },
       "encoding": {
         "x": {
@@ -150,7 +150,7 @@
           "field": "year",
           "type": "ordinal",
           "title": "Year",
-          "titleFontSize": 14 // Title font size for x-axis
+          "titleFontSize": 14
         },
         "y": {
           "field": "rank",
@@ -160,13 +160,13 @@
             "domain": [1, 10],
             "reverse": true
           },
-          "titleFontSize": 14 // Title font size for y-axis
+          "titleFontSize": 14
         },
         "color": {
           "field": "Country",
           "type": "nominal",
           "title": "Country",
-          "titleFontSize": 14 // Title font size for color legend
+          "titleFontSize": 14
         },
         "tooltip": [
           {"field": "Country", "type": "nominal", "title": "Country"},
@@ -179,12 +179,12 @@
   ],
   "config": {
     "legend": {
-      "titleFontSize": 14, // Font size for legend titles
-      "labelFontSize": 12  // Font size for legend labels
+      "titleFontSize": 14,
+      "labelFontSize": 12
     },
     "axis": {
-      "titleFontSize": 14, // Font size for axis titles
-      "labelFontSize": 12   // Font size for axis labels
+      "titleFontSize": 14,
+      "labelFontSize": 12
     }
   }
 }
