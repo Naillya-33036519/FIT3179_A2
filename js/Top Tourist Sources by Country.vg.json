@@ -108,12 +108,17 @@
   },
   "layer": [
     {
-      "mark": "line",
+      "mark": {
+        "type": "line",
+        "point": true,
+        "strokeWidth": 2 // Adjust line thickness
+      },
       "encoding": {
         "x": {
           "field": "year",
           "type": "ordinal",
-          "title": "Year"
+          "title": "Year",
+          "titleFontSize": 14
         },
         "y": {
           "field": "rank",
@@ -122,12 +127,14 @@
           "scale": {
             "domain": [1, 9],
             "reverse": true
-          }
+          },
+          "titleFontSize": 14
         },
         "color": {
           "field": "Country",
           "type": "nominal",
-          "title": "Country"
+          "title": "Country",
+          "titleFontSize": 14 
         }
       }
     },
@@ -135,13 +142,15 @@
       "mark": {
         "type": "point",
         "filled": true,
-        "size":100
+        "size": 100,
+        "fillOpacity": 0.8
       },
       "encoding": {
         "x": {
           "field": "year",
           "type": "ordinal",
-          "title": "Year"
+          "title": "Year",
+          "titleFontSize": 14 // Title font size for x-axis
         },
         "y": {
           "field": "rank",
@@ -150,32 +159,32 @@
           "scale": {
             "domain": [1, 10],
             "reverse": true
-          }
+          },
+          "titleFontSize": 14 // Title font size for y-axis
         },
         "color": {
           "field": "Country",
           "type": "nominal",
-          "title": "Country"
+          "title": "Country",
+          "titleFontSize": 14 // Title font size for color legend
         },
         "tooltip": [
           {"field": "Country", "type": "nominal", "title": "Country"},
           {"field": "year", "type": "ordinal", "title": "Year"},
-          {"field": "Visitors", "type": "quantitative", "title": "Number of Visitors","format": ",d"},
+          {"field": "Visitors", "type": "quantitative", "title": "Number of Visitors", "format": ",d"},
           {"field": "rank", "type": "quantitative", "title": "Rank"}
         ]
       }
     }
   ],
-    "config": {
+  "config": {
     "legend": {
-      "titleFontSize": 13,
-      "labelPadding": 10,
-      "labelFontSize": 13
+      "titleFontSize": 14, // Font size for legend titles
+      "labelFontSize": 12  // Font size for legend labels
     },
     "axis": {
-      "titleFontSize": 14,
-       "labelPadding": 10,     
-      "labelFontSize": 14
+      "titleFontSize": 14, // Font size for axis titles
+      "labelFontSize": 12   // Font size for axis labels
     }
   }
 }
