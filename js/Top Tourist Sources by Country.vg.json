@@ -104,70 +104,38 @@
       {"Country": "Philippines", "year": 2017, "Visitors": 1066461, "rank": 10},
       {"Country": "Philippines", "year": 2016, "Visitors": 1029488, "rank": 10},
       {"Country": "Philippines", "year": 2015, "Visitors": 957408, "rank": 10}
+
     ]
   },
   "layer": [
     {
-      "mark": {
-        "type": "line",
-        "point": true,
-        "strokeWidth": 2
-      },
+      "mark": "line",
       "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal",
-          "title": "Year",
-          "titleFontSize": 14
-        },
+        "x": {"field": "year", "type": "ordinal", "title": "Year"},
         "y": {
           "field": "rank",
           "type": "quantitative",
           "title": "Rank",
-          "scale": {
-            "domain": [1, 9],
-            "reverse": true
-          },
-          "titleFontSize": 14
+          "scale": {"domain": [1, 10], "reverse": true}
         },
-        "color": {
-          "field": "Country",
-          "type": "nominal",
-          "title": "Country",
-          "titleFontSize": 14 
-        }
+        "color": {"field": "Country", "type": "nominal", "title": "Country"}
       }
     },
     {
       "mark": {
         "type": "point",
         "filled": true,
-        "size": 100,
-        "fillOpacity": 0.8
+        "size": 100
       },
       "encoding": {
-        "x": {
-          "field": "year",
-          "type": "ordinal",
-          "title": "Year",
-          "titleFontSize": 14
-        },
+        "x": {"field": "year", "type": "ordinal", "title": "Year"},
         "y": {
           "field": "rank",
           "type": "quantitative",
           "title": "Rank",
-          "scale": {
-            "domain": [1, 10],
-            "reverse": true
-          },
-          "titleFontSize": 14
+          "scale": {"domain": [1, 10], "reverse": true}
         },
-        "color": {
-          "field": "Country",
-          "type": "nominal",
-          "title": "Country",
-          "titleFontSize": 14
-        },
+        "color": {"field": "Country", "type": "nominal", "title": "Country"},
         "tooltip": [
           {"field": "Country", "type": "nominal", "title": "Country"},
           {"field": "year", "type": "ordinal", "title": "Year"},
@@ -179,12 +147,14 @@
   ],
   "config": {
     "legend": {
-      "titleFontSize": 14,
-      "labelFontSize": 12
+      "titleFontSize": 13,
+      "labelPadding": 10,
+      "labelFontSize": 13
     },
     "axis": {
       "titleFontSize": 14,
-      "labelFontSize": 12
+      "labelPadding": 10,
+      "labelFontSize": 14
     }
   }
 }
