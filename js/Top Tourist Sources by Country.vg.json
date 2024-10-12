@@ -112,7 +112,7 @@
       "mark": "line",
       "encoding": {
         "x": {"field": "year", "type": "ordinal", "title": "Year",
-          "axis":{"labelAngle":0},},
+          "axis":{"labelAngle":0}},
         "y": {
           "field": "rank",
           "type": "quantitative",
