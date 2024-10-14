@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 750,
-  "height": 420,
+  "height": 415,
   "data": {
     "values": [
       {"Country": "Singapore", "year": 2024, "Visitors": 4276007, "rank": 1},
