@@ -30,8 +30,8 @@
           },
           "legend": {
             "title": "Purpose of Visit",
-            "titleFontSize": 13,
-            "labelFontSize": 13,
+            "titleFontSize": 14,
+            "labelFontSize": 14,
             "orient": "bottom",
             "offset": 0
           }
@@ -55,15 +55,7 @@
       "mark": {
         "type": "arc",
         "innerRadius": 60,
-        "outerRadius": 85,
-        "tooltip": true
-      },
-      "config": {
-        "tooltip": {
-          "size": {
-            "value": 15
-          }
-        }
+        "outerRadius": 85
       }
     },
     {
@@ -98,11 +90,7 @@
                 "nice": false,
                 "tickCount": 5
               }
-            },
-            "tooltip": [
-              {"field": "year", "type": "ordinal", "title": "Year"},
-              {"field": "days", "type": "quantitative", "title": "Number of Days"}
-            ]
+            }
           }
         },
         {
