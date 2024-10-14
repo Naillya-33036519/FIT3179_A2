@@ -109,12 +109,12 @@
     "x": {
       "field": "year",
       "type": "ordinal",
-      "axis": {"title": "Year", "labelAngle": 0, "titlePadding": 7}
+      "axis": {"title": "Year", "labelAngle": 0, "titlePadding": 7,"labelFontSize":14,"titleFontSize":14}
     },
     "y": {
       "field": "days",
       "type": "quantitative",
-      "axis": {"title": "Number of Days", "titlePadding": 7}
+      "axis": {"title": "Number of Days", "titlePadding": 7,"labelFontSize":14,"titleFontSize":14}
     }
   },
       "width": 400,
