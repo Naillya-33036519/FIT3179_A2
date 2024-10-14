@@ -189,194 +189,25 @@
         <p>For more information, contact us at info@tourismanalysis.my</p>
     </div>
 
-    <script type="text/javascript">
-        var embed_spec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/tourists_by_country.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "transform": [{
-                    "filter": {
-                        "field": "year",
-                        "equal": 2024
-                    }
-                },
-                {
-                    "aggregate": [{
-                        "op": "sum",
-                        "field": "total_tourists",
-                        "as": "total_tourists"
-                    }],
-                    "groupby": ["country"]
-                }
-            ],
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "country",
-                    "type": "ordinal",
-                    "axis": {
-                        "labelAngle": 45
-                    }
-                },
-                "y": {
-                    "field": "total_tourists",
-                    "type": "quantitative",
-                    "title": "Total Tourists Arrived"
-                },
-                "color": {
-                    "field": "total_tourists",
-                    "type": "quantitative"
-                }
-            },
-            "title": "Tourism Rankings by Country (2024)"
+    <script>
+        const embedChart = (divId, url) => {
+            vegaEmbed(`#${divId}`, url)
+                .then(result => {
+                    console.log(`${divId} chart successfully loaded.`);
+                })
+                .catch(error => {
+                    console.error(`Error loading ${divId} chart:`, error);
+                });
         };
 
-        vegaEmbed('#tourist-countries-chart', embed_spec);
-
-        var seasonal_arrivals_spec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/seasonal_arrivals.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "line",
-            "encoding": {
-                "x": {
-                    "field": "month",
-                    "type": "ordinal",
-                    "title": "Month"
-                },
-                "y": {
-                    "field": "arrivals",
-                    "type": "quantitative",
-                    "title": "Number of Arrivals"
-                }
-            },
-            "title": "Seasonal Tourist Arrivals in Malaysia (2013 - 2023)"
-        };
-
-        vegaEmbed('#seasonal-arrivals-chart', seasonal_arrivals_spec);
-
-        var gender_demographic_spec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/gender_demographic.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "gender",
-                    "type": "nominal",
-                    "title": "Gender"
-                },
-                "y": {
-                    "field": "count",
-                    "type": "quantitative",
-                    "title": "Number of Tourists"
-                }
-            },
-            "title": "Gender Demographics of Tourists"
-        };
-
-        vegaEmbed('#gender-demographic-chart', gender_demographic_spec);
-
-        var tourist_expenditure_spec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/tourist_expenditure.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "year",
-                    "type": "ordinal",
-                    "title": "Year"
-                },
-                "y": {
-                    "field": "expenditure",
-                    "type": "quantitative",
-                    "title": "Expenditure (RM)"
-                }
-            },
-            "title": "Tourist Expenditure Over the Years"
-        };
-
-        vegaEmbed('#tourist-expenditure-chart', tourist_expenditure_spec);
-
-        var revenue_tourist_spec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/revenue_tourists.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "line",
-            "encoding": {
-                "x": {
-                    "field": "year",
-                    "type": "ordinal",
-                    "title": "Year"
-                },
-                "y": {
-                    "field": "revenue",
-                    "type": "quantitative",
-                    "title": "Revenue (RM)"
-                }
-            },
-            "title": "Revenue from Tourism Over the Years"
-        };
-
-        vegaEmbed('#revenue-tourist-chart', revenue_tourist_spec);
-
-        var regional_tourism_map_spec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/regional_tourism.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "rect",
-            "encoding": {
-                "x": {
-                    "field": "region",
-                    "type": "nominal",
-                    "title": "Region"
-                },
-                "y": {
-                    "field": "country",
-                    "type": "nominal",
-                    "title": "Country"
-                },
-                "color": {
-                    "field": "tourists",
-                    "type": "quantitative",
-                    "title": "Number of Tourists"
-                }
-            },
-            "title": "Tourism Distribution Across Malaysia"
-        };
-
-        vegaEmbed('#regional-tourism-map', regional_tourism_map_spec);
+        // Embedding the charts using their respective URLs
+        embedChart('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
+        embedChart('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
+        embedChart('gender-demographic-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Gender%20Demographics%20Chart.vg.json');
+        embedChart('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
+        embedChart('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
+        embedChart('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.vg.json');
+        embedChart('travel-motivation', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation.vg.json');
     </script>
 </body>
 
