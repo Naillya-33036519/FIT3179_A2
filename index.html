@@ -200,262 +200,64 @@
         </div>
 
         <div class="section">
-            <h2>Regional Tourism Insights</h2>
-            <p class="chart-description">A geographical breakdown of tourism reveals strong domestic travel within Malaysia, particularly to popular destinations. This insight is crucial for local businesses.</p>
-            <div class="visualization large-visualization" id="regional-tourism-chart"></div>
-            <p class="chart-description">Understanding regional travel patterns allows for targeted promotions, improving experiences. For instance, if certain areas are popular for weekend getaways, local businesses can create special packages or events to attract more visitors during these times.</p>
+            <h2>Future of Tourism in Malaysia</h2>
+            <p class="chart-description">The outlook for tourism hinges on global economic recovery, consumer confidence, and sustainable practices. Developing adaptive strategies for fluctuating trends is essential.</p>
+            <div class="visualization medium-visualization" id="future-tourism-chart"></div>
         </div>
 
-        <div class="section">
-            <h2>Future Tourism Strategies</h2>
-            <p class="chart-description">Malaysia must leverage its unique cultural and natural assets to drive future growth. Sustainable tourism practices are key to attracting eco-conscious travelers.</p>
-            <div class="visualization medium-visualization" id="sustainable-tourism-chart"></div>
-            <p class="chart-description">Investing in sustainable initiatives can enhance Malaysia's attractiveness as a destination. As global trends shift towards more responsible travel, showcasing eco-friendly practices will be essential in marketing efforts.</p>
-        </div>
-
-        <div class="footer">
-            <p>Data Sources: Malaysia Tourism Board, World Bank, and other relevant research entities.</p>
-            <p>&copy; 2024 Tourism Analysis in Malaysia</p>
-        </div>
+        <footer class="footer">
+            <p>&copy; 2024 Tourism Analysis. All rights reserved.</p>
+        </footer>
     </div>
 
     <script>
-        // Initialize Vega-Lite visualizations here
-        // Chart 1: Tourist arrivals by country
-        var touristCountriesSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "description": "A bar chart showing tourist arrivals by country.",
-            "data": {
-                "url": "data/tourist_arrivals_by_country.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "country",
-                    "type": "nominal",
-                    "axis": {
-                        "title": "Country"
-                    }
-                },
-                "y": {
-                    "field": "arrivals",
-                    "type": "quantitative",
-                    "axis": {
-                        "title": "Number of Arrivals"
-                    }
-                },
-                "color": {
-                    "field": "region",
-                    "type": "nominal"
-                }
-            }
-        };
+        // Embed the tourist arrivals by country chart
+        var touristCountriesSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/tourist_countries.vg.json";
+        vegaEmbed('#tourist-countries-chart', touristCountriesSpec).then(function(result) {
+            console.log("Tourist countries chart loaded successfully");
+        }).catch(function(error) {
+            console.error("Error loading tourist countries chart: ", error);
+        });
 
-        vegaEmbed('#tourist-countries-chart', touristCountriesSpec);
+        // Embed the seasonal tourist arrivals chart
+        var seasonalArrivalsSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/seasonal_arrivals.vg.json";
+        vegaEmbed('#seasonal-arrivals-chart', seasonalArrivalsSpec).then(function(result) {
+            console.log("Seasonal arrivals chart loaded successfully");
+        }).catch(function(error) {
+            console.error("Error loading seasonal arrivals chart: ", error);
+        });
 
-        // Chart 2: Seasonal arrivals
-        var seasonalArrivalsSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "description": "A line chart showing seasonal tourist arrivals.",
-            "data": {
-                "url": "data/seasonal_arrivals.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "line",
-            "encoding": {
-                "x": {
-                    "field": "month",
-                    "type": "temporal",
-                    "axis": {
-                        "title": "Month"
-                    }
-                },
-                "y": {
-                    "field": "arrivals",
-                    "type": "quantitative",
-                    "axis": {
-                        "title": "Number of Arrivals"
-                    }
-                },
-                "color": {
-                    "field": "year",
-                    "type": "nominal"
-                }
-            }
-        };
+        // Embed the gender demographics chart
+        var genderDemographicSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/gender_demographics.vg.json";
+        vegaEmbed('#gender-demographic-chart', genderDemographicSpec).then(function(result) {
+            console.log("Gender demographics chart loaded successfully");
+        }).catch(function(error) {
+            console.error("Error loading gender demographics chart: ", error);
+        });
 
-        vegaEmbed('#seasonal-arrivals-chart', seasonalArrivalsSpec);
+        // Embed the tourist expenditure chart
+        var touristExpenditureSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/tourist_expenditure.vg.json";
+        vegaEmbed('#tourist-expenditure-chart', touristExpenditureSpec).then(function(result) {
+            console.log("Tourist expenditure chart loaded successfully");
+        }).catch(function(error) {
+            console.error("Error loading tourist expenditure chart: ", error);
+        });
 
-        // Chart 3: Gender demographics
-        var genderDemographicSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "description": "A pie chart showing gender distribution of tourists.",
-            "data": {
-                "url": "data/gender_demographics.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "arc",
-            "encoding": {
-                "theta": {
-                    "field": "percentage",
-                    "type": "quantitative"
-                },
-                "color": {
-                    "field": "gender",
-                    "type": "nominal"
-                },
-                "tooltip": [
-                    {"field": "gender", "type": "nominal"},
-                    {"field": "percentage", "type": "quantitative"}
-                ]
-            }
-        };
+        // Embed the revenue from tourists chart
+        var revenueTouristSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/revenue_tourist.vg.json";
+        vegaEmbed('#revenue-tourist-chart', revenueTouristSpec).then(function(result) {
+            console.log("Revenue tourist chart loaded successfully");
+        }).catch(function(error) {
+            console.error("Error loading revenue tourist chart: ", error);
+        });
 
-        vegaEmbed('#gender-demographic-chart', genderDemographicSpec);
-
-        // Chart 4: Tourist expenditure
-        var touristExpenditureSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "description": "A bar chart showing average expenditure per tourist.",
-            "data": {
-                "url": "data/tourist_expenditure.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "category",
-                    "type": "nominal",
-                    "axis": {
-                        "title": "Category"
-                    }
-                },
-                "y": {
-                    "field": "expenditure",
-                    "type": "quantitative",
-                    "axis": {
-                        "title": "Average Expenditure (RM)"
-                    }
-                }
-            }
-        };
-
-        vegaEmbed('#tourist-expenditure-chart', touristExpenditureSpec);
-
-        // Chart 5: Revenue by tourism sector
-        var revenueTourismSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "description": "A stacked bar chart showing revenue generated by different tourism sectors.",
-            "data": {
-                "url": "data/revenue_by_sector.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "sector",
-                    "type": "nominal",
-                    "axis": {
-                        "title": "Tourism Sector"
-                    }
-                },
-                "y": {
-                    "field": "revenue",
-                    "type": "quantitative",
-                    "axis": {
-                        "title": "Revenue (RM)"
-                    }
-                },
-                "color": {
-                    "field": "year",
-                    "type": "nominal"
-                }
-            }
-        };
-
-        vegaEmbed('#revenue-tourist-chart', revenueTourismSpec);
-
-        // Chart 6: Regional tourism insights
-        var regionalTourismSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "description": "A bar chart showing the number of visitors to different regions.",
-            "data": {
-                "url": "data/regional_tourism.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "region",
-                    "type": "nominal",
-                    "axis": {
-                        "title": "Region"
-                    }
-                },
-                "y": {
-                    "field": "visitors",
-                    "type": "quantitative",
-                    "axis": {
-                        "title": "Number of Visitors"
-                    }
-                },
-                "color": {
-                    "field": "year",
-                    "type": "nominal"
-                }
-            }
-        };
-
-        vegaEmbed('#regional-tourism-chart', regionalTourismSpec);
-
-        // Chart 7: Sustainable tourism initiatives
-        var sustainableTourismSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "description": "A pie chart showing the distribution of sustainable tourism initiatives.",
-            "data": {
-                "url": "https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation.vg.json",
-                "format": {
-                    "type": "json",
-                    "property": "data"
-                }
-            },
-            "mark": "arc",
-            "encoding": {
-                "theta": {
-                    "field": "percentage",
-                    "type": "quantitative"
-                },
-                "color": {
-                    "field": "initiative",
-                    "type": "nominal"
-                },
-                "tooltip": [
-                    {"field": "initiative", "type": "nominal"},
-                    {"field": "percentage", "type": "quantitative"}
-                ]
-            }
-        };
-
-        vegaEmbed('#sustainable-tourism-chart', sustainableTourismSpec);
+        // Embed the future tourism outlook chart
+        var futureTourismSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/future_tourism.vg.json";
+        vegaEmbed('#future-tourism-chart', futureTourismSpec).then(function(result) {
+            console.log("Future tourism chart loaded successfully");
+        }).catch(function(error) {
+            console.error("Error loading future tourism chart: ", error);
+        });
     </script>
 </body>
 
