@@ -332,6 +332,6 @@
     }
   ],
   "spacing": 45,
-  "padding": {"top": 15, "bottom": 10, "left": 20, "right": 20}
+  "padding": {"top": 15, "bottom": 10, "left": 40, "right": 20}
 
 }
