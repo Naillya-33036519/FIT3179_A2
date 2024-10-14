@@ -2,6 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
   "height": 420,
+  "padding": {"left": 50, "right": 50, "top": 50, "bottom": 50},  // Adjust padding as needed
   "data": {
     "values": [
       {"year": "2006", "Arrivals": 17.55, "Receipts": 36.27},
@@ -96,15 +97,13 @@
           {"field": "Value", "title": "Value", "format": ".2f"}
         ]
       }
-
     },
-        {
+    {
       "mark": {
         "type": "text",
         "fontSize": 14,
         "fontStyle": "Helvetica Neue",
         "align": "left",
-
         "color": "#000",
         "dx": 17,
         "dy": -1
@@ -120,12 +119,11 @@
           "type": "quantitative"
         },
         "text": {
-        "value": [
-        "Malaysian Ringgit",
-        "depreciation and global",
-        "economic slowdown"
-      ]
-
+          "value": [
+            "Malaysian Ringgit",
+            "depreciation and global",
+            "economic slowdown"
+          ]
         }
       },
       "transform": [
@@ -140,7 +138,6 @@
         "fontSize": 14,
         "fontStyle": "Helvetica Neue",
         "align": "left",
-
         "color": "#000",
         "dx": 20,
         "dy": -7.5 
@@ -156,10 +153,9 @@
           "type": "quantitative"
         },
         "text": {
-        "value": [
-        "Pandemic Effect"
-      ]
-
+          "value": [
+            "Pandemic Effect"
+          ]
         }
       },
       "transform": [
@@ -168,5 +164,10 @@
         }
       ]
     }
-  ]
+  ],
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    }
+  }
 }
