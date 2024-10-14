@@ -224,10 +224,8 @@
     <script>
         function embedChart(divId, vegaSpecUrl) {
             vegaEmbed('#' + divId, vegaSpecUrl, {
-                actions: false, // Disable actions menu
-                tooltip: true   // Ensure tooltips are enabled
-            }).then(function (result) {
-                vegaTooltip.vega(result.view);
+                actions: false,
+                tooltip: true
             }).catch(console.error);
         }
 
