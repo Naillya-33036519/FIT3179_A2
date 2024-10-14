@@ -68,7 +68,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Arrivals", "Receipts"],
-            "range": ["#1f77b4", "#ff7f0e"]
+            "range": ["#DC143C", "#3CB371"]
           },
           "legend": {
             "title": "Metric",
@@ -101,7 +101,7 @@
         {
       "mark": {
         "type": "text",
-        "fontSize": 13,
+        "fontSize": 14,
         "fontStyle": "Helvetica Neue",
         "align": "left",
 
@@ -137,7 +137,7 @@
     {
       "mark": {
         "type": "text",
-        "fontSize": 13,
+        "fontSize": 14,
         "fontStyle": "Helvetica Neue",
         "align": "left",
 
