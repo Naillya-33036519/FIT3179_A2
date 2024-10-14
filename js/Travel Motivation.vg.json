@@ -91,9 +91,8 @@
           "mark": {
             "type": "circle",
             "filled": true,
-            "size": 150,  // Increased size for better hover area
             "color": "#8b5ead",
-            "tooltip": true  // Set tooltip to true for direct interaction
+            "tooltip": true
           },
           "encoding": {
             "x": {"field": "year", "type": "ordinal"},
