@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="student-id" content="33036519">
+    
     <title>Tourism Analysis in Malaysia</title>
-    <!-- Import pure.css for better styling -->
-    <link href="https://cdn.jsdelivr.net/npm/purecss@2.0.6/build/pure-min.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family:Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip@0.26"></script>
     <style>
         body {
             overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -222,13 +222,16 @@
     </div>
 
     <script>
-        function embedChart(divId, vegaSpecUrl) {
-            vegaEmbed('#' + divId, vegaSpecUrl, {
-                actions: false,
-                tooltip: true
-            }).catch(console.error);
-        }
-
+        const embedCharts = (divId, url) => {
+            vegaEmbed(`#${divId}`, url)
+                .then(result => {
+                    console.log(`${divId} chart successfully loaded.`);
+                })
+                .catch(error => {
+                    console.error(`Error loading ${divId} chart:`, error);
+                });
+        };
+        
         // Embedding the charts using their respective URLs
         embedChart('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
         embedChart('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
