@@ -121,5 +121,7 @@
         "format": ".2f"
       }
     ]
-  }
+  },
+  "padding": {"top": 15,"left": 40, "right": 20}
 }
+  
