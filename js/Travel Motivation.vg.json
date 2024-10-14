@@ -91,6 +91,7 @@
           "mark": {
             "type": "circle",
             "filled": true,
+            "size": 150,
             "color": "#8b5ead",
             "tooltip": true
           },
@@ -98,8 +99,16 @@
             "x": {"field": "year", "type": "ordinal"},
             "y": {"field": "days", "type": "quantitative"},
             "tooltip": [
-              {"field": "year", "type": "ordinal", "title": "Year"},
-              {"field": "days", "type": "quantitative", "title": "Number of Days"}
+              {
+                "field": "year",
+                "type": "ordinal",
+                "title": "Year"
+              },
+              {
+                "field": "days",
+                "type": "quantitative",
+                "title": "Number of Days"
+              }
             ]
           }
         }
