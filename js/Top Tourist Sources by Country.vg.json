@@ -150,13 +150,15 @@
   "config": {
     "legend": {
       "titleFontSize": 13,
-      "labelPadding": 10,
+      "titlePadding": 10,
       "labelFontSize": 13
     },
     "axis": {
       "titleFontSize": 14,
-      "labelPadding": 10,
+      "titlePadding": 10,
       "labelFontSize": 14
     }
-  }
+  },
+  "padding": {"top": 20, "left": 20, "right": 20}
+
 }
