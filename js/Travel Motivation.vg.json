@@ -56,6 +56,11 @@
         "type": "arc",
         "innerRadius": 60,
         "outerRadius": 85
+      },
+      "config": {
+        "view": {
+          "stroke": null
+        }
       }
     },
     {
@@ -133,5 +138,19 @@
       "height": 250
     }
   ],
-  "spacing": 50
+  "spacing": 50,
+  "config": {
+    "tooltip": {
+      "fill": "#ffffff",
+      "stroke": "#ccc",
+      "cornerRadius": 5,
+      "style": {
+        "fontSize": "12px",
+        "color": "#333"
+      }
+    },
+    "view": {
+      "stroke": null
+    }
+  }
 }
