@@ -4,59 +4,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tourism Analysis in Malaysia - Minimal</title>
+    <meta name="student-id" content="33036519">
+
+    <title>Tourism Analysis in Malaysia</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family:Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            justify-content: center; /* Center horizontally */
+            align-items: center;     /* Center vertically */
+            margin: 0 auto;
+            font-family: 'Poppins', sans-serif; /* Apply Poppins font to body text */
         }
+
+        .card {
+            max-width: 900px; /* Retained max-width for card */
+            margin: 0 auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            color: #fff;
+            border-radius: 5px 5px 0 0;
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 10px 0;
+            background-color: #3a91c9;
+        }
+
+        .card-body {
+            padding: 20px;
+            line-height: 1.5;
+            padding-top: 5px;
+            padding-bottom: 30px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-muted {
+            color: #6c757d;
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            color: #2980b9;
+            padding: 5px 0;
+            margin: 10px 0 5px;
+        }
+
+        .section {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            position: relative;
+            transition: transform 0.2s;
+        }
+
+        .section:hover {
+            transform: scale(1.02);
+        }
+
+        .chart-description {
+            font-size: 1.4rem;
+            margin: 20px 0;
+            text-align: justify;
+            color: #34495e;
+            padding: 5px 0;
+        }
+
         .visualization {
-            width: 90%;
-            max-width: 600px; /* Limit the maximum width for better visibility */
-            margin: 20px 0; /* Space between visualizations */
+            margin: 20px 0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+        .large-visualization {
+            width: 100%;
+            height: 545px;
+            margin: auto;
+        }
+
+        .medium-visualization {
+            height: 400px;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #7f8c8d;
         }
     </style>
 </head>
 
 <body>
-    <h1>Tourism Data Visualizations</h1>
+    <div class="card">
+        <div class="card-header">
+            <h1>Exploring Tourism in Malaysia</h1>
+        </div>
+        <div class="card-body">
+            <div class="text-center">
+                <h2>Key Metrics as of June 2024</h2>
+            </div>
+            <div class="text-center" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: nowrap;">
+                <div class="section" style="flex: 1; margin: 10px; min-width: 250px; height: 150px; text-align: center;">
+                    <h3>Total Tourists Arrived</h3>
+                    <p style="font-size: 1.6rem; font-weight: bold;">11,808,937</p>
+                </div>
+                <div class="section" style="flex: 1; margin: 10px; min-width: 250px; height: 150px; text-align: center;">
+                    <h3>Total Revenue Generated</h3>
+                    <p style="font-size: 1.6rem; font-weight: bold;">RM 45,422,000,000</p>
+                </div>
+                <div class="section" style="flex: 1; margin: 10px; min-width: 250px; height: 150px; text-align: center;">
+                    <h3>Average Stay Duration</h3>
+                    <p style="font-size: 1.6rem; font-weight: bold;">2 days</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div class="visualization" id="tourist-countries-chart"></div>
-    <div class="visualization" id="seasonal-arrivals-chart"></div>
-    <div class="visualization" id="gender-demographic-chart"></div>
-    <div class="visualization" id="tourist-expenditure-chart"></div>
-    <div class="visualization" id="revenue-tourist-chart"></div>
-    <div class="visualization" id="regional-tourism-map"></div>
-    <div class="visualization" id="travel-motivation"></div>
+    <div class="section">
+        <h2>Tourism Trends and Dynamics</h2>
+        <p class="chart-description">The chart tracks Malaysia's tourism rankings by country from <b>2015</b> to <b>2024</b>. Regional markets like Singapore and Indonesia show strong recoveries, especially after a decline in <b>2020</b>, while long-haul markets such as China and India display more fluctuations.</p>
+        <div class="visualization large-visualization" id="tourist-countries-chart"></div>
+        <p class="chart-description">The heatmap highlights changes in Malaysia’s tourism arrivals from <b>2013</b> to <b>2023</b>. Consistent trends are seen before a noticeable drop in <b>2020</b> and near-zero activity in <b>2021</b>.</p>
 
-    <script>
-        const embedChart = (divId, url) => {
-            vegaEmbed(`#${divId}`, url)
-                .then(result => {
-                    console.log(`${divId} chart successfully loaded.`);
-                })
-                .catch(error => {
-                    console.error(`Error loading ${divId} chart:`, error);
-                });
+        <div class="visualization large-visualization" id="seasonal-arrivals-chart"></div>
+        <p class="chart-description">The recovery starts in <b>2022</b> and gains momentum in <b>2023</b>, particularly in the latter months. Understanding these fluctuations is key for future marketing strategies. As travel resumes, focusing on unique off-peak offerings can help balance demand year-round.</p>
+    </div>
+
+    <div class="section">
+        <h2>Understanding the Tourist Profile</h2>
+        <p class="chart-description">The data shows a slight male majority among tourists, with <b>52.76%</b> male and <b>47.24%</b> female, and the bar chart highlights trends across various countries.</p>
+        <div class="visualization medium-visualization" id="gender-demographic-chart"></div>
+        <p class="chart-description">These demographic insights can inform targeted marketing strategies. For instance, if certain regions attract more male tourists, campaigns could emphasize activities like adventure sports or nightlife to cater to their interests.</p>
+    </div>
+
+    <div class="section">
+        <h2>Tourism Expenditure and Revenue</h2>
+        <p class="chart-description">Tourist spending is a vital part of Malaysia's economy, impacting various sectors like accommodation, shopping and transport. This data is essential for planning and investment.</p>
+        <div class="visualization large-visualization" id="tourist-expenditure-chart"></div>
+        <p class="chart-description">Expenditure trends reflect economic conditions and travel disruptions in recent years, highlighting the need for adaptive strategies. As travelers become more budget-conscious post-pandemic, it will be crucial to offer packages that appeal to both luxury and budget travelers.</p>
+        <div class="visualization large-visualization" id="revenue-tourist-chart"></div>
+        <p class="chart-description">The chart tracks arrivals and receipts from <b>2006</b> to <b>2023</b>. Both grow steadily until <b>2015</b>, then slow due to economic factors. In <b>2020</b>, both drop sharply from the pandemic, but recovery starts in <b>2022</b> with notable improvement by <b>2023</b>.</p>
+    </div>
+
+    <div class="section">
+        <h2>Regional Tourism Insights</h2>
+        <p class="chart-description">The map highlights tourist distribution across Malaysia, showing top destinations and regional preferences. This data aids in creating targeted promotions.</p>
+        <div class="visualization medium-visualization" id="regional-tourism-map"></div>
+    </div>
+
+    <div class="footer">
+        <p>For more information, contact us at info@tourismanalysis.my</p>
+    </div>
+
+    <script type="text/javascript">
+        var embed_spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "data": {
+                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/tourists_by_country.json",
+                "format": {
+                    "type": "json",
+                    "property": "data"
+                }
+            },
+            "transform": [{
+                    "filter": {
+                        "field": "year",
+                        "equal": 2024
+                    }
+                },
+                {
+                    "aggregate": [{
+                        "op": "sum",
+                        "field": "total_tourists",
+                        "as": "total_tourists"
+                    }],
+                    "groupby": ["country"]
+                }
+            ],
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "field": "country",
+                    "type": "ordinal",
+                    "axis": {
+                        "labelAngle": 45
+                    }
+                },
+                "y": {
+                    "field": "total_tourists",
+                    "type": "quantitative",
+                    "title": "Total Tourists Arrived"
+                },
+                "color": {
+                    "field": "total_tourists",
+                    "type": "quantitative"
+                }
+            },
+            "title": "Tourism Rankings by Country (2024)"
         };
 
-        // Embedding the charts using their respective URLs
-        embedChart('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
-        embedChart('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
-        embedChart('gender-demographic-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Gender%20Demographics%20Chart.vg.json');
-        embedChart('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
-        embedChart('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
-        embedChart('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.vg.json');
-        embedChart('travel-motivation', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation.vg.json');
+        vegaEmbed('#tourist-countries-chart', embed_spec);
+
+        var seasonal_arrivals_spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "data": {
+                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/seasonal_arrivals.json",
+                "format": {
+                    "type": "json",
+                    "property": "data"
+                }
+            },
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "month",
+                    "type": "ordinal",
+                    "title": "Month"
+                },
+                "y": {
+                    "field": "arrivals",
+                    "type": "quantitative",
+                    "title": "Number of Arrivals"
+                }
+            },
+            "title": "Seasonal Tourist Arrivals in Malaysia (2013 - 2023)"
+        };
+
+        vegaEmbed('#seasonal-arrivals-chart', seasonal_arrivals_spec);
+
+        var gender_demographic_spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "data": {
+                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/gender_demographic.json",
+                "format": {
+                    "type": "json",
+                    "property": "data"
+                }
+            },
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "field": "gender",
+                    "type": "nominal",
+                    "title": "Gender"
+                },
+                "y": {
+                    "field": "count",
+                    "type": "quantitative",
+                    "title": "Number of Tourists"
+                }
+            },
+            "title": "Gender Demographics of Tourists"
+        };
+
+        vegaEmbed('#gender-demographic-chart', gender_demographic_spec);
+
+        var tourist_expenditure_spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "data": {
+                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/tourist_expenditure.json",
+                "format": {
+                    "type": "json",
+                    "property": "data"
+                }
+            },
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "field": "year",
+                    "type": "ordinal",
+                    "title": "Year"
+                },
+                "y": {
+                    "field": "expenditure",
+                    "type": "quantitative",
+                    "title": "Expenditure (RM)"
+                }
+            },
+            "title": "Tourist Expenditure Over the Years"
+        };
+
+        vegaEmbed('#tourist-expenditure-chart', tourist_expenditure_spec);
+
+        var revenue_tourist_spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "data": {
+                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/revenue_tourists.json",
+                "format": {
+                    "type": "json",
+                    "property": "data"
+                }
+            },
+            "mark": "line",
+            "encoding": {
+                "x": {
+                    "field": "year",
+                    "type": "ordinal",
+                    "title": "Year"
+                },
+                "y": {
+                    "field": "revenue",
+                    "type": "quantitative",
+                    "title": "Revenue (RM)"
+                }
+            },
+            "title": "Revenue from Tourism Over the Years"
+        };
+
+        vegaEmbed('#revenue-tourist-chart', revenue_tourist_spec);
+
+        var regional_tourism_map_spec = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "data": {
+                "url": "https://raw.githubusercontent.com/Visualize-Global-Data-Insights/tourism-data/main/regional_tourism.json",
+                "format": {
+                    "type": "json",
+                    "property": "data"
+                }
+            },
+            "mark": "rect",
+            "encoding": {
+                "x": {
+                    "field": "region",
+                    "type": "nominal",
+                    "title": "Region"
+                },
+                "y": {
+                    "field": "country",
+                    "type": "nominal",
+                    "title": "Country"
+                },
+                "color": {
+                    "field": "tourists",
+                    "type": "quantitative",
+                    "title": "Number of Tourists"
+                }
+            },
+            "title": "Tourism Distribution Across Malaysia"
+        };
+
+        vegaEmbed('#regional-tourism-map', regional_tourism_map_spec);
     </script>
 </body>
 
