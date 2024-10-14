@@ -139,7 +139,7 @@
     {
       "mark": {
         "type": "text",
-        "fontSize": 20,
+        "fontSize": 100,
         "lineHeight": 12,
         "fontStyle": "Helvetica Neue",
         "align": "left",
