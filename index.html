@@ -9,7 +9,7 @@
     <!-- Import pure.css for better styling -->
     <link href="https://cdn.jsdelivr.net/npm/purecss@2.0.6/build/pure-min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family:Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family:Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -19,7 +19,7 @@
             overflow-x: hidden; /* Prevent horizontal scrolling */
             max-width: 1200px; /* Adjust width to prevent overflow */
             justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
+            align-items: center;     /* Center vertically */
             margin: 0 auto;
             font-family: 'Poppins', sans-serif; /* Apply Poppins font to body text */
         }
@@ -134,7 +134,6 @@
             z-index: 10000 !important;
             position: absolute !important;
             pointer-events: none;
-            transform: translate(-50%, -100%); /* Center the tooltip */
         }
 
         @media (max-width: 768px) {
@@ -198,177 +197,49 @@
             <p class="chart-description">Tourist spending is a vital part of Malaysia's economy, impacting various sectors like accommodation and transport. This data is essential for planning and investment.</p>
             <div class="visualization large-visualization" id="tourist-expenditure-chart"></div>
             <p class="chart-description">Expenditure trends reflect economic conditions and travel disruptions in recent years, highlighting the need for adaptive strategies. As travelers become more budget-conscious post-pandemic, it will be crucial to offer packages that appeal to both luxury and budget travelers.</p>
-            <div class="visualization large-visualization" id="country-wise-revenue-chart"></div>
-            <p class="chart-description">An in-depth understanding of which countries contribute most to tourism revenue can guide diplomatic and trade relations, potentially boosting visitor numbers through partnerships.</p>
+            <div class="visualization large-visualization" id="revenue-tourist-chart"></div>
+            <p class="chart-description">Revenue trends align closely with tourist arrivals, showcasing the pandemic's significant impacts on the industry. Understanding these metrics can guide future investments. Analyzing the sectors that recover first can help identify which areas of the tourism industry to prioritize for funding and development efforts.</p>
+        </div>
+
+        <div class="section">
+            <h2>Regional Tourism Insights</h2>
+            <p class="chart-description">This map visualization displays tourist distribution across Malaysia, identifying top destinations and regional preferences. This data helps in developing region-specific promotions.</p>
+            <div class="visualization medium-visualization" id="regional-tourism-map"></div>
+            <p class="chart-description">By recognizing which regions attract the most tourists, stakeholders can tailor their offerings to enhance the visitor experience. Regions that show lower tourist numbers may benefit from targeted marketing campaigns or improved infrastructure to facilitate better access.</p>
+        </div>
+
+        <div class="section">
+            <h2>Travel Motivation and Stay Trends</h2>
+            <p class="chart-description">Exploring why tourists visit Malaysia offers valuable insights into emerging travel trends, helping to shape future tourism strategies.</p>
+            <div class="visualization medium-visualization" id="travel-motivation"></div>
+            <p class="chart-description">Understanding travelers' motivations—whether cultural, adventurous, or relaxing—can enhance marketing strategies and create personalized experiences. Additionally, analyzing average stay duration reveals evolving travel behaviors, indicating a demand for long-term accommodations and multi-day itineraries that enrich visitors' overall experiences.</p>
         </div>
 
         <div class="footer">
-            <p>&copy; 2024 Tourism Malaysia Analysis</p>
+            <p>Metadata: This webpage was designed by Naillya Ganesan Visalakshi (Student Id: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
+            <p>Source: <a href="https://naillya-33036519.github.io/FIT3179_A2/tourism_sources.html">Source Page</a></p>
         </div>
     </div>
 
     <script>
-        // Load the visualization for tourist countries chart
-        const touristCountriesSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json",
-                "format": {"type": "json", "property": "data"}
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "Country",
-                    "type": "nominal",
-                    "axis": {"labelAngle": 45}
-                },
-                "y": {
-                    "field": "Tourist Count",
-                    "type": "quantitative"
-                },
-                "tooltip": [
-                    {"field": "Country", "type": "nominal"},
-                    {"field": "Tourist Count", "type": "quantitative"}
-                ]
-            }
-        };
+        function embedChart(divId, vegaSpecUrl) {
+            vegaEmbed('#' + divId, vegaSpecUrl, {
+                actions: false, // Disable actions menu
+                tooltip: true   // Ensure tooltips are enabled
+            }).then(function (result) {
+                vegaTooltip.vega(result.view);
+            }).catch(console.error);
+        }
 
-        vegaEmbed('#tourist-countries-chart', touristCountriesSpec)
-            .then(function (result) {
-                vegaTooltip.vegaTooltip(result.view);
-            })
-            .catch(console.error);
-
-        // Load the visualization for seasonal arrivals chart
-        const seasonalArrivalsSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "data/seasonal_arrivals.json", // Adjust the path to your data file
-                "format": {"type": "json", "property": "data"}
-            },
-            "mark": "line",
-            "encoding": {
-                "x": {
-                    "field": "Month",
-                    "type": "temporal",
-                    "axis": {"title": "Month"}
-                },
-                "y": {
-                    "field": "Arrivals",
-                    "type": "quantitative",
-                    "axis": {"title": "Number of Tourists"}
-                },
-                "tooltip": [
-                    {"field": "Month", "type": "temporal"},
-                    {"field": "Arrivals", "type": "quantitative"}
-                ]
-            }
-        };
-
-        vegaEmbed('#seasonal-arrivals-chart', seasonalArrivalsSpec)
-            .then(function (result) {
-                vegaTooltip.vegaTooltip(result.view); // Activate tooltip
-            })
-            .catch(console.error);
-
-        // Load the visualization for gender demographic chart
-        const genderDemographicSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "data/gender_demographic.json", // Adjust the path to your data file
-                "format": {"type": "json", "property": "data"}
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "Gender",
-                    "type": "nominal",
-                    "axis": {"title": "Gender"}
-                },
-                "y": {
-                    "field": "Count",
-                    "type": "quantitative",
-                    "axis": {"title": "Number of Tourists"}
-                },
-                "tooltip": [
-                    {"field": "Gender", "type": "nominal"},
-                    {"field": "Count", "type": "quantitative"}
-                ]
-            }
-        };
-
-        vegaEmbed('#gender-demographic-chart', genderDemographicSpec)
-            .then(function (result) {
-                vegaTooltip.vegaTooltip(result.view); // Activate tooltip
-            })
-            .catch(console.error);
-
-        // Load the visualization for tourist expenditure chart
-        const touristExpenditureSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "data/tourist_expenditure.json", // Adjust the path to your data file
-                "format": {"type": "json", "property": "data"}
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "Expenditure Category",
-                    "type": "nominal",
-                    "axis": {"labelAngle": 45}
-                },
-                "y": {
-                    "field": "Expenditure",
-                    "type": "quantitative",
-                    "axis": {"title": "Expenditure in RM"}
-                },
-                "tooltip": [
-                    {"field": "Expenditure Category", "type": "nominal"},
-                    {"field": "Expenditure", "type": "quantitative"}
-                ]
-            }
-        };
-
-        vegaEmbed('#tourist-expenditure-chart', touristExpenditureSpec)
-            .then(function (result) {
-                vegaTooltip.vegaTooltip(result.view); // Activate tooltip
-            })
-            .catch(console.error);
-
-        // Load the visualization for country-wise revenue chart
-        const countryWiseRevenueSpec = {
-            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-            "data": {
-                "url": "https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation.vg.json", // Adjust the path to your data file
-                "format": {"type": "json", "property": "data"}
-            },
-            "mark": "bar",
-            "encoding": {
-                "x": {
-                    "field": "Country",
-                    "type": "nominal",
-                    "axis": {"labelAngle": 45}
-                },
-                "y": {
-                    "field": "Revenue",
-                    "type": "quantitative",
-                    "axis": {"title": "Revenue in RM"}
-                },
-                "tooltip": [
-                    {"field": "Country", "type": "nominal"},
-                    {"field": "Revenue", "type": "quantitative"}
-                ]
-            }
-        };
-
-        vegaEmbed('#country-wise-revenue-chart', countryWiseRevenueSpec)
-            .then(function (result) {
-                vegaTooltip.vegaTooltip(result.view); // Activate tooltip
-            })
-            .catch(console.error);
+        // Embedding the charts using their respective URLs
+        embedChart('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
+        embedChart('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
+        embedChart('gender-demographic-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Gender%20Demographics%20Chart.vg.json');
+        embedChart('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
+        embedChart('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
+        embedChart('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.vg.json');
+        embedChart('travel-motivation', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation.vg.json');
     </script>
 </body>
 
 </html>
-
-
