@@ -103,6 +103,7 @@
       "mark": {
         "type": "text",
         "fontSize": 14,
+        "lineHeight": 12,
         "fontStyle": "Helvetica Neue",
         "align": "left",
 
@@ -139,6 +140,7 @@
       "mark": {
         "type": "text",
         "fontSize": 14,
+        "lineHeight": 12,
         "fontStyle": "Helvetica Neue",
         "align": "left",
 
