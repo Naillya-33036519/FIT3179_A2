@@ -69,7 +69,6 @@
           "scale": {
             "domain": ["Arrivals", "Receipts"],
             "range": ["#DC143C", "#3CB371"]
-
           },
           "legend": {
             "title": "Metric",
@@ -97,18 +96,17 @@
           {"field": "Value", "title": "Value", "format": ".2f"}
         ]
       }
-
     },
-        {
+    {
       "mark": {
         "type": "text",
         "lineHeight": 12,
-        "fontStyle": "Helvetica Neue",
+        "font": "Sans-Serif",
         "align": "left",
-
         "color": "#000",
         "dx": 17,
-        "dy": -1
+        "dy": -1,
+        "fontSize": 14
       },
       "encoding": {
         "x": {
@@ -117,21 +115,20 @@
           "title": "Year"
         },
         "y": {
-          "field": "Value", 
+          "field": "Value",
           "type": "quantitative"
         },
         "text": {
-        "value": [
-        "Malaysian Ringgit",
-        "depreciation and global",
-        "economic slowdown"
-      ]
-
+          "value": [
+            "Malaysian Ringgit",
+            "depreciation and global",
+            "economic slowdown"
+          ]
         }
       },
       "transform": [
         {
-          "filter": {"field": "Value", "equal": 69.12} 
+          "filter": {"field": "Value", "equal": 69.12}
         }
       ]
     },
@@ -139,12 +136,12 @@
       "mark": {
         "type": "text",
         "lineHeight": 12,
-        "fontStyle": "Helvetica Neue",
+        "font": "Sans-Serif",
         "align": "left",
-
         "color": "#000",
         "dx": 20,
-        "dy": -7.5 
+        "dy": -7.5,
+        "fontSize": 14
       },
       "encoding": {
         "x": {
@@ -153,23 +150,21 @@
           "title": "Year"
         },
         "y": {
-          "field": "Value", 
+          "field": "Value",
           "type": "quantitative"
         },
         "text": {
-        "value": [
-        "Pandemic Effect"
-      ]
-
+          "value": [
+            "Pandemic Effect"
+          ]
         }
       },
       "transform": [
         {
-          "filter": {"field": "Value", "equal": 0.24} 
+          "filter": {"field": "Value", "equal": 0.24}
         }
       ]
     }
   ],
-  "padding": {"top": 15, "left":15}
+  "padding": {"top": 15, "left": 15}
 }
-
