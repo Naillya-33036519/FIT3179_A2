@@ -118,7 +118,7 @@
           "mark": {
             "type": "circle",
             "filled": true,
-            "size": 100,
+            "size": 200,
             "color": "#8b5ead"
           },
           "encoding": {
