@@ -222,7 +222,7 @@
     </div>
 
     <script>
-        const embedCharts = (divId, url) => {
+        const embedChart = (divId, url) => {
             vegaEmbed(`#${divId}`, url)
                 .then(result => {
                     console.log(`${divId} chart successfully loaded.`);
