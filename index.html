@@ -9,7 +9,7 @@
     <!-- Import pure.css for better styling -->
     <link href="https://cdn.jsdelivr.net/npm/purecss@2.0.6/build/pure-min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family:Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family:Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -200,64 +200,43 @@
         </div>
 
         <div class="section">
-            <h2>Future of Tourism in Malaysia</h2>
-            <p class="chart-description">The outlook for tourism hinges on global economic recovery, consumer confidence, and sustainable practices. Developing adaptive strategies for fluctuating trends is essential.</p>
-            <div class="visualization medium-visualization" id="future-tourism-chart"></div>
+            <h2>Regional Tourism Insights</h2>
+            <p class="chart-description">This map visualization displays tourist distribution across Malaysia, identifying top destinations and regional preferences. This data helps in developing region-specific promotions.</p>
+            <div class="visualization medium-visualization" id="regional-tourism-map"></div>
+            <p class="chart-description">By recognizing which regions attract the most tourists, stakeholders can tailor their offerings to enhance the visitor experience. Regions that show lower tourist numbers may benefit from targeted marketing campaigns or improved infrastructure to facilitate better access.</p>
         </div>
 
-        <footer class="footer">
-            <p>&copy; 2024 Tourism Analysis. All rights reserved.</p>
-        </footer>
+        <div class="section">
+            <h2>Travel Motivation and Stay Trends</h2>
+            <p class="chart-description">Exploring why tourists visit Malaysia offers valuable insights into emerging travel trends, helping to shape future tourism strategies.</p>
+            <div class="visualization medium-visualization" id="travel-motivation"></div>
+            <p class="chart-description">Understanding travelers' motivations—whether cultural, adventurous, or relaxing—can enhance marketing strategies and create personalized experiences. Additionally, analyzing average stay duration reveals evolving travel behaviors, indicating a demand for long-term accommodations and multi-day itineraries that enrich visitors' overall experiences.</p>
+        </div>
+
+        <div class="footer">
+            <p>Metadata: This webpage was designed by Naillya Ganesan Visalakshi (Student Id: 33036519) to analyze tourism trends in Malaysia using Vega-Lite visualizations.</p>
+            <p>Source: <a href="https://naillya-33036519.github.io/FIT3179_A2/tourism_sources.html">Source Page</a></p>
+        </div>
     </div>
 
     <script>
-        // Embed the tourist arrivals by country chart
-        var touristCountriesSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/tourist_countries.vg.json";
-        vegaEmbed('#tourist-countries-chart', touristCountriesSpec).then(function(result) {
-            console.log("Tourist countries chart loaded successfully");
-        }).catch(function(error) {
-            console.error("Error loading tourist countries chart: ", error);
-        });
+        function embedChart(divId, vegaSpecUrl) {
+            vegaEmbed('#' + divId, vegaSpecUrl, {
+                actions: false, // Disable actions menu
+                tooltip: true   // Ensure tooltips are enabled
+            }).then(function (result) {
+                vegaTooltip.vega(result.view);
+            }).catch(console.error);
+        }
 
-        // Embed the seasonal tourist arrivals chart
-        var seasonalArrivalsSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/seasonal_arrivals.vg.json";
-        vegaEmbed('#seasonal-arrivals-chart', seasonalArrivalsSpec).then(function(result) {
-            console.log("Seasonal arrivals chart loaded successfully");
-        }).catch(function(error) {
-            console.error("Error loading seasonal arrivals chart: ", error);
-        });
-
-        // Embed the gender demographics chart
-        var genderDemographicSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/gender_demographics.vg.json";
-        vegaEmbed('#gender-demographic-chart', genderDemographicSpec).then(function(result) {
-            console.log("Gender demographics chart loaded successfully");
-        }).catch(function(error) {
-            console.error("Error loading gender demographics chart: ", error);
-        });
-
-        // Embed the tourist expenditure chart
-        var touristExpenditureSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/tourist_expenditure.vg.json";
-        vegaEmbed('#tourist-expenditure-chart', touristExpenditureSpec).then(function(result) {
-            console.log("Tourist expenditure chart loaded successfully");
-        }).catch(function(error) {
-            console.error("Error loading tourist expenditure chart: ", error);
-        });
-
-        // Embed the revenue from tourists chart
-        var revenueTouristSpec = "https://raw.githubusercontent.com/Naillya-33036519/Homework_Week10/refs/heads/main/js/revenue_tourist.vg.json";
-        vegaEmbed('#revenue-tourist-chart', revenueTouristSpec).then(function(result) {
-            console.log("Revenue tourist chart loaded successfully");
-        }).catch(function(error) {
-            console.error("Error loading revenue tourist chart: ", error);
-        });
-
-        // Embed the future tourism outlook chart
-        var futureTourismSpec = "https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation.vg.json";
-        vegaEmbed('#future-tourism-chart', futureTourismSpec).then(function(result) {
-            console.log("Future tourism chart loaded successfully");
-        }).catch(function(error) {
-            console.error("Error loading future tourism chart: ", error);
-        });
+        // Embedding the charts using their respective URLs
+        embedChart('tourist-countries-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Top%20Tourist%20Sources%20by%20Country.vg.json');
+        embedChart('seasonal-arrivals-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Tourist%20Arrivals%20in%20Malaysia%3A%20A%20Comprehensive%20Overview%20(2013-2023).vg.json');
+        embedChart('gender-demographic-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Gender%20Demographics%20Chart.vg.json');
+        embedChart('tourist-expenditure-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Inbound%20Tourist%20Expenditure%20by%20Component%20(2014-2023).vg.json');
+        embedChart('revenue-tourist-chart', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Revenue%20Generation%20-%20Tourist%20Arrivals%20and%20Receipts%20in%20Malaysia%20(2006-2023).vg.json');
+        embedChart('regional-tourism-map', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Geographic%20Analysis%20-%20State%20wise%20trends.vg.json');
+        embedChart('travel-motivation', 'https://raw.githubusercontent.com/Naillya-33036519/FIT3179_A2/refs/heads/main/js/Travel%20Motivation.vg.json');
     </script>
 </body>
 
