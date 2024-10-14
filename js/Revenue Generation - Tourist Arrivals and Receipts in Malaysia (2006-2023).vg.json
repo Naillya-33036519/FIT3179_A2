@@ -106,7 +106,7 @@
         "color": "#000",
         "dx": 17,
         "dy": -1,
-        "fontSize": 14
+        "fontSize": 13
       },
       "encoding": {
         "x": {
@@ -141,7 +141,7 @@
         "color": "#000",
         "dx": 20,
         "dy": -7.5,
-        "fontSize": 14
+        "fontSize": 13
       },
       "encoding": {
         "x": {
